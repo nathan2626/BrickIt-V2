@@ -116,45 +116,6 @@
         </div>
         <p> Copyright 2019 JOURNO Nathan - Toute représentation interdite</p>
     </footer>
-<script type="text/javascript">
-    //Account Sign In and Sign Up
-    const signUpButton = document.getElementById('signUp');
-    const signInButton = document.getElementById('signIn');
-    const containerAccount = document.getElementById('containerAccount');
-
-    signUpButton.addEventListener('click', () => {
-        containerAccount.classList.add("rightPanelActive");
-    });
-    signInButton.addEventListener('click', () => {
-        containerAccount.classList.remove("rightPanelActive");
-    });
-
-    //Nav hamburger
-    const open = document.getElementById('hamburger');
-    let changeIcon = true;
-
-    open.addEventListener("click", function(){
-
-        const overlay = document.querySelector('.overlayNav');
-        const nav = document.querySelector('nav');
-        const icon = document.querySelector('.menu-toggle i');
-
-        overlay.classList.toggle("menu-open");
-        nav.classList.toggle("menu-open");
-
-        if (changeIcon) {
-            icon.classList.remove("fa-bars");
-            icon.classList.add("fa-times");
-
-            changeIcon = false;
-        }
-        else {
-            icon.classList.remove("fa-times");
-            icon.classList.add("fa-bars");
-            changeIcon = true;
-        }
-    });
-
-</script>
+<script src="assets/js/index.js"></script>
 </body>
 </html>
