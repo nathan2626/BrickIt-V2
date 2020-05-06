@@ -232,4 +232,3 @@ open.addEventListener("click", function(){
     }
 });
 
-

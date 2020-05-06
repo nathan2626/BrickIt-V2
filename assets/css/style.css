@@ -1537,3 +1537,330 @@ footer > p, .textFooter > h1 {
         font-size: 12px; /*-20%*/
     }
 }
+/*End of single_products page*/
+
+/*Account page*/
+.articleAccount {
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    margin: -20px 0 50px;
+}
+.articleAccount h1 {
+    margin: 0;
+    font-family: FontWalt;
+    color: #2ed3fd;
+    font-size: 40px;
+}
+.articleAccount h2 {
+    text-align: center;
+}
+.articleAccount p {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+}
+.articleAccount a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+}
+.articleAccount button, .formRegister button {
+    border-radius: 20px;
+    border: 2px solid #FF416C;
+    background-color: #FF416C;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+.articleAccount button:active {
+    transform: scale(0.95);
+}
+.articleAccount button:focus {
+    outline: none;
+}
+.articleAccount button.ghost {
+    background-color: transparent;
+    border-color: #FFFFFF;
+}
+.articleAccount form {
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+}
+.articleAccount input, .formRegister input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+}
+.containerAccount {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+    0 10px 10px rgba(0,0,0,0.22);
+    position: relative;
+    overflow: hidden;
+    width: 800px;
+    max-width: 100%;
+    min-height: 480px;
+}
+.formContainer {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+.signInContainer {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+.containerAccount.rightPanelActive .signInContainer {
+    transform: translateX(100%);
+}
+.signUpContainer {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+.containerAccount.rightPanelActive .signUpContainer {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+}
+@keyframes show {
+    0%, 49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    50%, 100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+.overlayContainer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+.containerAccount.rightPanelActive .overlayContainer{
+    transform: translateX(-100%);
+}
+.overlayAccount {
+    background: #FF416C;
+    background: -webkit-linear-gradient(to top, #2ed3fd, #FF416C);
+    background: linear-gradient(to top, #2ed3fd, #FF416C);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #FFFFFF;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+.containerAccount.rightPanelActive .overlayAccount {
+    transform: translateX(50%);
+}
+.overlayPanel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+.overlayLeft {
+    transform: translateX(-20%);
+}
+.containerAccount.rightPanelActive .overlayLeft {
+    transform: translateX(0);
+}
+.overlayRight {
+    right: 0;
+    transform: translateX(0);
+}
+.containerAccount.rightPanelActive .overlayRight {
+    transform: translateX(20%);
+}
+.articleAccountSmart {
+    display: none;
+}
+/*Responsive part*/
+@media screen and (max-width: 850px) {
+    .containerAccount {
+        width: 700px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .containerAccount {
+        width: 600px;
+    }
+    .articleAccount p {
+        font-size: 12px;
+        margin: 15px 0 20px;
+    }
+    .articleAccount h1 {
+        font-size: 30px;
+        margin-bottom: 5px;
+    }
+    .articleAccount button {
+        font-size: 10px;
+        padding: 10px 40px;
+    }
+    .articleAccount input {
+        padding: 8px 10px;
+        margin: 5px 0;
+    }
+    .articleAccount a {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 650px) {
+    .containerAccount {
+        width: 500px;
+    }
+}
+@media screen and (max-width: 550px) {
+    .containerAccount {
+        width: 400px;
+    }
+}
+@media screen and (max-width: 420px) {
+    .articleAccount {
+        display: none;
+    }
+    .articleAccountSmart {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .formSignUp form, .formSignIn form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .formSignIn form {
+        margin-top: 50px;
+    }
+    .formSignUp form {
+        margin: 50px 0 75px 0;
+    }
+    .formSignUp form h1, .formSignIn form h1{
+        margin: 0;
+        font-family: FontWalt;
+        color: #2ed3fd;
+        font-size: 40px;
+    }
+    .formSignUp form input, .formSignIn form input {
+        background-color: #eee;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 90%;
+    }
+    .formSignUp form a, .formSignIn form a{
+        color: #333;
+        font-size: 14px;
+        text-decoration: none;
+        margin: 15px 0;
+    }
+    .formSignUp form button, .formSignIn form button{
+        border-radius: 20px;
+        border: 2px solid #FF416C;
+        background-color: #FF416C;
+        color: #FFFFFF;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 12px 45px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+    }
+}
+/*User_login page*/
+.userLogin {
+    width: 90%;
+    margin: 0 auto;
+}
+.allUserLoginHistory {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap
+}
+.allUserLoginHistory table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 50px 0;
+}
+.welcomeUnknown h1, .informationUserLogin h2, .commandHistoryUserLogin h1{
+    text-align: center;
+    margin: 20px 0 20px 0;
+}
+.welcomeUnknown h1 {
+    color: #2ed3fd;
+    font-family: FontWalt;
+    font-size: 35px;
+}
+.imageUnknown{
+    width: 100%;
+    margin: 0 auto;
+}
+.imageUnknown img {
+    width: 100%;
+}
+.allUserLoginHistory table td, .allUserLoginHistory table th {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+.allUserLoginHistory table th {
+    background-color: #1f1f1f;
+    color: #fff;
+}
+.allUserLoginHistory table tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+/*Responsive part*/
+@media screen and (max-width: 600px) {
+    .allUserLoginHistory table th {
+        font-size: 13px;
+    }
+    .allUserLoginHistory table td {
+        font-size: 12px;
+    }
+}
