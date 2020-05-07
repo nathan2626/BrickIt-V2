@@ -1002,7 +1002,6 @@ nav ul li:hover .submenu > li {
 /*Footer*/
 footer {
     padding: 30px 0;
-    margin-top: 60px;
     background-color: #18181a;
 }
 .innerFooter, footer > p, .textFooter > h1  {
