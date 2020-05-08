@@ -47,6 +47,10 @@ table {
     font-family: "FontWalt";
     src: url('../fonts/waltograph42.otf');
 }
+@font-face {
+    font-family: "warcraft";
+    src: url('../fonts/LifeCraft_Font.ttf');
+}
 * {
     margin: 0;
     padding: 0;
@@ -1282,7 +1286,7 @@ footer > p, .textFooter > h1 {
 
 /*products_category page*/
 .headerCategoriesProducts {
-    height: 20vh!important;
+    height: 38vh!important;
 }
 .colorCategoryProducts ul li a, .colorCategoryProducts h1 a {
     color: #1f1f1f;
@@ -2077,3 +2081,68 @@ footer > p, .textFooter > h1 {
     }
 }
 
+/*404 page part*/
+.body404Page {
+    height: 100%;
+    width: 100vw;
+    background: url(../images/felpits.png) center no-repeat;
+    background-size: cover !important;
+}
+
+.color404Page ul li a, .color404Page h1 a {
+    color: #ffffff;
+}
+.content404Page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.text404Page {
+    margin: 70px 0 0 0;
+    padding: 15px;
+}
+.text404Page p, .exit404Page a {
+    font-family: warcraft;
+    font-size: 40px;
+    text-align: center;
+    color: #FFF;
+}
+.img404Page {
+    width: 35%;
+    text-align: center;
+}
+.img404Page img{
+    width: 100%;
+}
+.exit404Page {
+    margin: 10px 0 15px 0;
+}
+.exit404Page a {
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 45px;
+}
+.exit404Page span:first-child, .exit404Page span:last-child {
+    font-size: 80px;
+    font-family: warcraft;
+}
+.exit404Page span:first-child{
+    color: #000C85;
+}
+.exit404Page span:last-child{
+    color: #FF0000;
+}
+.footer404Page {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/*Responsive part*/
+@media screen and (max-width: 600px) {
+    .text404Page p, .exit404Page a {
+        font-size: 23px;
+    }
+    .exit404Page a {
+        display: block;
+    }
+}

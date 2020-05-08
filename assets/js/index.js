@@ -19,7 +19,7 @@ window.addEventListener("scroll", () => {
 // 1) Loader part
 const loader = document.querySelector('.loadingPage');
 const main = document.querySelector('main');
-const videoLoadingPage = document.querySelector('.testVideo');
+const videoLoadingPage = document.querySelector('.homePageVideo');
 
 const init = () => {
     setTimeout(() => {
