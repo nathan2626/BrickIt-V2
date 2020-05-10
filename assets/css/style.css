@@ -2212,6 +2212,7 @@ footer > p, .textFooter > h1 {
     padding: 12px 15px;
     border: 1px solid #ddd;
     text-align: center;
+    width: 15px;
 }
 .listUsersTable table th, .listCategoriesTable table th,
 .listProductsTable table th, .listOrdersTable table th {
@@ -2261,4 +2262,50 @@ footer > p, .textFooter > h1 {
         display: flex;
         flex-direction: column;
     }
+    .listUsersTable table td, .listUsersTable table th,
+    .listCategoriesTable table td, .listCategoriesTable table th,
+    .listProductsTable table td, .listProductsTable table th,
+    .listOrdersTable table td, .listOrdersTable table th {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/*User Modif and user Add*/
+.contentUserModif, .contentUserAdd  {
+    display: flex;
+    justify-content: center;
+}
+.contentUserModif form, .contentUserAdd form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+.contentUserModif form label, .contentUserAdd form label {
+    font-size: 20px;
+    margin: 0 0 20px 0;
+}
+.contentUserModif form input, .contentUserModif form select,
+.contentUserAdd form input, .contentUserAdd form select {
+    font-size: 25px;
+    margin: 0 0 35px 0;
+    border: none;
+    background-color: #f6f6f6;
+}
+.modifUserArticle h1, .addUserArticle h1 {
+    justify-content: center;
+    margin-bottom: 35px;
+    display: flex;
+}
+
+.contentUserModif form input[type="submit"],
+.addUserArticle form input[type="submit"]{
+    background-color: #0E981A;
+    color: #FFF;
+    width: 250px;
+    margin: 25px auto;
+    padding: 15px;
+    border-radius: 25px;
 }

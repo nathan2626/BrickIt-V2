@@ -50,49 +50,32 @@
             </ul>
         </div>
     </article>
-    <article class="listUsersTable">
-        <table>
-            <thead>
-            <tr>
-                <th colspan="4">Liste des utilisateurs</th>
-                <th colspan="2">
-                    <a class="addUser" type="button" href="user-add.html">Ajouter un utilisateur</a>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>#</td>
-                <td>Prénom</td>
-                <td>Nom</td>
-                <td>Email</td>
-                <td>Admin</td>
-                <td>Action</td>
-            </tr>
-            <tr>
-                <td>30</td>
-                <td>Nathan</td>
-                <td>Journo</td>
-                <td>Nathanjourno@yahoo.fr</td>
-                <td>1</td>
-                <td>
-                    <a class="modifUser" type="button" href="user-modif.html">Modifier</a>
-                    <a class="deleteUser" type="button">Supprimer</a>
-                </td>
-            </tr>
-            <tr>
-                <td>30</td>
-                <td>Nathan</td>
-                <td>Journo</td>
-                <td>Nathanjourno@yahoo.fr</td>
-                <td>1</td>
-                <td>
-                    <a class="modifUser" type="button" href="user-modif.html">Modifier</a>
-                    <a class="deleteUser" type="button">Supprimer</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+    <article class="modifUserArticle">
+        <h1>Modifier un utilisateur</h1>
+        <div class="contentUserModif">
+            <form action="" method="" enctype="">
+                <label for="firstNameModifUser">Prénom :</label>
+                <input  type="text" name="firstNameModifUser" id="firstNameModifUser" value=""/>
+
+                <label for="lastNameModifUser">Nom :</label>
+                <input  type="text" name="lastNameModifUser" id="lastNameModifUser" value=""/>
+
+                <label for="emailModifUser">Email :</label>
+                <input  type="email" name="emailModifUser" id="emailModifUser" value=""/>
+
+                <label for="passwordModifUser">Mot de passe :</label>
+                <input  type="password" name="passwordModifUser" id="passwordModifUser" value=""/>
+
+                <label for="adminModifUser">Admin :</label>
+                <select name="adminModifUser" id="adminModifUser">
+                    <option value="non">non</option>
+                    <option value="oui">oui</option>
+                </select>
+
+                <input type="submit" value="Mettre à jour" />
+
+            </form>
+        </div>
     </article>
 </main>
 <footer>
