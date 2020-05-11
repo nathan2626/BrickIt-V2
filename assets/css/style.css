@@ -2309,3 +2309,7 @@ footer > p, .textFooter > h1 {
     padding: 15px;
     border-radius: 25px;
 }
+.imagesProductDetails {
+    color: #5E6EE9;
+    font-size: 25px;
+}

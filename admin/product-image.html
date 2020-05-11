@@ -50,43 +50,29 @@
             </ul>
         </div>
     </article>
-    <article class="listProductsTable">
-        <table>
-            <thead>
-            <tr>
-                <th colspan="3">Liste des produits</th>
-                <th colspan="1">
-                    <a class="addProduct" type="button" href="product-add.html">Ajouter un produit</a>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>#</td>
-                <td>Titre</td>
-                <td>Catégorie</td>
-                <td>Action</td>
-            </tr>
-            <tr>
-                <td>30</td>
-                <td>Le vaisseau intel</td>
-                <td>Harry Potter</td>
-                <td>
-                    <a class="modifProduct" type="button" href="product-add.html">Modifier</a>
-                    <a class="deleteProduct" type="button">Supprimer</a>
-                </td>
-            </tr>
-            <tr>
-                <td>30</td>
-                <td>Le vaisseau intel</td>
-                <td>Harry Potter</td>
-                <td>
-                    <a class="modifProduct" type="button" href="product-add.html">Modifier</a>
-                    <a class="deleteProduct" type="button">Supprimer</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+    <article class="addUserArticle">
+        <h1>Images du produit</h1>
+        <div class="contentUserAdd">
+            <form action="" method="" enctype="">
+                <label for="imagesAddProduct">Images :</label>
+                <input  type="file" name="imagesAddProduct" id="imagesAddProduct" value=""/>
+
+                <input type="checkbox" id="hookImageProduct" name="hookImageProduct"
+                       checked>
+                <label for="hookImageProduct">Image principal</label>
+
+                <label for="activateImages">Activé :</label>
+                <select name="activateImages" id="activateImages">
+                    <option value="oui">oui</option>
+                    <option value="non">non</option>
+                </select>
+
+                <a class="deleteImages" type="button">Supprimer</a>
+
+                <input type="submit" value="Enregistrer" />
+
+            </form>
+        </div>
     </article>
 </main>
 <footer>

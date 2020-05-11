@@ -50,43 +50,38 @@
             </ul>
         </div>
     </article>
-    <article class="listProductsTable">
-        <table>
-            <thead>
-            <tr>
-                <th colspan="3">Liste des produits</th>
-                <th colspan="1">
-                    <a class="addProduct" type="button" href="product-add.html">Ajouter un produit</a>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>#</td>
-                <td>Titre</td>
-                <td>Catégorie</td>
-                <td>Action</td>
-            </tr>
-            <tr>
-                <td>30</td>
-                <td>Le vaisseau intel</td>
-                <td>Harry Potter</td>
-                <td>
-                    <a class="modifProduct" type="button" href="product-add.html">Modifier</a>
-                    <a class="deleteProduct" type="button">Supprimer</a>
-                </td>
-            </tr>
-            <tr>
-                <td>30</td>
-                <td>Le vaisseau intel</td>
-                <td>Harry Potter</td>
-                <td>
-                    <a class="modifProduct" type="button" href="product-add.html">Modifier</a>
-                    <a class="deleteProduct" type="button">Supprimer</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+    <article class="addUserArticle">
+        <h1>Ajouter un produit</h1>
+        <div class="contentUserAdd">
+            <form action="" method="" enctype="">
+                <label for="nameAddProduct">Nom :</label>
+                <input  type="text" name="nameAddProduct" id="nameAddProduct" value=""/>
+
+                <label for="categoryAddProduct">Catégories :</label>
+                <select name="categoryAddProduct" id="categoryAddProduct">
+                    <option value="Harry Potter">Harry Potter</option>
+                    <option value="Disney">Disney</option>
+                </select>
+
+                <label for="DescrProductAdd">Description :</label>
+                <textarea id="DescrProductAdd" name="DescrProductAdd"></textarea>
+
+                <label for="priceAddProduct">Prix :</label>
+                <input  type="text" name="priceAddProduct" id="priceAddProduct" value=""/>
+
+                <label for="quantityAddProduct">Quantité :</label>
+                <input  type="text" name="quantityAddProduct" id="quantityAddProduct" value=""/>
+
+                <label for="activateAddProduct">Activé</label>
+                <input type="checkbox" id="activateAddProduct" name="activateAddProduct"
+                       checked>
+
+                <a class="imagesProductDetails" type="button" href="product-image.html">Images</a>
+
+                <input type="submit" value="Enregistrer" />
+
+            </form>
+        </div>
     </article>
 </main>
 <footer>
