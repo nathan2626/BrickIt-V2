@@ -1,0 +1,162 @@
+/*Admin index page*/
+.adminManagement {
+    display: flex;
+    justify-content: center;
+}
+.adminManagement ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+.adminManagement ul li {
+    margin: 0 20px 50px 0;
+}
+.adminManagement ul li:last-child {
+    margin-right: 0;
+}
+.adminManagement ul li a:hover {
+    color: #FF0000;
+    border: 2px solid #1E8900;
+}
+.adminManagement ul li:last-child {
+    margin-bottom: 250px;
+}
+.adminManagement ul li a {
+    color: #000;
+    font-weight: 600;
+    font-size: 18px;
+    border: 2px solid #000C85;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+/*Responsive part*/
+@media screen and (max-width: 1020px) {
+    .adminManagement ul li {
+        margin: 0 0 50px 0;
+        display: flex;
+        justify-content: center;
+    }
+    .adminManagement ul {
+        flex-direction: column;
+    }
+}
+
+/*Admin user-list page*/
+.listUsersTable, .listCategoriesTable,
+.listProductsTable, .listOrdersTable {
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    margin: 0 auto;
+}
+.listUsersTable table, .listCategoriesTable table ,
+.listProductsTable table, .listOrdersTable table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 50px 0;
+}
+.listUsersTable table td, .listUsersTable table th,
+.listCategoriesTable table td, .listCategoriesTable table th,
+.listProductsTable table td, .listProductsTable table th,
+.listOrdersTable table td, .listOrdersTable table th {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    width: 15px;
+}
+.listUsersTable table th, .listCategoriesTable table th,
+.listProductsTable table th, .listOrdersTable table th {
+    background-color: #1f1f1f;
+    color: #fff;
+}
+.listUsersTable table tbody tr:nth-child(even),
+.listCategoriesTable table tbody tr:nth-child(even),
+.listProductsTable table tbody tr:nth-child(even),
+.listOrdersTable table tbody tr:nth-child(even){
+    background-color: #f5f5f5;
+}
+.addUser, .modifUser, .deleteUser,
+.addCategory, .modifCategory, .deleteCategory,
+.addProduct, .modifProduct, .deleteProduct, .detailsOrder {
+    font-size: 15px;
+    border: none;
+    font-weight: 600;
+    padding: 10px;
+    color: #fff;
+}
+.addUser, .addCategory, .addProduct {
+    background-color: #5E6EE9;
+}
+.modifUser, .modifCategory, .modifProduct {
+    background-color: #FFAE22;
+}
+.deleteUser, .deleteCategory, .deleteProduct {
+    background-color: #FF0000;
+}
+.detailsOrder {
+    background-color: #0E981A;
+}
+
+/*Responsive part*/
+@media screen and (max-width: 850px) {
+    .adminManagement ul li {
+        margin: 0 0 50px 0;
+        display: flex;
+        justify-content: center;
+    }
+    .adminManagement ul {
+        flex-direction: column;
+    }
+    .listUsersTable table tr, .listCategoriesTable table tr,
+    .listProductsTable table tr, .listOrdersTable table tr {
+        display: flex;
+        flex-direction: column;
+    }
+    .listUsersTable table td, .listUsersTable table th,
+    .listCategoriesTable table td, .listCategoriesTable table th,
+    .listProductsTable table td, .listProductsTable table th,
+    .listOrdersTable table td, .listOrdersTable table th {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/*User Modif and user Add*/
+.contentUserAdd  {
+    display: flex;
+    justify-content: center;
+}
+.contentUserAdd form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+.contentUserAdd form label {
+    font-size: 20px;
+    margin: 0 0 20px 0;
+}
+.contentUserAdd form input, .contentUserAdd form select {
+    font-size: 25px;
+    margin: 0 0 35px 0;
+    border: none;
+    background-color: #f6f6f6;
+}
+.addUserArticle h1 {
+    justify-content: center;
+    margin-bottom: 35px;
+    display: flex;
+}
+.addUserArticle form input[type="submit"]{
+    background-color: #0E981A;
+    color: #FFF;
+    width: 250px;
+    margin: 25px auto;
+    padding: 15px;
+    border-radius: 25px;
+}
+.imagesProductDetails {
+    color: #5E6EE9;
+    font-size: 25px;
+}
