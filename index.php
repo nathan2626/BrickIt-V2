@@ -45,4 +45,4 @@ if(isset($_GET['p'])) {
 else{
     require 'controllers/indexController.php';
 }
-
+require('views/front.php');
