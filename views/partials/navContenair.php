@@ -1,10 +1,10 @@
 <h1 class="brickIt"><a href="index.php">Brick'It</a></h1>
 <ul>
     <li><a href="index.php">Accueil</a></li>
-    <li><a href="index.php?p=categories">Catégories</a>
+    <li><a href="index.php?p=categories&action=list">Catégories</a>
         <ul class="submenu">
             <?php foreach($categories as $category): ?>
-                <li><a href="index.php?p=productsCategory&category_id=<?= $category['id'] ?>"><?= $category['name'] ?></a></li>
+                <li><a href="index.php?p=categories&action=single&id=<?= $category['id'] ?>"><?= $category['name'] ?></a></li>
             <?php endforeach; ?>
             <!--                        <li><a href="">Disney</a></li>-->
             <!--                        <li><a href="">Star Wars</a></li>-->

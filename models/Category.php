@@ -21,4 +21,3 @@ function getCategory($id) {
 
     return $result;
 }
-

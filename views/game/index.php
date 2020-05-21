@@ -1,6 +1,6 @@
 <?php
 
-require('./../../helpers.php/'); //1er étape
+require('helpers.php'); //1er étape
 
 if(isset($_GET['controller'])){
 

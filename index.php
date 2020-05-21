@@ -6,24 +6,16 @@ if(isset($_GET['p'])) {
             require 'controllers/accountController.php';
             break;
 
-        case 'cartUser' :
-            require 'controllers/cartUserController.php';
-            break;
-
         case 'categories' :
-            require 'controllers/categoriesController.php';
+            require 'controllers/categoryController.php';
             break;
 
-        case 'productsCategory' :
-            require 'controllers/productsCategoryController.php';
+        case 'products' :
+            require 'controllers/productController.php';
             break;
 
-        case 'singleProduct' :
-            require 'controllers/singleProductController.php';
-            break;
-
-        case 'userLogin' :
-            require 'controllers/userLoginController.php';
+        case 'users' :
+            require 'controllers/userController.php';
             break;
 
         case 'game' :
@@ -39,7 +31,7 @@ if(isset($_GET['p'])) {
             break;
 
         default :
-            require 'controllers/indexController.php';
+            require 'controllers/page404Controller.php';
     }
 }
 else{

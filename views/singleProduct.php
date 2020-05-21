@@ -19,11 +19,9 @@
             </div>
             <div class="informationProduct">
                 <div class="contentProduct">
-                    <h1>La boîte à Bijoux d'Elsa</h1>
-                    <p>La boîte à bijoux d’Elsa LEGO® l Disney
-                        41168 constitue un cadeau idéal pour les fans
-                        des films La Reine des neiges de Disney.</p><br>
-                    <p>19.99$</p><br>
+                    <h1><?= $product['name'] ?></h1>
+                    <p><?= $product['description'] ?></p><br>
+                    <p><?= $product['price'] ?>€</p><br>
                     <a class="buttonAddCart" href="#">Ajouter au panier </a>
                 </div>
                 <div class="imagesProduct">
@@ -43,54 +41,74 @@
     <article class="productsCategory">
         <h1 class="titleRandom">Produits qui peut vous interesser</h1>
         <div class="childProductsCategory">
+
+
+            <?php
+            //cette variable va garder en mémoire les ID des produits séléctionnés par la boucle suivante afin de ne pas les re-selectionner
+            $selectedProductsCategory = [];
+
+            for($n=0;$n<4;$n++): ?>
+            <?php
+            //Tant que $nb aléatoire existe dans le tableau $selectedProductsCategory, on le re-génère
+            do{
+                $nb = rand(0, sizeof($products) - 1 );
+            } while(in_array($nb , $selectedProductsCategory));
+
+            //$selectedProductCategory = le produit selectionné
+            $selectedProductCategory = $products[$nb];
+            //on enregistre l'id du produit selectionné dans $selectedProductsCategory pour ne pas le re-séléctionner dans les prochaines ittérations de boucle
+            $selectedProductsCategory[] = $nb;
+            ?>
             <div class="sub-item introImage">
                 <a href="">
                     <img src="./assets/images/imageMarvelCategories.jpg" alt="">
                     <div class="overlay">
-                        <h1>Star Wars</h1>
+                        <h1><?= $selectedProductCategory['name'];?></h1>
                         <div class="separator separatorProductsCategory"></div>
                         <div class="price">
-                            <h2>19.99$ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
+                            <h2><?= $selectedProductCategory['price'];?>€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="sub-item introImage">
-                <a href="">
-                    <img src="./assets/images/imageMarvelCategories.jpg" alt="">
-                    <div class="overlay">
-                        <h1>Star Wars</h1>
-                        <div class="separator separatorProductsCategory"></div>
-                        <div class="price">
-                            <h2>19.99$ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="sub-item introImage">
-                <a href="">
-                    <img src="./assets/images/imageMarvelCategories.jpg" alt="">
-                    <div class="overlay">
-                        <h1>Star Wars</h1>
-                        <div class="separator separatorProductsCategory"></div>
-                        <div class="price">
-                            <h2>19.99$ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="sub-item introImage">
-                <a href="">
-                    <img src="./assets/images/imageMarvelCategories.jpg" alt="">
-                    <div class="overlay">
-                        <h1>Star Wars</h1>
-                        <div class="separator separatorProductsCategory"></div>
-                        <div class="price">
-                            <h2>19.99$ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            <?php endfor; ?>
+
+            <!--            <div class="sub-item introImage">-->
+<!--                <a href="">-->
+<!--                    <img src="./assets/images/imageMarvelCategories.jpg" alt="">-->
+<!--                    <div class="overlay">-->
+<!--                        <h1>Star Wars</h1>-->
+<!--                        <div class="separator separatorProductsCategory"></div>-->
+<!--                        <div class="price">-->
+<!--                            <h2>19.99$ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--            <div class="sub-item introImage">-->
+<!--                <a href="">-->
+<!--                    <img src="./assets/images/imageMarvelCategories.jpg" alt="">-->
+<!--                    <div class="overlay">-->
+<!--                        <h1>Star Wars</h1>-->
+<!--                        <div class="separator separatorProductsCategory"></div>-->
+<!--                        <div class="price">-->
+<!--                            <h2>19.99$ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--            <div class="sub-item introImage">-->
+<!--                <a href="">-->
+<!--                    <img src="./assets/images/imageMarvelCategories.jpg" alt="">-->
+<!--                    <div class="overlay">-->
+<!--                        <h1>Star Wars</h1>-->
+<!--                        <div class="separator separatorProductsCategory"></div>-->
+<!--                        <div class="price">-->
+<!--                            <h2>19.99$ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </div>-->
         </div>
     </article>
 </main>

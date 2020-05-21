@@ -6,4 +6,4 @@ require_once 'models/User.php';
 
 $categories = getAllCategories();
 
-require 'views/contact.php';
+require 'views/userLogin.php';

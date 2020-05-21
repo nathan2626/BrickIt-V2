@@ -1,7 +1,9 @@
 <?php
 
-require_once 'models/Categories.php';
-$categories = getAllCategories();
+require_once 'models/Product.php';
+require_once 'models/Category.php';
+require_once 'models/User.php';
 
+$categories = getAllCategories();
 
 require 'views/account.php';

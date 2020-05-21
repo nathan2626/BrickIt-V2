@@ -11,10 +11,10 @@
                 <h1 class="brickIt"><a href="index.php">Brick'It</a></h1>
                 <ul>
                     <li><a href="index.php">Accueil</a></li>
-                    <li><a href="index.php?p=categories">Catégories</a>
+                    <li><a href="index.php?p=categories&action=list">Catégories</a>
                         <ul class="submenu">
-                            <?php foreach($categories as $theme): //Because I later use category?>
-                                <li><a href="index.php?p=productsCategory&category_id=<?= $theme['id'] ?>"><?= $theme['name'] ?></a></li>
+                            <?php foreach($categories as $category): //Because I later use category?>
+                                <li><a href="index.php?p=categories&action=single&id=<?= $category['id'] ?>"><?= $category['name'] ?></a></li>
                             <?php endforeach; ?>
                         </ul>
                     </li>
@@ -43,24 +43,24 @@
         <div class="childProductsCategory">
 
 
-<!--            --><?php //if(sizeof($products) > 0): //Autrement dit, s'il y a un ou plusieurs produits?>
-<!--            --><?php //foreach($products as $product): ?>
-<!--                    <div class="sub-item introImage">-->
-<!--                        <a href="index.php?p=singleProduct&product_id=--><?//= $product['id'] ?><!--">-->
-<!--                            <img src="./assets/images/--><?//= $product['image'] ?><!--" alt="Image du produit : --><?//= $product['name'] ?><!--">-->
-<!--                            <div class="overlay">-->
-<!--                                <h1>--><?//= $product['name'] ?><!--</h1>-->
-<!--                                <div class="separator separatorProductsCategory"></div>-->
-<!--                                <div class="price">-->
-<!--                                    <h2>--><?//= $product['price'] ?><!--€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </a>-->
-<!--                    </div>-->
-<!--                --><?php //endforeach; ?>
-<!--            --><?php //else: ?>
-<!--                <p>Pas encore de produits pour cette catégorie</p>-->
-<!--            --><?php //endif; ?>
+            <?php if(sizeof($products) > 0): //Autrement dit, s'il y a un ou plusieurs produits?>
+            <?php foreach($products as $product): ?>
+                    <div class="sub-item introImage">
+                        <a href="index.php?p=singleProduct&product_id=<?= $product['id'] ?>">
+                            <img src="./assets/images/<?= $product['image'] ?>" alt="Image du produit : <?= $product['name'] ?>">
+                            <div class="overlay">
+                                <h1><?= $product['name'] ?></h1>
+                                <div class="separator separatorProductsCategory"></div>
+                                <div class="price">
+                                    <h2><?= $product['price'] ?>€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Pas encore de produits pour cette catégorie</p>
+            <?php endif; ?>
 
 
 
