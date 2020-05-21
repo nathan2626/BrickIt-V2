@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <link rel="shortcut icon" href="./assets/images/imageLogoTest.png"/>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <meta name="description" content=" <?= $pageDescription; ?> ">
+    <title> <?= $pageTitle; ?> </title>
 </head>
 
 
-
-
+<?php require $view; ?>
 
 
 </body>

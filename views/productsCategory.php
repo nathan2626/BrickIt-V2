@@ -44,7 +44,7 @@
             <?php if(sizeof($categoryProducts) > 0): //Autrement dit, s'il y a un ou plusieurs produits?>
                 <?php foreach($categoryProducts as $categoryProduct): ?>
                     <div class="sub-item introImage">
-                        <a href="index.php?p=products&product_id=<?= $categoryProduct['id'] ?>">
+                        <a href="index.php?p=products&action=single&id=<?= $categoryProduct['id'] ?>">
                             <img src="./assets/images/imageMarvelCategories.jpg" alt="Image du produit : <?= $categoryProduct['name'] ?>">
                             <div class="overlay">
                                 <h1><?= $categoryProduct['name'] ?></h1>

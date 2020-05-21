@@ -6,4 +6,6 @@ require_once 'models/User.php';
 
 $categories = getAllCategories();
 
-require 'views/contact.php';
+$pageTitle = "Contactez-nous !";
+$pageDescription = "Une demande ? Besoin d'aide ? Partagez-nous votre rêve !";
+$view = 'views/contact.php';

@@ -11,15 +11,22 @@ if($_GET['action'] == 'list'){
     $categoriesNotActivates = getAllCategoriesNotActivates();
 //    var_dump($categoryProducts['0']['name']);
 //    die();
-    require 'views/categories.php';
+
+    $pageTitle = "Liste de nos catégories";
+    $pageDescription = "Disney, La Reine Des Neiges, Hrry Potter, Star Wars, et bien d'autre catégories sur BrickIt !";
+    $view = 'views/categories.php';
 
 } elseif ($_GET['action'] == 'single') { //choix d'une catégorie
     $categoryProducts = getCategoryProducts($_GET['id']);
     $category = getCategory($_GET['id']);
     $categories = getAllCategories();
 
-    require 'views/productsCategory.php';
+    $pageTitle = "Produits de la catégorie";
+    $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
+    $view = 'views/productsCategory.php';
 
 } else {
-    require 'views/categories.php';
+    $pageTitle = "Liste de nos catégories";
+    $pageDescription = "Disney, La Reine Des Neiges, Hrry Potter, Star Wars, et bien d'autre catégories sur BrickIt !";
+    $view = 'views/categories.php';
 }

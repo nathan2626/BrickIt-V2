@@ -11,8 +11,11 @@ if($_GET['action'] == 'single'){
     $product = getProduct($_GET['id']);
     $products = getAllProducts($_GET['id']);
 
-    require 'views/singleProduct.php';
-
+    $pageTitle = "Descriptif du produit";
+    $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
+    $view = 'views/singleProduct.php';
 } else {
-    require 'views/productsCategory.php';
+    $pageTitle = "Descriptif de la catégorie";
+    $pageDescription = "Disney, La Reine Des Neiges, Hrry Potter, Star Wars, et bien d'autre catégories sur BrickIt";
+    $view = 'views/productsCategory.php';
 }

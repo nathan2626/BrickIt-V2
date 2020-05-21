@@ -9,5 +9,6 @@ $productsNovelties = getProductsNovelties();
 $bestsProducts = getBestsproducts();
 
 
-
-require 'views/index.php';
+$pageTitle = "BrickIt";
+$pageDescription = "Bienvenue dans notre mystérieux univers, celui de vos rêves les plus féériques !";
+$view = 'views/index.php';
