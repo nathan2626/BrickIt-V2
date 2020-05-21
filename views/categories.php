@@ -17,10 +17,12 @@
                     <source src="../assets/videos/Lego.mp4" type="video/mp4">
                 </video>
                 <ul class="navCategories">
-                    <li onclick="videoUrl('assets/vendors/Lego.mp4')"><img src="./assets/images/imageLOTRCategories.jpg"></li>
-                    <li onclick="videoUrl('assets/vendors/Lego.mp4')"><img src="./assets/images/imageMinionCategories.jpg"></li>
-                    <li onclick="videoUrl('assets/vendors/Lego.mp4')"><img src="./assets/images/imageMarvelCategories.jpg"></li>
-                    <li onclick="videoUrl('assets/vendors/Lego.mp4')"><img src="./assets/images/imageWarcraftCategories.jpg"></li>
+                    <?php foreach ($categoriesNotActivates as $categoryNotActivate): ?>
+                    <li onclick="videoUrl('./assets/vendors/lotr.mp4')"><img src="./assets/images/imageLOTRCategories.jpg" alt="Image correspondant à la video de : <?= $categoryNotActivate['name'] ?>"></li>
+<!--                    <li onclick="videoUrl('assets/vendors/Lego.mp4')"><img src="./assets/images/imageMinionCategories.jpg"></li>-->
+<!--                    <li onclick="videoUrl('assets/vendors/Lego.mp4')"><img src="./assets/images/imageMarvelCategories.jpg"></li>-->
+<!--                    <li onclick="videoUrl('assets/vendors/Lego.mp4')"><img src="./assets/images/imageWarcraftCategories.jpg"></li>-->
+                    <?php endforeach; ?>
                 </ul>
             </div>
             <div class="contentVideo contentVideoCategories">
@@ -36,33 +38,14 @@
             <h1>Catégories</h1>
         </div>
         <div class="section-one">
-            <div class="slide">
-                <div class="content">
-                    <h2>Slide 1</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula
-                        massa, varius a, semper congue, euismod non, mi.</p>
+            <?php foreach ($categories as $category): ?>
+                <div class="slide">
+                    <div class="content">
+                        <h2><?= $category['name']; ?></h2>
+                        <p><?= $category['description']; ?></p>
+                    </div>
                 </div>
-            </div>
-            <div class="slide">
-                <div class="content">
-                    <h2>Disney : La Reine Des Neiges</h2>
-                    <p>Tout l'univers de Disney dans ce merveilleux thème ! Et La Reine Des Neiges en fait partit !</p>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="content">
-                    <h2>Slide 3</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula
-                        massa, varius a, semper congue, euismod non, mi.</p>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="content">
-                    <h2>Slide 4</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula
-                        massa, varius a, semper congue, euismod non, mi.</p>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </article>
 </main>

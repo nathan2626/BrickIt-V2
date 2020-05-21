@@ -8,7 +8,7 @@ require_once 'models/User.php';
 
 if($_GET['action'] == 'list'){
     $categories = getAllCategories();
-
+    $categoriesNotActivates = getAllCategoriesNotActivates();
 //    var_dump($categoryProducts['0']['name']);
 //    die();
     require 'views/categories.php';

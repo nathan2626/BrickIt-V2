@@ -13,8 +13,8 @@
                     <li><a href="index.php">Accueil</a></li>
                     <li><a href="index.php?p=categories&action=list">Catégories</a>
                         <ul class="submenu">
-                            <?php foreach($categories as $category): //Because I later use category?>
-                                <li><a href="index.php?p=categories&action=single&id=<?= $category['id'] ?>"><?= $category['name'] ?></a></li>
+                            <?php foreach($categories as $theme): //Because I later use category?>
+                                <li><a href="index.php?p=categories&action=single&id=<?= $theme['id'] ?>"><?= $theme['name'] ?></a></li>
                             <?php endforeach; ?>
                         </ul>
                     </li>
@@ -41,65 +41,24 @@
     <article class="productsCategory">
         <h1>Nos produits</h1>
         <div class="childProductsCategory">
-
-
-            <?php if(sizeof($products) > 0): //Autrement dit, s'il y a un ou plusieurs produits?>
-            <?php foreach($products as $product): ?>
+            <?php if(sizeof($categoryProducts) > 0): //Autrement dit, s'il y a un ou plusieurs produits?>
+                <?php foreach($categoryProducts as $categoryProduct): ?>
                     <div class="sub-item introImage">
-                        <a href="index.php?p=singleProduct&product_id=<?= $product['id'] ?>">
-                            <img src="./assets/images/<?= $product['image'] ?>" alt="Image du produit : <?= $product['name'] ?>">
+                        <a href="index.php?p=products&product_id=<?= $categoryProduct['id'] ?>">
+                            <img src="./assets/images/imageMarvelCategories.jpg" alt="Image du produit : <?= $categoryProduct['name'] ?>">
                             <div class="overlay">
-                                <h1><?= $product['name'] ?></h1>
+                                <h1><?= $categoryProduct['name'] ?></h1>
                                 <div class="separator separatorProductsCategory"></div>
                                 <div class="price">
-                                    <h2><?= $product['price'] ?>€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
+                                    <h2><?= $categoryProduct['price'] ?>€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
                                 </div>
                             </div>
                         </a>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <p>Pas encore de produits pour cette catégorie</p>
+                <p class="notFoundProduct">Pas encore de produits pour cette catégorie</p>
             <?php endif; ?>
-
-
-
-            <div class="sub-item introImage">
-                <a href="">
-                    <img src="./assets/images/testMickey.png" alt="">
-                    <div class="overlay">
-                        <h1>La parade d'anniversaire Mickey</h1>
-                        <div class="separator separatorProductsCategory"></div>
-                        <div class="price">
-                            <h2>19.99$ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="sub-item introImage">
-                <a href="">
-                    <img src="./assets/images/imageMarvelCategories.jpg" alt="">
-                    <div class="overlay">
-                        <h1>Star Wars</h1>
-                        <div class="separator separatorProductsCategory"></div>
-                        <div class="price">
-                            <h2>19.99$ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="sub-item introImage">
-                <a href="">
-                    <img src="./assets/images/imageMarvelCategories.jpg" alt="">
-                    <div class="overlay">
-                        <h1>Star Wars</h1>
-                        <div class="separator separatorProductsCategory"></div>
-                        <div class="price">
-                            <h2>19.99$ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
-                        </div>
-                    </div>
-                </a>
-            </div>
         </div>
     </article>
 </main>
