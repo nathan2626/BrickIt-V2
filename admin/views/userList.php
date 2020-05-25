@@ -4,7 +4,7 @@
         <tr>
             <th colspan="4">Liste des utilisateurs</th>
             <th colspan="2">
-                <a class="addUser" type="button" href="userForm.php">Ajouter un utilisateur</a>
+                <a class="addUser" type="button" href="index.php?controller=users&action=new">Ajouter un utilisateur</a>
             </th>
         </tr>
         </thead>
@@ -17,28 +17,19 @@
             <td>Admin</td>
             <td>Action</td>
         </tr>
-        <tr>
-            <td>30</td>
-            <td>Nathan</td>
-            <td>Journo</td>
-            <td>Nathanjourno@yahoo.fr</td>
-            <td>1</td>
-            <td>
-                <a class="modifUser" type="button" href="user-modif.html">Modifier</a>
-                <a class="deleteUser" type="button">Supprimer</a>
-            </td>
-        </tr>
-        <tr>
-            <td>30</td>
-            <td>Nathan</td>
-            <td>Journo</td>
-            <td>Nathanjourno@yahoo.fr</td>
-            <td>1</td>
-            <td>
-                <a class="modifUser" type="button" href="user-modif.html">Modifier</a>
-                <a class="deleteUser" type="button">Supprimer</a>
-            </td>
-        </tr>
+        <?php foreach ($users as $user): ?>
+            <tr>
+                <td><?= $user['id'] ?></td>
+                <td><?= $user['first_name'] ?></td>
+                <td><?= $user['last_name'] ?></td>
+                <td><?= $user['email'] ?></td>
+                <td><?= $user['is_admin'] ?></td>
+                <td>
+                    <a class="modifUser" type="button" href="index.php?controller=users&action=edit&id=<?= $user['id'] ?>">Modifier</a>
+                    <a class="deleteUser" type="button" href="index.php?controller=users&action=delete&id=<?= $user['id'] ?>">Supprimer</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
         </tbody>
     </table>
 </article>

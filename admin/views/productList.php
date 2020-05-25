@@ -1,10 +1,18 @@
+<?php if(isset($_SESSION['messages'])): ?>
+    <div class="msgSession">
+        <?php foreach($_SESSION['messages'] as $message): ?>
+            <?= $message ?>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
+
 <article class="listProductsTable">
     <table>
         <thead>
         <tr>
             <th colspan="3">Liste des produits</th>
             <th colspan="1">
-                <a class="addProduct" type="button" href="productForm.php">Ajouter un produit</a>
+                <a class="addProduct" type="button" href="index.php?controller=products&action=new">Ajouter un produit</a>
             </th>
         </tr>
         </thead>
