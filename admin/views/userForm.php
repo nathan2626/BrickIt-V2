@@ -1,5 +1,5 @@
 <article class="addUserArticle">
-    <h1>Modifier un utilisateur</h1>
+    <h1>Formulaire d'un utilisateur</h1>
     <div class="contentUserAdd">
         <form action="" method="" enctype="">
             <label for="firstNameAddUser">Prénom :</label>

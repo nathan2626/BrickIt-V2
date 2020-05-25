@@ -160,3 +160,10 @@
     color: #5E6EE9;
     font-size: 25px;
 }
+
+
+.msgSession {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}

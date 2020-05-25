@@ -1,15 +1,26 @@
+<?php if(isset($_SESSION['messages'])): ?>
+    <div class="msgSession">
+        <?php foreach($_SESSION['messages'] as $message): ?>
+            <?= $message ?>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
+
 <article class="addUserArticle">
-    <h1>Ajouter une catégorie</h1>
+    <h1>Formulaire d'une catégorie</h1>
     <div class="contentUserAdd">
-        <form action="" method="" enctype="">
-            <label for="NameCategoryAdd">Nom :</label>
-            <input  type="text" name="NameCategoryAdd" id="NameCategoryAdd" value=""/>
+        <form action="index.php?controller=categories&action=add" method="post" enctype="multipart/form-data">
+            <label for="name">Nom :</label>
+            <input  type="text" name="name" id="name" value="" />
 
-            <label for="DescrCategoryAdd">Description :</label>
-            <textarea id="DescrCategoryAdd" name="DescrCategoryAdd"></textarea>
+            <label for="description">Description :</label>
+            <textarea id="description" name="description"></textarea>
 
-            <label for="ImgCategoryAdd">Image :</label>
-            <input  type="file" name="ImgCategoryAdd" id="ImgCategoryAdd" value=""/>
+            <label for="image">Image :</label>
+            <input  type="file" name="image" id="image" value=""/>
+
+            <label for="activateAddCategory">Activé</label>
+            <input type="checkbox" id="activateAddCategory" name="activateAddCategory">
 
             <input type="submit" value="Enregistrer" />
         </form>

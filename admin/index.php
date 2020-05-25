@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require('../helpers.php');
 
 if(isset($_GET['controller'])){
@@ -22,3 +24,10 @@ else{
 }
 
 require('views/admin.php');
+
+if(isset($_SESSION['messages'])){
+    unset($_SESSION['messages']);
+}
+if(isset($_SESSION['old_inputs'])){
+    unset($_SESSION['old_inputs']);
+}

@@ -1,5 +1,5 @@
 <article class="addUserArticle">
-    <h1>Ajouter un produit</h1>
+    <h1>Formulaire d'un produit</h1>
     <div class="contentUserAdd">
         <form action="" method="" enctype="">
             <label for="nameAddProduct">Nom :</label>
