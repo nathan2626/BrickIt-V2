@@ -47,7 +47,7 @@ elseif($_GET['action'] == 'add'){
             $_SESSION['messages'][] = 'Produit enregistré !';
         }
         else{
-            $_SESSION['messages'][] = "Erreur lors de l'enregistreent du produit... :(";
+            $_SESSION['messages'][] = "Erreur lors de l'enregistrement du produit... :(";
         }
         header('Location:index.php?controller=products&action=list');
         exit;

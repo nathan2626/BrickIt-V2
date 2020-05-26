@@ -1,3 +1,11 @@
+<?php if(isset($_SESSION['messages'])): ?>
+    <div class="msgSession">
+        <?php foreach($_SESSION['messages'] as $message): ?>
+            <?= $message ?>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
+
 <article class="listUsersTable">
     <table>
         <thead>
