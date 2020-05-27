@@ -25,9 +25,9 @@
         </tr>
         <?php foreach($categories as $category): ?>
         <tr>
-            <td><?= $category['id'] ?></td>
-            <td><?= $category['name'] ?></td>
-            <td><?= $category['description'] ?></td>
+            <td><?= htmlentities($category['id']); ?></td>
+            <td><?= htmlentities($category['name']); ?></td>
+            <td><?= htmlentities($category['description']); ?></td>
             <td>
                 <a class="modifCategory" type="button" href="index.php?controller=categories&action=edit&id=<?= $category['id'] ?>">Modifier</a>
                 <a class="deleteCategory" type="button" href="index.php?controller=categories&action=delete&id=<?= $category['id'] ?>">Supprimer</a>

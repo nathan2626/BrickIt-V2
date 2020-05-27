@@ -14,7 +14,7 @@ function addProduct($informations)
 {
     $db = dbConnect();
 
-    $query = $db->prepare('INSERT INTO products (name, description, price, quantity, is_novelty, is_best) VALUES ( :name, :description, :price, :quantity, :is_novelty, :is_best)');
+    $query = $db->prepare('INSERT INTO products (name, description, price, quantity, is_novelty, is_best, is_activate) VALUES ( :name, :description, :price, :quantity, :is_novelty, :is_best, :is_activate)');
     $result = $query->execute(
         [
             'name' => $informations['name'],
@@ -23,6 +23,7 @@ function addProduct($informations)
             'quantity' => $informations['quantity'],
             'is_novelty' => $informations['is_novelty'],
             'is_best' => $informations['is_best'],
+            'is_activate' => $informations['is_activate'],
         ]
     );
 

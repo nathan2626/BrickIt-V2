@@ -14,10 +14,11 @@ function addCategory($informations)
 {
     $db = dbConnect();
 
-    $query = $db->prepare("INSERT INTO categories (name, description) VALUES( :name, :description)");
+    $query = $db->prepare("INSERT INTO categories (name, description, is_activate) VALUES( :name, :description, :is_activate)");
     $result = $query->execute([
         'name' => $informations['name'],
         'description' => $informations['description'],
+        'is_activate' => $informations['is_activate'],
     ]);
 
     if(!empty($_FILES['image']['tmp_name'])){
@@ -61,32 +62,21 @@ function deleteCategory($id)
     return $result;
 }
 
-//function updateCategory($id, $informations)
+//function getCategoryProductLinks() //IMPORTANT
 //{
 //    $db = dbConnect();
 //
-//    $query = $db->prepare("UPDATE categories SET name = ? WHERE id = ?");
-//    $result = $query->execute([
-//        $informations['name'],
-//        $id
-//    ]);
+//    $query = $db->prepare('
+//      SELECT c.*, GROUP_CONCAT(c.name SEPARATOR " / ") AS categories
+//      FROM categories c
+//      JOIN category_product cp ON c.id = cp.category_id
+//      JOIN products p ON cp.product_id = p.id
+//      GROUP BY c.id
+//    ');
+//
+//    $query->execute();
+//
+//    $result =  $query->fetch();
 //
 //    return $result;
-//}
-//function getProductCategories($productId)
-//{
-//    $db = dbConnect();
-//
-//    $query = $db->prepare("
-//    SELECT c.*
-//    FROM categories c
-//    INNER JOIN category_product cp
-//    ON c.id = cp.category_id
-//    WHERE cp.product_id  = ?
-//    ");
-//    $query->execute([
-//        $productId
-//    ]);
-//
-//    return $query->fetchAll();
 //}

@@ -45,7 +45,7 @@ function getProduct($id)
 function getProductsNovelties() {
     $db = dbConnect();
 
-    $query = $db->prepare('SELECT * FROM products WHERE is_novelty = 1');
+    $query = $db->prepare('SELECT * FROM products WHERE is_novelty = 1 && is_activate = 1');
     $query->execute();
 
     $productsNovelties = $query->fetchAll();
@@ -56,7 +56,7 @@ function getProductsNovelties() {
 function getBestsproducts() {
     $db = dbConnect();
 
-    $query = $db->prepare('SELECT * FROM products WHERE is_best = 1');
+    $query = $db->prepare('SELECT * FROM products WHERE is_best = 1 && is_activate = 1');
     $query->execute();
 
     $bestsProducts = $query->fetchAll();
@@ -73,6 +73,7 @@ function getCategoryProducts($categoryId) { //permet d'avoi tout les produits d'
     INNER JOIN category_product cp
     ON p.id = cp.product_id
     WHERE cp.category_id  = ?
+    && p.is_activate = 1
     ");
     $query->execute([
         $categoryId

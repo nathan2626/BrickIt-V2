@@ -26,13 +26,10 @@
 
         <?php foreach ($products as $product): ?>
         <tr>
-            <td><?= $product['id'] ?></td>
-            <td><?= $product['name'] ?></td>
+            <td><?= htmlentities($product['id']); ?></td>
+            <td><?= htmlentities($product['name']); ?></td>
             <td>
-<!--                    --><?php //foreach ($productCategories as $productCategory){
-//                        $productCategory['name'];
-//
-//                    }?>
+<!--                --><?//= $categoryLink['name'];?>
             </td>
             <td>
                 <a class="modifProduct" type="button" href="index.php?controller=products&action=edit&id=<?= $product['id'] ?>">Modifier</a>

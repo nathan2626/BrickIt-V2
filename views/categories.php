@@ -41,8 +41,8 @@
             <?php foreach ($categories as $category): ?>
                 <div class="slide">
                     <div class="content">
-                        <h2><?= $category['name']; ?></h2>
-                        <p><?= $category['description']; ?></p>
+                        <h2><?= htmlentities($category['name']); ?></h2>
+                        <p><?= htmlentities($category['description']); ?></p>
                     </div>
                 </div>
             <?php endforeach; ?>

@@ -19,10 +19,13 @@ elseif($_GET['action'] == 'new'){
 
 }
 elseif($_GET['action'] == 'add'){
-    if(empty($_POST['name'])){
+    if(empty($_POST['name']) || empty($_FILES['image']['tmp_name'])){
 
         if(empty($_POST['name'])){
             $_SESSION['messages'][] = 'Le champ nom est obligatoire !';
+        }
+        if(empty($_FILES['image']['tmp_name'])){
+            $_SESSION['messages'][] = 'Le champ image est obligatoire !';
         }
 
         $_SESSION['old_inputs'] = $_POST;

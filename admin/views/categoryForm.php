@@ -19,8 +19,11 @@
             <label for="image">Image :</label>
             <input  type="file" name="image" id="image" value=""/>
 
-            <label for="activateAddCategory">Activé</label>
-            <input type="checkbox" id="activateAddCategory" name="activateAddCategory">
+            <label for="is_activate">Activé</label>
+            <select id="is_activate" name="is_activate">
+                <option value="0">Non</option>
+                <option value="1">Oui</option>
+            </select>
 
             <input type="submit" value="Enregistrer" />
         </form>

@@ -27,11 +27,11 @@
         </tr>
         <?php foreach ($users as $user): ?>
             <tr>
-                <td><?= $user['id'] ?></td>
-                <td><?= $user['first_name'] ?></td>
-                <td><?= $user['last_name'] ?></td>
-                <td><?= $user['email'] ?></td>
-                <td><?= $user['is_admin'] ?></td>
+                <td><?= htmlentities($user['id']); ?></td>
+                <td><?= htmlentities($user['first_name']); ?></td>
+                <td><?= htmlentities($user['last_name']); ?></td>
+                <td><?= htmlentities($user['email']); ?></td>
+                <td><?= htmlentities($user['is_admin']); ?></td>
                 <td>
                     <a class="modifUser" type="button" href="index.php?controller=users&action=edit&id=<?= $user['id'] ?>">Modifier</a>
                     <a class="deleteUser" type="button" href="index.php?controller=users&action=delete&id=<?= $user['id'] ?>">Supprimer</a>

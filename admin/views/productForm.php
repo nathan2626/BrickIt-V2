@@ -29,15 +29,23 @@
             <label for="quantity">Quantité :</label>
             <input  type="text" name="quantity" id="quantity" value=""/>
 
-            <label for="activate">Activé</label>
-            <input type="checkbox" id="activate" name="activate"
-                   checked>
+            <label for="is_activate">Activé</label>
+            <select id="is_activate" name="is_activate">
+                <option value="0">Non</option>
+                <option value="1">Oui</option>
+            </select>
 
             <label for="is_novelty">Nouveauté ?</label>
-            <input type="checkbox" id="is_novelty" name="is_novelty">
+            <select id="is_novelty" name="is_novelty">
+                <option value="0">Non</option>
+                <option value="1">Oui</option>
+            </select>
 
             <label for="is_best">Best-seller ?</label>
-            <input type="checkbox" id="is_best" name="is_best">
+            <select id="is_best" name="is_best">
+                <option value="0">Non</option>
+                <option value="1">Oui</option>
+            </select>
 
             <a class="imagesProductDetails" type="button" href="productImages.php">Images</a>
 

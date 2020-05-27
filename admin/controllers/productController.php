@@ -4,7 +4,7 @@ require('models/Product.php');
 require('models/Category.php');
 
 if($_GET['action'] == 'list'){
-
+//    $categoryLink = getCategoryProductLinks();
     $products = getAllProducts();
     $categories = getAllCategories();
 //    $productCategories = getProductCategories();

@@ -44,13 +44,13 @@
             <?php if(sizeof($categoryProducts) > 0): //Autrement dit, s'il y a un ou plusieurs produits?>
                 <?php foreach($categoryProducts as $categoryProduct): ?>
                     <div class="sub-item introImage">
-                        <a href="index.php?p=products&action=single&id=<?= $categoryProduct['id'] ?>">
-                            <img src="./assets/images/imageMarvelCategories.jpg" alt="Image du produit : <?= $categoryProduct['name'] ?>">
+                        <a href="index.php?p=products&action=single&id=<?= $categoryProduct['id']; ?>">
+                            <img src="./assets/images/imageMarvelCategories.jpg" alt="Image du produit : <?= htmlentities($categoryProduct['name']); ?>">
                             <div class="overlay">
-                                <h1><?= $categoryProduct['name'] ?></h1>
+                                <h1><?= htmlentities($categoryProduct['name']); ?></h1>
                                 <div class="separator separatorProductsCategory"></div>
                                 <div class="price">
-                                    <h2><?= $categoryProduct['price'] ?>€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
+                                    <h2><?= htmlentities($categoryProduct['price']); ?>€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
                                 </div>
                             </div>
                         </a>

@@ -27,8 +27,8 @@
 
             <label for="is_admin">Admin :</label>
             <select name="is_admin" id="is_admin">
-                <option value="non">non</option>
-                <option value="oui">oui</option>
+                <option value="0">non</option>
+                <option value="1">oui</option>
             </select>
 
             <input type="submit" value="Enregistrer" />

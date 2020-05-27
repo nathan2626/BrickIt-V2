@@ -19,9 +19,9 @@
             </div>
             <div class="informationProduct">
                 <div class="contentProduct">
-                    <h1><?= $product['name'] ?></h1>
-                    <p><?= $product['description'] ?></p><br>
-                    <p><?= $product['price'] ?>€</p><br>
+                    <h1><?= htmlentities($product['name']); ?></h1>
+                    <p><?= htmlentities($product['description']); ?></p><br>
+                    <p><?= htmlentities($product['price']); ?>€</p><br>
                     <a class="buttonAddCart" href="#">Ajouter au panier </a>
                 </div>
                 <div class="imagesProduct">
