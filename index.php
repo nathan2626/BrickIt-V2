@@ -1,11 +1,11 @@
 <?php
+
+session_start();
+
 require ('helpers.php');
+
 if(isset($_GET['p'])) {
     switch ($_GET['p']) {
-        case 'account' :
-            require 'controllers/accountController.php';
-            break;
-
         case 'categories' :
             require 'controllers/categoryController.php';
             break;
@@ -38,3 +38,7 @@ else{
     require 'controllers/indexController.php';
 }
 require('views/front.php');
+
+if(isset($_SESSION['messages'])){
+    unset($_SESSION['messages']);
+}

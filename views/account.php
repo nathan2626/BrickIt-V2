@@ -11,27 +11,28 @@
         </nav>
     </div>
     </header>
+    <?php if(!isset($_SESSION['user'])): ?>
     <main>
         <article class="articleAccount">
             <div class="containerAccount" id="containerAccount">
                 <div class="formContainer signUpContainer">
-                    <form action="">
+                    <form action="index.php?p=users&action=form" method="post">
                         <h1>S'inscrire</h1>
-                        <input type="text" name="firstName" placeholder="Prénom">
-                        <input type="text" name="lastName" placeholder="Nom">
+                        <input type="text" name="first_name" placeholder="Prénom">
+                        <input type="text" name="last_name" placeholder="Nom">
                         <input type="text" name="adress" placeholder="Adresse postale">
                         <input type="email" name="email" placeholder="Email">
                         <input type="password" name="password" placeholder="Password">
-                        <button>S'inscrire</button>
+                        <button type="submit">S'inscrire</button>
                     </form>
                 </div>
                 <div class="formContainer signInContainer">
-                    <form action="#">
+                    <form action="index.php?p=users&action=form" method="post">
                         <h1>Se connecter</h1>
                         <input type="email" name="email" placeholder="Email">
                         <input type="password" name="password" placeholder="Password">
                         <a href="#">Mot de passe oublié ?</a>
-                        <button>Se connecter</button>
+                        <button type="submit">Se connecter</button>
                     </form>
                 </div>
                 <div class="overlayContainer">
@@ -44,7 +45,7 @@
                         <div class="overlayPanel overlayRight">
                             <h1>Bonjour !</h1>
                             <p>Toujours pas inscrit ? N'as-tu pas envie de réaliser t'es rêves ?</p>
-                            <button class="ghost" id="signUp">S'inscrire</button>
+                            <button class="ghost" id="signUp" name="submit">S'inscrire</button>
                         </div>
                     </div>
                 </div>
@@ -52,7 +53,7 @@
         </article>
         <article class="articleAccountSmart">
             <div class="formSignUp">
-                <form action="">
+                <form action="index.php?p=users&action=form" method="post">
                     <h1>S'inscrire</h1>
                     <input type="text" name="firstName" placeholder="Prénom">
                     <input type="text" name="lastName" placeholder="Nom">
@@ -63,7 +64,7 @@
                 </form>
             </div>
             <div class="formSignIn">
-                <form action="#">
+                <form action="index.php?p=users&action=form" method="post">
                     <h1>Se connecter</h1>
                     <input type="email" name="email" placeholder="Email">
                     <input type="password" name="password" placeholder="Password">
@@ -73,6 +74,9 @@
             </div>
         </article>
     </main>
+    <?php else : ?>
+        <?php require 'views/userLogin.php'; ?>
+    <?php endif; ?>
 
 <?php require 'partials/footer.php'; ?>
 

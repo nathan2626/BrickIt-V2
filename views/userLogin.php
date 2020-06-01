@@ -14,7 +14,10 @@
     <main>
         <article class="userLogin">
             <section class="welcomeUnknown">
-                <h1>Bonjour Unknown</h1>
+                <h1>
+                    Salut <?= $_SESSION['user']['first_name'] ?>
+                    <a href="index.php?p=users&action=disconnect">déconnexion</a>
+                </h1>
                 <div class="imageUnknown">
                     <img src="./assets/images/imageMarvelCategories.jpg" alt="">
                 </div>
@@ -23,12 +26,12 @@
                 <h2>Modifications</h2>
                 <div class="formRegister">
                     <form action="">
-                        <input type="text" name="firstName" placeholder="Prénom">
-                        <input type="text" name="lastName" placeholder="Nom">
+                        <input type="text" name="first_name" placeholder="Prénom">
+                        <input type="text" name="last_name" placeholder="Nom">
                         <input type="text" name="adress" placeholder="Adresse postale">
                         <input type="email" name="email" placeholder="Email">
                         <input type="password" name="password" placeholder="Password">
-                        <button>Enregistrer</button>
+                        <button type="submit">Enregistrer</button>
                     </form>
                 </div>
             </section>
