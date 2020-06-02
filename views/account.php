@@ -11,12 +11,19 @@
         </nav>
     </div>
     </header>
+    <?php if(isset($_SESSION['messages'])): ?>
+        <div class="msgSession">
+            <?php foreach($_SESSION['messages'] as $message): ?>
+                <?= $message ?>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
     <?php if(!isset($_SESSION['user'])): ?>
     <main>
         <article class="articleAccount">
             <div class="containerAccount" id="containerAccount">
                 <div class="formContainer signUpContainer">
-                    <form action="index.php?p=users&action=form" method="post">
+                    <form action="index.php?p=users&action=signUp" method="post" enctype="multipart/form-data">
                         <h1>S'inscrire</h1>
                         <input type="text" name="first_name" placeholder="Prénom">
                         <input type="text" name="last_name" placeholder="Nom">
@@ -27,7 +34,7 @@
                     </form>
                 </div>
                 <div class="formContainer signInContainer">
-                    <form action="index.php?p=users&action=form" method="post">
+                    <form action="index.php?p=users&action=signIn" method="post" enctype="multipart/form-data">
                         <h1>Se connecter</h1>
                         <input type="email" name="email" placeholder="Email">
                         <input type="password" name="password" placeholder="Password">
