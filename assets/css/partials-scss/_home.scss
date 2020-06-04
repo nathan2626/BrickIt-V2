@@ -1,0 +1,418 @@
+/*HomePage part*/
+/*Nav subpart*/
+.toTop {
+  background: white;
+  position: fixed;
+  bottom: 16px;
+  right:32px;
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:32px;
+  color:#1f1f1f;
+  text-decoration: none;
+  opacity:0;
+  pointer-events: none;
+  transition: all .4s;
+}
+.toTop.active {
+  bottom:32px;
+  pointer-events: auto;
+  opacity:1;
+}
+.main{
+  display: none; /*for loading page*/
+}
+.headerCategories, .main {
+  width: 95%;
+  max-width: 1310px;
+  margin: 0 auto;
+  background-color: #f6f6f6;
+  padding-bottom: 75px;
+}
+nav {
+  position: relative;
+  z-index: 1;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: center;
+  padding: 45px 70px 0 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+header{
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  overflow: hidden;
+}
+.containerNav{
+  max-width: 100vw;
+  width: 100%;
+  margin: 0 auto;
+}
+.fa-bars{
+  color: #26b0d3;
+}
+.brickIt{
+  font-size: 30px;
+  font-weight: 300;
+  font-family: "Adventure";
+  transform: translateX(-100rem);
+  animation: slideIn 1.5s forwards;
+}
+nav ul{
+  display: flex;
+}
+nav ul li{
+  list-style: none;
+  transform: translateX(100rem);
+  animation: slideIn .5s forwards;
+}
+nav ul li:nth-child(1){
+  animation-delay: 1s;
+}
+nav ul li:nth-child(2){
+  animation-delay: 2s;
+}
+nav ul li:nth-child(3){
+  animation-delay: 3s;
+}
+nav ul li:nth-child(4){
+  animation-delay: 4s;
+}
+nav ul li:nth-child(5){
+  animation-delay: 5s;
+}
+nav ul li:nth-child(6){
+  animation-delay: 6s;
+}
+nav ul li a{
+  padding: 5px 0;
+  margin: 0 45px;
+  position: relative;
+  letter-spacing: 2px;
+}
+.exception {
+  margin: 0 0;
+}
+nav ul li a:last-child {
+  margin-right: 0;
+}
+nav ul li a::before,
+nav ul li a::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #FF0000;
+  left: 0;
+  transform: scaleX(0);
+  transition: all .5s;
+}
+nav ul li a::before{
+  top: 0;
+  transform-origin: left;
+}
+nav ul li a::after{
+  bottom: 0;
+  transform-origin: right;
+}
+nav ul li a:hover::before,
+nav ul li a:hover::after{
+  transform: scaleX(1);
+}
+.submenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+}
+nav ul li:hover .submenu > li {
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  align-items: flex-start;
+}
+.submenu li {
+  display: none;
+  position: relative;
+  padding-top: 18px;
+  top: 0;
+}
+.submenu li:nth-child(1), .submenu li:nth-child(2), .submenu li:nth-child(3){
+  font-size: 15px;
+}
+.menu-toggle{
+  position: fixed;
+  top: 2.5rem;
+  right: 2.5rem;
+  color: #eeeeee;
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+}
+.overlayNav{
+  background-color: rgba(0,0,0,.95);
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: opacity 650ms;
+  transform: scale(0);
+  opacity: 0;
+  display: none;
+}
+
+/*Responsive part*/
+@media screen and (max-width: 1150px) {
+  nav{
+    padding-top: 35px;
+    font-size: 12px;
+  }
+  .brickIt{
+    font-size: 24px;
+  }
+  .contentVideo .hook p {
+    font-size: 20px;
+  }
+  .contentVideo .hook h1 {
+    font-size: 26px;
+    margin-top: 13.6%;
+  }
+  .buttonVideo {
+    padding: 11.2px 19.2px;
+    border-radius: 7.2px;
+    font: normal normal bold 20px "Adventure";
+    margin-top: 3%;
+    margin-right: 3%;
+  }
+  .submenu li a {
+    font-size: 12px;
+  }
+  .hook {
+    padding-top: 50px;
+  }
+}
+@media screen and (max-width: 1050px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .overlayNav.menu-open,
+  nav.menu-open {
+    display: flex;
+    transform: scale(1);
+    opacity: 1;
+  }
+  nav{
+    padding-top: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+  nav ul{
+    flex-direction: column;
+  }
+  nav ul li{
+    margin-top: 5rem;
+  }
+  nav ul li a{
+    margin: 0;
+    font-size: 2rem;
+  }
+  nav ul li:nth-child(1) {
+    margin-top: -75px;
+  }
+  .brickIt {
+    font-size: 5rem;
+    margin-top: -150px;
+  }
+  .hook {
+    padding-top: 120px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .contentVideo .hook p {
+    font-size: 25px!important;/*-20%*/
+  }
+  .contentVideo .hook h1 {
+    font-size: 30px!important;/*-20%*/
+  }
+  .buttonVideo {
+    padding: 11px 17px;/*-20%*/
+    border-radius: 7px;/*-20%*/
+    font: normal normal bold 25px "Adventure"!important;/*-20%*/
+    margin-top: 3%;
+    margin-right: 3%;
+  }
+}
+@media screen and (max-width: 680px) {
+  .contentVideo .hook p {
+    font-size: 20px!important;/*-20%*/
+  }
+  .contentVideo .hook h1 {
+    font-size: 25px!important;/*-20%*/
+  }
+  .buttonVideo {
+    padding: 9px 15px;/*-20%*/
+    border-radius: 7px;/*-20%*/
+    font: normal normal bold 20px "Adventure"!important;/*-20%*/
+    margin-top: 3%;
+    margin-right: 3%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .contentVideo .hook p {
+    font-size: 16px!important;/*-20%*/
+  }
+  .contentVideo .hook h1 {
+    font-size: 20px!important;/*-20%*/
+  }
+  .buttonVideo {
+    padding: 7px 12px;/*-20%*/
+    border-radius: 7px;/*-20%*/
+    font: normal normal bold 16px "Adventure"!important;/*-20%*/
+    margin-top: 3%;
+    margin-right: 3%;
+  }
+}
+@media screen and (max-width: 430px) {
+  .contentVideo .hook p {
+    font-size: 12px!important;/*-20%*/
+  }
+  .contentVideo .hook h1 {
+    font-size: 16px!important;/*-20%*/
+  }
+  .buttonVideo {
+    padding: 6px 10px;/*-20%*/
+    border-radius: 7px;/*-20%*/
+    font: normal normal bold 12px "Adventure"!important;/*-20%*/
+    margin-top: 3%;
+    margin-right: 3%;
+  }
+}
+@keyframes slideIn {
+  from {
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/*Full screen video subpart*/
+.fullScreenVideo {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.screenVideo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fullScreenVideo video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+}
+
+/*Content video subpart*/
+.contentVideo .hook h1, .contentVideo .hook p, .buttonVideo {
+  transform: translateX(100rem);
+  animation: slideIn 1s forwards;
+}
+.contentVideo .hook h1 {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 40px;
+  margin-top: 17%;
+  /*margin-right: 15%; (We don’t need it anymore thanks to .main)*/
+  color: #fff;
+  animation-delay: 6s;
+}
+.contentVideo .hook h1 span {
+  font-family: Adventure;
+  color: #2ed3fd;
+  font-weight: 600;
+}
+.contentVideo {
+  position: relative;
+  z-index: 1;
+  max-width: 100vw;
+  text-align: right;
+}
+.contentVideo .hook p {
+  font-size: 30px;
+  margin-top: 3%;
+  /*margin-right: 15%; (We don’t need it anymore thanks to .main)*/
+  animation-delay: 9s;
+  color: #fff;
+}
+.buttonVideo {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  padding: 14px 24px;
+  border: 0 solid #145e70;
+  border-radius: 9px;
+  background: #26b0d3;
+  background: -webkit-gradient(linear, left top, left bottom, from(#26b0d3), to(#145e70));
+  background: -moz-linear-gradient(top, #26b0d3, #145e70);
+  background: linear-gradient(to bottom, #26b0d3, #145e70);
+  -webkit-box-shadow: #2ed3fd 0 0 40px 0;
+  -moz-box-shadow: #2ed3fd 0 0 40px 0;
+  box-shadow: #2ed3fd 0 0 40px 0;
+  text-shadow: #0c3742 1px 1px 1px;
+  font: normal normal bold 25px "Adventure";
+  color: #ffffff;
+  text-decoration: none;
+  margin-top: 3%;
+  margin-right: 3%;
+  animation-delay: 13s;
+}
+.buttonVideo:hover, .buttonVideo:focus {
+  border: 0 solid #186e84;
+  background: #2ed3fd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2ed3fd), to(#187186));
+  background: -moz-linear-gradient(top, #2ed3fd, #187186);
+  background: linear-gradient(to bottom, #2ed3fd, #187186);
+  color: #ffffff;
+  text-decoration: none;
+}
+.buttonVideo:active {
+  background: #145e70;
+  background: -webkit-gradient(linear, left top, left bottom, from(#145e70), to(#145e70));
+  background: -moz-linear-gradient(top, #145e70, #145e70);
+  background: linear-gradient(to bottom, #145e70, #145e70);
+}
+.buttonVideo:after{
+  content:  "\0000a0";
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  line-height: 24px;
+  margin: 0 -4px -6px 4px;
+  position: relative;
+  top: -2px;
+  left: 0;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLUlEQVRIibWUsUoDQRCGvxus5LBMLRYiYiWpgk18AyG+wJUWVvYi5wMIPkbK1ImPE0gdUBBPC+9gs7eTmTvPgeFmd3b/f+7f2c0A4R+tAa+UfPXX+CCRlEScA/f13AvwYazfiWOJ4nEOvAHftS+BIzqYGP4agMck1l6JK5bEeJ4gaEjyxPpWbHXRGbDeQxLKpRJYfuEgcUmkVuEgUeXqctHOHX+yg5sFBA/A1EF4DJwquRVwA2zDSQHGSlV9fAkcEuk/MqruYtfAjMRTMaRtiA75BHhnGIlKghZtDrni9xwmjupugSsl9ww8Er3OEnwtL4AvR+W9LloBfDrAW3s9F81TuWqWRDMHuPu5jscCLBzg2t7WZMru9oC7zNNFZQD+ZKzt1UUCXNbukqWJfwAl65SxHZyWNwAAAABJRU5ErkJggg==") no-repeat left center transparent;
+  background-size: 100% 100%;
+}
+/*End of HomePage part*/

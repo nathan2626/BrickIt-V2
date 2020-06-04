@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "Adventure";
+    src: url('../fonts/Adventure.otf');
+}
+@font-face {
+    font-family: "FontWalt";
+    src: url('../fonts/waltograph42.otf');
+}
+@font-face {
+    font-family: "warcraft";
+    src: url('../fonts/LifeCraft_Font.ttf');
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+     font-family: "Roboto Cn", sans-serif;
+     scroll-behavior: smooth;
+ }
+a{
+    text-decoration: none;
+    color: #E7E7E7;
+}
+body {
+    overflow-x: hidden;
+    background: #fff;
+}

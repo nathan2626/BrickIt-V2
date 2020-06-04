@@ -1,0 +1,53 @@
+/*User_login page*/
+.userLogin {
+  width: 90%;
+  margin: 0 auto;
+}
+.allUserLoginHistory {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap
+}
+.allUserLoginHistory table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 50px 0;
+}
+.welcomeUnknown h1, .informationUserLogin h2, .commandHistoryUserLogin h1{
+  text-align: center;
+  margin: 20px 0 20px 0;
+}
+.welcomeUnknown h1 {
+  color: #2ed3fd;
+  font-family: FontWalt;
+  font-size: 35px;
+}
+.imageUnknown{
+  width: 100%;
+  margin: 0 auto;
+}
+.imageUnknown img {
+  width: 100%;
+}
+.allUserLoginHistory table td, .allUserLoginHistory table th {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+.allUserLoginHistory table th {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+.allUserLoginHistory table tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+/*Responsive part*/
+@media screen and (max-width: 600px) {
+  .allUserLoginHistory table th {
+    font-size: 13px;
+  }
+  .allUserLoginHistory table td {
+    font-size: 12px;
+  }
+}

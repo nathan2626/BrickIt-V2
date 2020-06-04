@@ -1,0 +1,80 @@
+/*Footer*/
+footer {
+  padding: 30px 0;
+  background-color: #18181a;
+}
+.innerFooter, footer > p, .textFooter > h1  {
+  display: flex;
+}
+.innerFooter {
+  justify-content: space-around;
+  align-items: center;
+}
+.innerFooter .logoContainer img {
+  width: 150px;
+  height: auto;
+  margin-right: 95px;
+}
+.contactFooter p span {
+  color: #3BD9DA;
+  font-family: Adventure;
+  font-size: 20px;
+}
+footer > p, .textFooter > h1 {
+  justify-content: center;
+}
+.contactFooter p, footer > p  {
+  font-size: 18px;
+}
+.textFooter, .contactFooter, footer > p {
+  color: #fff;
+}
+.textFooter > h1 {
+  margin-bottom: 15px;
+  font-size: 30px;
+  font-family: FontWalt;
+  color: #3BD9DA;
+}
+.textFooter a i {
+  margin-right: 15px;
+}
+.fa-github {
+  margin-right: 0!important;
+}
+/*Responsive part*/
+@media screen and (max-width: 1350px) {
+  footer > p {
+    justify-content: end;
+    margin-left: 85px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .innerFooter {
+    flex-direction: column;
+  }
+  .innerFooter .logoContainer img {
+    margin-right: 0;
+  }
+  footer > p {
+    justify-content: center;
+    margin-left: 0;
+    margin-top: 25px;
+  }
+}
+@media screen and (max-width: 600px) {
+  footer > p {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 400px) {
+  footer > p {
+    font-size: 11px;
+  }
+  .contactFooter p span {
+    font-size: 16px;
+  }
+  .contactFooter p {
+    font-size: 14px;
+  }
+}
+/*End of Footer*/

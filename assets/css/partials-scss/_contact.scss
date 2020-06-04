@@ -1,0 +1,89 @@
+/*Contact Us page*/
+.bodyContactUs {
+  background-image: url("../images/imageMarvelCategories.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.wrapper {
+  width: 70%;
+  margin: 50px auto;
+}
+.wrapper h1 {
+  text-align: center;
+  color: #FF416C;
+  text-transform: uppercase;
+  font-family: Adventure;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.form-area {
+  display: flex;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 25px;
+  padding: 1.9em;
+}
+.msg-area {
+  display: flex;
+  flex-direction: column;
+  order: 2;
+}
+.msg-area > textarea {
+  flex: 1;
+  min-width: 250px;
+  background: transparent;
+  color: #FF416C;
+  padding: 15px;
+}
+.details-area {
+  flex: 1;
+  order: 1;
+  margin-right: 30px;
+}
+.details-area input {
+  width: 100%;
+  background: transparent;
+  color: #FF416C;
+  border-radius: 40px;
+}
+.details-area input, .details-area button {
+  padding: 15px;
+  margin-bottom: 15px;
+}
+.details-area button {
+  background: #FF416C;
+  color: #fff;
+  border: 0;
+  padding: 15px 50px;
+  border-radius: 40px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.details-area label, .msg-area label  {
+  color: #2ed3fd;
+  text-transform: uppercase;
+  line-height: 40px;
+}
+/*Responsive part*/
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    width: 90%;
+    margin: 50px auto;
+  }
+}
+@media screen and (max-width: 900px) {
+  .form-area {
+    flex-direction: column-reverse;/*Because the button isn't in bottom*/
+  }
+}
+@media screen and (max-width: 650px) {
+  .wrapper h1 {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .wrapper h1 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+}

@@ -1,0 +1,63 @@
+/*products_category page*/
+.headerCategoriesProducts {
+  height: 38vh!important;
+}
+.colorCategoryProducts ul li a, .colorCategoryProducts h1 a {
+  color: #1f1f1f;
+  font-weight: 600;
+}
+.categoryPresentation {
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  margin: 0 70px 0 70px;
+}
+.categoryPresentation .imageCategory {
+  width: 90%;
+  margin: 0 auto;
+}
+.categoryPresentation .imageCategory img {
+  width: 100%;
+}
+.categoryPresentation .textCategory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.categoryPresentation .textCategory h1 {
+  font-size: 35px;
+  font-family: Adventure;
+  text-transform: uppercase;
+  color: #ff0000;
+  margin: 0 0 40px 0;
+
+}
+.categoryPresentation .textCategory p {
+  font-size: 26px;
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+.notFoundProduct {
+  font-size: 26px;
+  margin: 30px 0 30px 0;
+  text-align: center!important;
+}
+/*Responsive part*/
+@media screen and (max-width: 800px) {
+  .categoryPresentation .imageCategory {
+    width: 100%;
+  }
+  .categoryPresentation .textCategory h1 {
+    font-size: 25px;
+    margin: 0 0 40px 0;
+  }
+  .categoryPresentation .textCategory p {
+    font-size: 18px;
+    margin: 0 0 30px 0;
+  }
+  .categoryArticle, .headerCategories {
+    width: 100%;
+  }
+}
+/*End of products_category page*/
