@@ -64,7 +64,7 @@
                     <br><a class="buttonAboutUs" href="#">Viens jouer avec nous !</a>
                 </p>
                 <div class="imgAboutUs">
-                    <img src="./assets/images/imageMarvelCategories.jpg" alt="">
+                    <img src="./assets/images/team.jpg" alt="Image de l'équipe BrickIt">
                 </div>
             </div>
         </div>

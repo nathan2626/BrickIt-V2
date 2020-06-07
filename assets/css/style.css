@@ -60,6 +60,10 @@ table {
   font-family: "warcraft";
   src: url("../fonts/LifeCraft_Font.ttf");
 }
+@font-face {
+  font-family: "notoSJP";
+  src: url("../fonts/NotoSansJP-Medium.otf");
+}
 * {
   margin: 0;
   padding: 0;
@@ -67,7 +71,7 @@ table {
 }
 
 html {
-  font-family: "Roboto Cn", sans-serif;
+  font-family: "notoSJP", sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -352,7 +356,7 @@ nav {
   max-width: 100vw;
   margin: 0 auto;
   text-align: center;
-  padding: 45px 70px 0 70px;
+  padding: 45px 0 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -533,7 +537,7 @@ nav ul li:hover .submenu > li {
   .buttonVideo {
     padding: 11.2px 19.2px;
     border-radius: 7.2px;
-    font: normal normal bold 20px "Adventure";
+    font: normal normal bold 20px "notoSJP";
     margin-top: 3%;
     margin-right: 3%;
   }
@@ -610,7 +614,7 @@ nav.menu-open {
     /*-20%*/
     border-radius: 7px;
     /*-20%*/
-    font: normal normal bold 25px "Adventure" !important;
+    font: normal normal bold 25px "notoSJP" !important;
     /*-20%*/
     margin-top: 3%;
     margin-right: 3%;
@@ -632,7 +636,7 @@ nav.menu-open {
     /*-20%*/
     border-radius: 7px;
     /*-20%*/
-    font: normal normal bold 20px "Adventure" !important;
+    font: normal normal bold 20px "notoSJP" !important;
     /*-20%*/
     margin-top: 3%;
     margin-right: 3%;
@@ -654,7 +658,7 @@ nav.menu-open {
     /*-20%*/
     border-radius: 7px;
     /*-20%*/
-    font: normal normal bold 16px "Adventure" !important;
+    font: normal normal bold 16px "notoSJP" !important;
     /*-20%*/
     margin-top: 3%;
     margin-right: 3%;
@@ -676,7 +680,7 @@ nav.menu-open {
     /*-20%*/
     border-radius: 7px;
     /*-20%*/
-    font: normal normal bold 12px "Adventure" !important;
+    font: normal normal bold 12px "notoSJP" !important;
     /*-20%*/
     margin-top: 3%;
     margin-right: 3%;
@@ -727,7 +731,7 @@ nav.menu-open {
 }
 
 .contentVideo .hook h1 span {
-  font-family: Adventure;
+  font-family: notoSJP;
   color: #2ed3fd;
   font-weight: 600;
 }
@@ -762,7 +766,7 @@ nav.menu-open {
   -moz-box-shadow: #2ed3fd 0 0 40px 0;
   box-shadow: #2ed3fd 0 0 40px 0;
   text-shadow: #0c3742 1px 1px 1px;
-  font: normal normal bold 25px "Adventure";
+  font: normal normal bold 25px "notoSJP";
   color: #ffffff;
   text-decoration: none;
   margin-top: 3%;
@@ -835,7 +839,7 @@ nav.menu-open {
 .spanAboutUs {
   font-size: 28px !important;
   color: #FF0000;
-  font-family: "Roboto Cn", sans-serif !important;
+  font-family: "notoSJP", sans-serif !important;
   font-weight: 500;
 }
 
@@ -854,7 +858,7 @@ nav.menu-open {
   -moz-box-shadow: #2ed3fd 0 0 40px 0;
   box-shadow: #2ed3fd 0 0 40px 0;
   text-shadow: #0c3742 1px 1px 1px;
-  font: normal normal bold 25px "Adventure";
+  font: normal normal bold 25px "notoSJP";
   color: #ffffff;
   text-decoration: none;
 }
@@ -977,7 +981,7 @@ nav.menu-open {
   display: flex;
   justify-content: center;
   font-size: 35px;
-  font-family: Adventure;
+  font-family: notoSJP;
   text-transform: uppercase;
   padding-top: 5%;
   color: #2ed3fd;
@@ -1560,7 +1564,7 @@ footer > p, .textFooter > h1 {
 
 .categoryPresentation .textCategory h1 {
   font-size: 35px;
-  font-family: Adventure;
+  font-family: notoSJP;
   text-transform: uppercase;
   color: #ff0000;
   margin: 0 0 40px 0;
@@ -1632,7 +1636,7 @@ footer > p, .textFooter > h1 {
 
 .informationProduct .contentProduct h1 {
   font-size: 24px;
-  font-family: Adventure;
+  font-family: notoSJP;
   text-transform: uppercase;
   color: #FF0000;
   margin: 0 auto;
@@ -1683,7 +1687,7 @@ footer > p, .textFooter > h1 {
   -moz-box-shadow: #d9e2ff 0 0 40px 0;
   box-shadow: #d9e2ff 0 0 40px 0;
   text-shadow: #5b5e73 1px 1px 1px;
-  font: normal normal bold 18px arial;
+  font: normal normal bold 18px notoSJP;
   color: #ffffff;
   text-decoration: none;
 }

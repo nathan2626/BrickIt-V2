@@ -10,13 +10,17 @@
     font-family: "warcraft";
     src: url('../fonts/LifeCraft_Font.ttf');
 }
+@font-face {
+    font-family: "notoSJP";
+    src: url('../fonts/NotoSansJP-Medium.otf');
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 html{
-     font-family: "Roboto Cn", sans-serif;
+     font-family: "notoSJP", sans-serif;
      scroll-behavior: smooth;
  }
 a{
