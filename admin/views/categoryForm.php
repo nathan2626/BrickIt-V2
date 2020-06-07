@@ -19,7 +19,9 @@
             <label for="image">Image :</label>
             <input  type="file" name="image" id="image"/>
             <?php if(isset($category) && $category['image'] != null): ?>
-                <img src="../assets/images/category/<?= $category['image'] ?>" alt="<?= $category['name'] ?>">
+                <div style="width: 300px;" >
+                    <img style="width: 100%;" src="../assets/images/category/<?= $category['image'] ?>" alt="<?= $category['name'] ?>">
+                </div>
             <?php endif; ?>
 
             <label for="is_activate">Activé</label>

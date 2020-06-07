@@ -84,56 +84,28 @@
         </section>
     </article>
     <article class="productsCategory">
-        <h1 class="titleRandom">Produits qui peut vous interesser</h1>
+        <h1>Nos produits</h1>
         <div class="childProductsCategory">
-            <div class="sub-item introImage">
-                <a href="">
-                    <img src="./assets/images/imageMarvelCategories.jpg" alt="">
-                    <div class="overlay">
-                        <h1>Star Wars</h1>
-                        <div class="separator separatorProductsCategory"></div>
-                        <div class="price">
-                            <h2>19.99$ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
-                        </div>
+            <?php if(sizeof($categoryProducts) > 0): //Autrement dit, s'il y a un ou plusieurs produits?>
+                <?php foreach($categoryProducts as $categoryProduct): ?>
+                    <div class="sub-item introImage">
+                        <a href="index.php?p=products&action=single&id=<?= $categoryProduct['id']; ?>">
+                            <div class="imgResp" style="width: 580px;">
+                                <img src="./assets/images/category/<?= $categoryProduct['image']; ?>" alt="Image du produit : <?= htmlentities($categoryProduct['name']); ?>">
+                            </div>
+                            <div class="overlay">
+                                <h1><?= htmlentities($categoryProduct['name']); ?></h1>
+                                <div class="separator separatorProductsCategory"></div>
+                                <div class="price">
+                                    <h2><?= htmlentities($categoryProduct['price']); ?>€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="sub-item introImage">
-                <a href="">
-                    <img src="./assets/images/imageMarvelCategories.jpg" alt="">
-                    <div class="overlay">
-                        <h1>Star Wars</h1>
-                        <div class="separator separatorProductsCategory"></div>
-                        <div class="price">
-                            <h2>19.99$ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="sub-item introImage">
-                <a href="">
-                    <img src="./assets/images/imageMarvelCategories.jpg" alt="">
-                    <div class="overlay">
-                        <h1>Star Wars</h1>
-                        <div class="separator separatorProductsCategory"></div>
-                        <div class="price">
-                            <h2>19.99$ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="sub-item introImage">
-                <a href="">
-                    <img src="./assets/images/imageMarvelCategories.jpg" alt="">
-                    <div class="overlay">
-                        <h1>Star Wars</h1>
-                        <div class="separator separatorProductsCategory"></div>
-                        <div class="price">
-                            <h2>19.99$ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p class="notFoundProduct">Pas encore de produits pour cette catégorie</p>
+            <?php endif; ?>
         </div>
     </article>
 </main>

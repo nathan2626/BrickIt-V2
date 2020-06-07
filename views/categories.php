@@ -18,7 +18,7 @@
                 </video>
                 <ul class="navCategories">
                     <?php foreach ($categoriesNotActivates as $categoryNotActivate): ?>
-                    <li onclick="videoUrl('./assets/vendors/lotr.mp4')"><img src="./assets/images/imageLOTRCategories.jpg" alt="Image correspondant à la video de : <?= $categoryNotActivate['name'] ?>"></li>
+                    <li onclick="videoUrl('./assets/vendors/lotr.mp4')"><img src="./assets/images/category/<?= $categoryNotActivate['image'] ?>" alt="Image correspondant à la video de : <?= $categoryNotActivate['name'] ?>"></li>
 <!--                    <li onclick="videoUrl('assets/vendors/Lego.mp4')"><img src="./assets/images/imageMinionCategories.jpg"></li>-->
 <!--                    <li onclick="videoUrl('assets/vendors/Lego.mp4')"><img src="./assets/images/imageMarvelCategories.jpg"></li>-->
 <!--                    <li onclick="videoUrl('assets/vendors/Lego.mp4')"><img src="./assets/images/imageWarcraftCategories.jpg"></li>-->
@@ -37,16 +37,16 @@
         <div class="titleCategories">
             <h1>Catégories</h1>
         </div>
-        <div class="section-one">
-            <?php foreach ($categories as $category): ?>
-                <div class="slide">
-                    <div class="content">
-                        <h2><?= htmlentities($category['name']); ?></h2>
-                        <p><?= htmlentities($category['description']); ?></p>
+            <div class="section-one">
+                <?php foreach ($categories as $category): ?>
+                    <div class="slide"  style="background-image: url('./assets/images/category/<?=$category['image'];?>');   background-position: center;">
+                        <div class="content">
+                            <h2><?= htmlentities($category['name']); ?></h2>
+                            <p style="margin-top: 10px"><?= htmlentities($category['description']); ?></p>
+                        </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
+                <?php endforeach; ?>
+            </div>
     </article>
 </main>
 

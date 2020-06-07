@@ -56,6 +56,14 @@
                 <option value="1" <?php if (!isset($product['is_best']) || $product['is_best'] == 1) :?>selected="selected" <?php endif; ?>>Oui</option>
             </select>
 
+            <label for="image">Image :</label>
+            <input  type="file" name="image" id="image"/>
+            <?php if(isset($product) && $product['image'] != null): ?>
+                <div style="width: 300px;" >
+                    <img style="width: 100%;" src="../assets/images/product/<?= $product['image'] ?>" alt="<?= $product['name'] ?>">
+                </div>
+            <?php endif; ?>
+
             <a class="imagesProductDetails" type="button" href="productImages.php">Images</a>
 
             <input type="submit" value="Enregistrer" />

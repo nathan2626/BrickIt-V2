@@ -210,7 +210,7 @@
   font-size: 16px;
 }
 .sub-item img {
-  width: 580px;
+  width: 100%;
   transition: 0.7s;
 }
 .sub-item img:hover {
@@ -277,11 +277,11 @@
   }
 }
 @media screen and (max-width: 700px) {
-  .sub-item img {
-    width: 493px; /*-15%*/
+  .imgResp {
+    width: 493px!important; /*-15%*/
   }
-  .sub-item img:hover {
-    width: 510px; /*-15%*/
+  .imgResp img:hover {
+    width: 510px!important; /*-15%*/
   }
   .sub-item {
     height: 310px;
@@ -297,22 +297,22 @@
   }
 }
 @media screen and (max-width: 585px) {
-  .sub-item img {
-    width: 394px; /*-20%*/
+  .imgResp {
+    width: 394px!important; /*-20%*/
   }
-  .sub-item img:hover {
-    width: 408px; /*-20%*/
+  .imgResp img:hover {
+    width: 394px!important; /*-20%*/
   }
   .sub-item {
     height: 260px;
   }
 }
 @media screen and (max-width: 485px) {
-  .sub-item img {
-    width: 355px; /*-10%*/
+  .imgResp {
+    width: 355px!important; /*-10%*/
   }
-  .sub-item img:hover {
-    width: 368px; /*-10%*/
+  .imgResp img:hover {
+    width: 355px!important; /*-10%*/
   }
   .overlay {
     line-height: 2;
@@ -323,19 +323,19 @@
   }
 }
 @media screen and (max-width: 485px) {
-  .sub-item img {
-    width: 302px; /*-15%*/
+  .imgResp{
+    width: 302px!important; /*-15%*/
   }
-  .sub-item img:hover {
-    width: 313px; /*-15%*/
+  .imgResp img:hover {
+    width: 302px!important; /*-15%*/
   }
 }
 @media screen and (max-width: 385px) {
-  .sub-item img {
-    width: 257px; /*-15%*/
+  .imgResp {
+    width: 257px!important; /*-15%*/
   }
-  .sub-item img:hover {
-    width: 267px; /*-15%*/
+  .imgResp img:hover {
+    width: 257px!important; /*-15%*/
   }
   .sub-item {
     height: 170px;

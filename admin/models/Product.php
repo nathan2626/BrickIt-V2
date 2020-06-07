@@ -43,27 +43,7 @@ function addProduct($informations)
         $productId = $db->lastInsertId();
 
         if(isset($informations['category_id'])){
-
-            $queryString = "INSERT INTO category_product (product_id, category_id) VALUES";
-            $queryValues = array();
-
-            foreach ($informations['category_id'] as $key => $categoryId) {
-
-                //génération dynamique de $queryString
-                $queryString .= "(:product_id_$key, :category_id_$key)";
-
-                if($key != array_key_last($informations['category_id'])){
-                    $queryString .= ',';
-                }
-                else {
-                    $queryString .= ';';
-                }
-                //génération dynamique de $queryValues
-                $queryValues["product_id_$key"]= $productId;
-                $queryValues["category_id_$key"]= $categoryId;
-            }
-            $query = $db->prepare($queryString);
-            $result = $query->execute($queryValues);
+            insertProductCategoriesLinks($productId, $informations['category_id']);
         }
     }
 
@@ -116,11 +96,11 @@ function updateProduct($productId, $informations)
             //ici virer l'ancien fichier
             $product = getProduct($productId);
             if($product['image'] != null){
-                unlink("./assets/images/product/".$product['image']);
+                unlink("../assets/images/product/".$product['image']);
             }
 
             $new_file_name = $productId . '.' . $my_file_extension ;
-            $destination = 'assets/images/product/' . $new_file_name;
+            $destination = '../assets/images/product/' . $new_file_name;
             $result = move_uploaded_file( $_FILES['image']['tmp_name'], $destination);
 
             $db->query("UPDATE products SET image = '$new_file_name' WHERE id = $productId");
@@ -149,7 +129,7 @@ function insertProductCategoriesLinks($id, $categoryIds)
             $queryString .= ';';
         }
         //génération dynamique de $queryValues
-        $queryValues["product_id__$key"] = $id;
+        $queryValues["product_id_$key"] = $id;
         $queryValues["category_id_$key"] = $categoryId;
     }
     $query = $db->prepare($queryString);

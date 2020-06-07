@@ -19,7 +19,7 @@
                         </ul>
                     </li>
                     <li><a href="index.php?p=game" class="exception">Jeu</a></li>
-                    <li><a href="index.php?p=account">Compte</a></li>
+                    <li><a href="index.php?p=users&action=form">Compte</a></li>
                     <li><a href="index.php?p=contact">Contact</a></li>
                     <li><a href=""><i class="fas fa-search search"></i></a></li>
                     <li><a href=""><i class="fas fa-shopping-bag bag"></i></a></li>
@@ -30,7 +30,7 @@
     <article class="categoryArticle">
         <div class="categoryPresentation">
             <div class="imageCategory">
-                <img src="./assets/images/<?= $category['image'] ?>" alt="Image phare de la catégorie : <?= $category['name'] ?>">
+                <img src="./assets/images/category/<?= $category['image'] ?>" alt="Image phare de la catégorie : <?= $category['name'] ?>">
             </div>
             <div class="textCategory">
                 <h1><?= $category['name'] ?></h1>
@@ -45,8 +45,10 @@
                 <?php foreach($categoryProducts as $categoryProduct): ?>
                     <div class="sub-item introImage">
                         <a href="index.php?p=products&action=single&id=<?= $categoryProduct['id']; ?>">
-                            <img src="./assets/images/imageMarvelCategories.jpg" alt="Image du produit : <?= htmlentities($categoryProduct['name']); ?>">
-                            <div class="overlay">
+                            <div class="imgResp" style="width: 580px;">
+                                <img src="./assets/images/product/<?= $categoryProduct['image']; ?>" alt="Image du produit : <?= htmlentities($categoryProduct['name']); ?>">
+                            </div>
+                                <div class="overlay">
                                 <h1><?= htmlentities($categoryProduct['name']); ?></h1>
                                 <div class="separator separatorProductsCategory"></div>
                                 <div class="price">

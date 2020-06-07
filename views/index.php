@@ -36,7 +36,7 @@
                 <?php require 'partials/navContenair.php'; ?>
             </nav>
         </div>
-        <!--Video and content video-->
+        <!--Video and content video -->
         <article class="fullScreenVideo">
             <div class="screenVideo">
                 <video autoplay id="video" class="homePageVideo">
@@ -75,7 +75,9 @@
             <?php foreach ($bestsProducts as $best): ?>
             <div class="sub-item introImage">
                 <a href="index.php?p=products&action=single&id=<?= $best['id'] ?>">
-                    <img src="./assets/images/imageMarvelCategories.jpg" alt="Image du produit : <?= $best['name'] ?>">
+                    <div class="imgResp" style="width: 580px;">
+                        <img src="./assets/images/product/<?= $best['image'] ?>" alt="Image du produit : <?= $best['name'] ?>">
+                    </div>
                     <div class="overlay">
                         <h1><?= $best['name'] ?></h1>
                         <div class="separator separatorBestSellers"></div>
@@ -94,7 +96,9 @@
             <?php foreach ($productsNovelties as $novelty): ?>
             <div class="sub-item introImage">
                 <a href="index.php?p=products&action=single&id=<?= $novelty['id'] ?>">
-                    <img src="./assets/images/imageMarvelCategories.jpg" alt="Image du produit : <?= $novelty['name'] ?>">
+                    <div class="imgResp" style="width: 580px;">
+                        <img src="./assets/images/product/<?= $novelty['id'] ?>" alt="Image du produit : <?= $novelty['name'] ?>">
+                    </div>
                     <div class="overlay">
                         <h1><?= $novelty['name'] ?></h1>
                         <div class="separator"></div>

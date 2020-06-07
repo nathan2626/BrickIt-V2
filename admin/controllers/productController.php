@@ -102,7 +102,7 @@ elseif($_GET['action'] == 'edit'){
                 exit;
             }
         }
-        $products = getAllProducts();
+        $categories = getAllCategories();
         $view = 'views/productForm.php';
         $pageTitle = 'Modifier un produit';
         $pageDescription = '';

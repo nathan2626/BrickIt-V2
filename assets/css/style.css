@@ -1047,7 +1047,7 @@ nav.menu-open {
 }
 
 .sub-item img {
-  width: 580px;
+  width: 100%;
   transition: 0.7s;
 }
 
@@ -1126,13 +1126,13 @@ nav.menu-open {
   }
 }
 @media screen and (max-width: 700px) {
-  .sub-item img {
-    width: 493px;
+  .imgResp {
+    width: 493px !important;
     /*-15%*/
   }
 
-  .sub-item img:hover {
-    width: 510px;
+  .imgResp img:hover {
+    width: 510px !important;
     /*-15%*/
   }
 
@@ -1153,13 +1153,13 @@ nav.menu-open {
   }
 }
 @media screen and (max-width: 585px) {
-  .sub-item img {
-    width: 394px;
+  .imgResp {
+    width: 394px !important;
     /*-20%*/
   }
 
-  .sub-item img:hover {
-    width: 408px;
+  .imgResp img:hover {
+    width: 394px !important;
     /*-20%*/
   }
 
@@ -1168,13 +1168,13 @@ nav.menu-open {
   }
 }
 @media screen and (max-width: 485px) {
-  .sub-item img {
-    width: 355px;
+  .imgResp {
+    width: 355px !important;
     /*-10%*/
   }
 
-  .sub-item img:hover {
-    width: 368px;
+  .imgResp img:hover {
+    width: 355px !important;
     /*-10%*/
   }
 
@@ -1188,24 +1188,24 @@ nav.menu-open {
   }
 }
 @media screen and (max-width: 485px) {
-  .sub-item img {
-    width: 302px;
+  .imgResp {
+    width: 302px !important;
     /*-15%*/
   }
 
-  .sub-item img:hover {
-    width: 313px;
+  .imgResp img:hover {
+    width: 302px !important;
     /*-15%*/
   }
 }
 @media screen and (max-width: 385px) {
-  .sub-item img {
-    width: 257px;
+  .imgResp {
+    width: 257px !important;
     /*-15%*/
   }
 
-  .sub-item img:hover {
-    width: 267px;
+  .imgResp img:hover {
+    width: 257px !important;
     /*-15%*/
   }
 
@@ -1463,22 +1463,6 @@ footer > p, .textFooter > h1 {
   border-right: 2px solid white;
   overflow: hidden;
   transition: 0.5s ease-in-out;
-}
-
-.section-one .slide:nth-child(1) {
-  background: url(../images/imageMarvelCategories.jpg) center;
-}
-
-.section-one .slide:nth-child(2) {
-  background: url(../images/imageTest4.jpg) center;
-}
-
-.section-one .slide:nth-child(3) {
-  background: url(../images/imageTest3.jpg) center;
-}
-
-.section-one .slide:nth-child(4) {
-  background: url(../images/imageTest.jpg) center;
 }
 
 /*.section-one .slide:nth-child(1), .section-one .slide:nth-child(2), .section-one .slide:nth-child(3), .section-one .slide:nth-child(4), .section-one .slide {*/

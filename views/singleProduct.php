@@ -15,7 +15,7 @@
     <article class="singleArticle">
         <div class="productPresentation">
             <div class="bigImageProduct">
-                <img src="./assets/images/testElsa.PNG" alt="">
+                <img src="./assets/images/product/<?= $product['image'] ?>" alt="<?= htmlentities($product['name']); ?>">
             </div>
             <div class="informationProduct">
                 <div class="contentProduct">
@@ -26,13 +26,13 @@
                 </div>
                 <div class="imagesProduct">
                     <div class="smallImageProduct">
-                        <img src="./assets/images/imageMarvelCategories.jpg" alt="">
+                        <img src="./assets/images/product/<?= $product['image'] ?>" alt="<?= htmlentities($product['name']); ?>">
                     </div>
                     <div class="smallImageProduct">
-                        <img src="./assets/images/imageMarvelCategories.jpg" alt="">
+                        <img src="./assets/images/product/<?= $product['image'] ?>" alt="<?= htmlentities($product['name']); ?>">
                     </div>
                     <div class="smallImageProduct">
-                        <img src="./assets/images/imageMarvelCategories.jpg" alt="">
+                        <img src="./assets/images/product/<?= $product['image'] ?>" alt="<?= htmlentities($product['name']); ?>">
                     </div>
                 </div>
             </div>
@@ -61,8 +61,10 @@
             ?>
             <div class="sub-item introImage">
                 <a href="">
-                    <img src="./assets/images/imageMarvelCategories.jpg" alt="">
-                    <div class="overlay">
+                    <div class="imgResp" style="width: 580px;">
+                        <img src="./assets/images/product/<?= $selectedProductCategory['image'];?>" alt="<?= $selectedProductCategory['name'];?>">
+                    </div>
+                        <div class="overlay">
                         <h1><?= $selectedProductCategory['name'];?></h1>
                         <div class="separator separatorProductsCategory"></div>
                         <div class="price">
