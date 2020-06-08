@@ -1526,6 +1526,22 @@ footer > p, .textFooter > h1 {
   .titleCategories {
     padding-bottom: 32px;
   }
+
+  .content h2 {
+    font-size: 16px !important;
+    text-align: center !important;
+  }
+
+  .content p {
+    margin-top: 8px !important;
+    text-align: center !important;
+    font-size: 13px !important;
+  }
+
+  .section-one .slide .content {
+    margin: 20px;
+    padding: 15px;
+  }
 }
 /*End of Categorie slide part */
 /*Single category page*/
