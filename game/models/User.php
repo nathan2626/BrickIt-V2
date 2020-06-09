@@ -13,11 +13,12 @@ function getTopScore()
 function getInsertTopScore($data)
 {
     $db = dbConnect();
-    $query = $db->prepare('INSERT INTO game(name, score) VALUES (?,?)');
+    $query = $db->prepare('INSERT INTO game (name, score, user_id) VALUES (?,?,?)');
     $result = $query->execute(
         array(
             $data['name'],
             $data['score'],
+            $data['user_id'],
         ));
     return $result;
 }
@@ -37,11 +38,12 @@ function doesPlayerExist($data){
 
 function updatePlayerInformations($data){
     $db = dbConnect();
-    $query = $db->prepare('UPDATE game SET name = :PacmanUserName, score = :PacmanUserScore WHERE name = :PacmanUserName ');
+    $query = $db->prepare('UPDATE game SET name = :PacmanUserName, score = :PacmanUserScore, user_id = :PacmanUserId WHERE name = :PacmanUserName ');
     $result = $query->execute(
         [
             'PacmanUserName' => $data['name'],
             'PacmanUserScore' => $data['score'],
+            'PacmanUserId' => $data['user_id'],
         ]
     );
 

@@ -56,7 +56,7 @@
                 <option value="1" <?php if (!isset($product['is_best']) || $product['is_best'] == 1) :?>selected="selected" <?php endif; ?>>Oui</option>
             </select>
 
-            <label for="image">Image :</label>
+            <label for="image">Image principal:</label>
             <input  type="file" name="image" id="image"/>
             <?php if(isset($product) && $product['image'] != null): ?>
                 <div style="width: 300px;" >
@@ -64,7 +64,35 @@
                 </div>
             <?php endif; ?>
 
-            <a class="imagesProductDetails" type="button" href="productImages.php">Images</a>
+
+<!--            <article class="addUserArticle">-->
+<!--                <h1>Images du produit</h1>-->
+<!--                <div class="contentUserAdd">-->
+<!---->
+<!--                    <label for="image">Image principal:</label>-->
+<!--                    <input  type="file" name="image" id="image"/>-->
+<!--                    --><?php //if(isset($product) && $product['image'] != null): ?>
+<!--                        <div style="width: 300px;" >-->
+<!--                            <img style="width: 100%;" src="../assets/images/product/--><?//= $product['image'] ?><!--" alt="--><?//= $product['name'] ?><!--">-->
+<!--                        </div>-->
+<!--                    --><?php //endif; ?>
+<!---->
+<!--                    <label for="imagesAddProduct">Images secondaires :</label>-->
+<!--                    <input  type="file" name="imagesAddProduct" id="imagesAddProduct" value="" multiple/>-->
+<!---->
+<!--                    --><?php //foreach ($productsImages as $productImage): ?>
+<!--                        --><?php //if(isset($productsImages) && $productsImages['image'] != null): ?>
+<!--                            <div style="width: 300px;" >-->
+<!--                                <img style="width: 100%;" src="../assets/images/product/--><?//= $productImage['image'] ?><!--" alt="--><?//= $productImage['caption'] ?><!--">-->
+<!--                            </div>-->
+<!--                        --><?php //endif; ?>
+<!--                    --><?php //endforeach; ?>
+
+<!--                </div>-->
+<!--            </article>-->
+
+
+<!--            <a class="imagesProductDetails" type="button" href="index.php?controller=products&action=images&id=--><?//= $product['id'] ?><!--">Images</a>-->
 
             <input type="submit" value="Enregistrer" />
 

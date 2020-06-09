@@ -11,7 +11,7 @@
             <!--                        <li><a href="">Warcraft</a></li>-->
         </ul>
     </li>
-    <li><a href="index.php?p=game" class="exception">Jeu</a></li>
+    <li><a href="./game/index.php" class="exception" target="_blank">Jeu</a></li>
     <li><a href="index.php?p=users&action=form">Compte</a></li>
     <li><a href="index.php?p=contact">Contact</a></li>
     <li><a href=""><i class="fas fa-search search"></i></a></li>

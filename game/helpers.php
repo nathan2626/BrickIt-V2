@@ -9,5 +9,5 @@ function dbConnect()
         die( 'Erreur : ' . $exception->getMessage() );
     }
 
-    return new $db;
+    return $db;
 }

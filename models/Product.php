@@ -81,3 +81,5 @@ function getCategoryProducts($categoryId) { //permet d'avoi tout les produits d'
 
     return $query->fetchAll();
 }
+
+//filtre

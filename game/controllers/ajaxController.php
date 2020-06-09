@@ -35,7 +35,7 @@ else {
                 ];
                 echo json_encode($answer);
             }
-        //Si le nom n'existe pas en DB on insert
+            //Si le nom n'existe pas en DB on insert
         }else{
             $result = getInsertTopScore($data);
             $answer = [

@@ -73,20 +73,20 @@
         <h1>Meilleures ventes</h1>
         <div class="childBestSellers">
             <?php foreach ($bestsProducts as $best): ?>
-            <div class="sub-item introImage">
-                <a href="index.php?p=products&action=single&id=<?= $best['id'] ?>">
-                    <div class="imgResp" style="width: 580px;">
-                        <img src="./assets/images/product/<?= $best['image'] ?>" alt="Image du produit : <?= $best['name'] ?>">
-                    </div>
-                    <div class="overlay">
-                        <h1><?= $best['name'] ?></h1>
-                        <div class="separator separatorBestSellers"></div>
-                        <div class="price">
-                            <h2><?= $best['price'] ?>€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
+                <div class="sub-item introImage">
+                    <a href="index.php?p=products&action=single&id=<?= $best['id'] ?>">
+                        <div class="imgResp" style="width: 580px;">
+                            <img src="./assets/images/product/<?= $best['image'] ?>" alt="Image du produit : <?= $best['name'] ?>">
                         </div>
-                    </div>
-                </a>
-            </div>
+                        <div class="overlay">
+                            <h1><?= $best['name'] ?></h1>
+                            <div class="separator separatorBestSellers"></div>
+                            <div class="price">
+                                <h2><?= $best['price'] ?>€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             <?php endforeach; ?>
         </div>
     </article>
@@ -94,20 +94,20 @@
         <h1>Nouveautés</h1>
         <div class="childNovelties">
             <?php foreach ($productsNovelties as $novelty): ?>
-            <div class="sub-item introImage">
-                <a href="index.php?p=products&action=single&id=<?= $novelty['id'] ?>">
-                    <div class="imgResp" style="width: 580px;">
-                        <img src="./assets/images/product/<?= $novelty['id'] ?>" alt="Image du produit : <?= $novelty['name'] ?>">
-                    </div>
-                    <div class="overlay">
-                        <h1><?= $novelty['name'] ?></h1>
-                        <div class="separator"></div>
-                        <div class="price">
-                            <h2><?= $novelty['price'] ?>€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
+                <div class="sub-item introImage">
+                    <a href="index.php?p=products&action=single&id=<?= $novelty['id'] ?>">
+                        <div class="imgResp" style="width: 580px;">
+                            <img src="./assets/images/product/<?= $novelty['id'] ?>" alt="Image du produit : <?= $novelty['name'] ?>">
                         </div>
-                    </div>
-                </a>
-            </div>
+                        <div class="overlay">
+                            <h1><?= $novelty['name'] ?></h1>
+                            <div class="separator"></div>
+                            <div class="price">
+                                <h2><?= $novelty['price'] ?>€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             <?php endforeach; ?>
         </div>
     </article>

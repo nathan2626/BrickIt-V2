@@ -18,12 +18,12 @@ const container = document.querySelector('.containerGame')
 
 // Variables globales
 const map = document.querySelector('.map')
-const pacMan = document.querySelector('img[src="assets/img/pacman.gif"]')
-const redGhost = document.querySelector('img[src="assets/img/red-ghost.png"]')
-const blueGhost = document.querySelector('img[src="assets/img/blue-ghost.png"]')
-const pinkGhost = document.querySelector('img[src="assets/img/pink-ghost.png"]')
+const pacMan = document.querySelector('img[src="assets/images/game/pacman.gif"]')
+const redGhost = document.querySelector('img[src="assets/images/game/red-ghost.png"]')
+const blueGhost = document.querySelector('img[src="assets/images/game/blue-ghost.png"]')
+const pinkGhost = document.querySelector('img[src="assets/images/game/pink-ghost.png"]')
 const button = document.querySelector('input[type="button"]')
-const form = document.querySelector('.form')
+const form = document.querySelector('.formGame')
 //La div du gameOver que l'on affiche lorsque les conditions du GameOver sont remplise
 const gameOverScreen = document.querySelector('.GameOver')
 
@@ -422,54 +422,54 @@ hulkButton.addEventListener('click', (e) => {
     e.preventDefault()
     playerChoice.style.display = "none"
     container.style.display = "grid"
-    pacMan.src = "assets/img/hulk.gif"
-    redG.src = "assets/img/helicop.png"
-    blueG.src = "assets/img/helicop2.png"
-    pinkG.src = "assets/img/helicop3.png"
+    pacMan.src = "assets/images/game/hulk.gif"
+    redG.src = "assets/images/game/helicop.png"
+    blueG.src = "assets/images/game/helicop2.png"
+    pinkG.src = "assets/images/game/helicop3.png"
 })
 harryButton.addEventListener('click', (e) => {
     e.preventDefault()
     playerChoice.style.display = "none"
     container.style.display = "grid"
-    pacMan.src = "assets/img/harry.gif"
-    redG.src = "assets/img/dementor.png"
-    blueG.src = "assets/img/dementor2.png"
-    pinkG.src = "assets/img/dementor3.png"
+    pacMan.src = "assets/images/game/harry.gif"
+    redG.src = "assets/images/game/dementor.png"
+    blueG.src = "assets/images/game/dementor2.png"
+    pinkG.src = "assets/images/game/dementor3.png"
 })
 mickeyButton.addEventListener('click', (e) => {
     e.preventDefault()
     playerChoice.style.display = "none"
     container.style.display = "grid"
-    pacMan.src = "assets/img/mickey.gif"
-    redG.src = "assets/img/minnie.png"
-    blueG.src = "assets/img/minnie2.png"
-    pinkG.src = "assets/img/minnie3.png"
+    pacMan.src = "assets/images/game/mickey.gif"
+    redG.src = "assets/images/game/minnie.png"
+    blueG.src = "assets/images/game/minnie2.png"
+    pinkG.src = "assets/images/game/minnie3.png"
 })
 americaButton.addEventListener('click', (e) => {
     e.preventDefault()
     playerChoice.style.display = "none"
     container.style.display = "grid"
-    pacMan.src = "assets/img/america.gif"
-    redG.src = "assets/img/redS.png"
-    blueG.src = "assets/img/redS2.png"
-    pinkG.src = "assets/img/redS3.png"
+    pacMan.src = "assets/images/game/america.gif"
+    redG.src = "assets/images/game/redS.png"
+    blueG.src = "assets/images/game/redS2.png"
+    pinkG.src = "assets/images/game/redS3.png"
 })
 wolvButton.addEventListener('click', (e) => {
     e.preventDefault()
     playerChoice.style.display = "none"
     container.style.display = "grid"
-    pacMan.src = "assets/img/wolverine.gif"
-    redG.src = "assets/img/cyber.gif"
-    blueG.src = "assets/img/cyber2.gif"
-    pinkG.src = "assets/img/cyber3.gif"
+    pacMan.src = "assets/images/game/wolverine.gif"
+    redG.src = "assets/images/game/cyber.gif"
+    blueG.src = "assets/images/game/cyber2.gif"
+    pinkG.src = "assets/images/game/cyber3.gif"
 })
 //Partie Ajax
-const url ='index.php?controller=ajax';
+const url ='index.php?p=ajax';
 let posts = [];
-const ul = document.querySelector('ul');
-const titleInput = document.querySelector('[type="text"]');
-const submit = document.querySelector('[type="submit"]');
-const messageArea = document.querySelector('.message');
+const ul = document.querySelector('.ulGame');
+const titleInput = document.querySelector('.text_input');
+const submit = document.querySelector('.submit_input');
+const messageArea = document.querySelector('.messageGame');
 
 window.fetch(url).then(
     // Les fonctions retournent toujours une valeur
@@ -494,38 +494,38 @@ window.fetch(url).then(
 );
 
 submit.addEventListener('click', event => {
-        event.preventDefault() //pour ne pas qu'il recharge la page ESSENTIEL
+    event.preventDefault() //pour ne pas qu'il recharge la page ESSENTIEL
 
-        // récupérer les données du formulaire
-        const name = titleInput.value;
-        const score = scoreUserDataBase;
-        const user_id = 1;
-        titleInput.value = '';
-        scoreUserDataBase = '';
-        fetch('index.php?controller=ajax', {
-            method: 'POST',
-            body: JSON.stringify({
-                name,
-                score,
-                user_id
-            }),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
-            .then(
-                response => response.json()
-            ).then(
-            json => {
-                console.log(json)
+    // récupérer les données du formulaire
+    const name = titleInput.value;
+    const score = scoreUserDataBase;
+    const user_id = 1;
+    titleInput.value = '';
+    scoreUserDataBase = '';
+    fetch('index.php?p=ajax', {
+        method: 'POST',
+        body: JSON.stringify({
+            name,
+            score,
+            user_id
+        }),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+        .then(
+            response => response.json()
+        ).then(
+        json => {
+            console.log(json)
 
-                if (json.error){
-                    messageArea.innerHTML = json.error;
-                } else {
-                    messageArea.innerHTML = json.message;
-                }
+            if (json.error){
+                messageArea.innerHTML = json.error;
+            } else {
+                messageArea.innerHTML = json.message;
             }
-        ).catch(
-            error => console.error(error)
-        )
+        }
+    ).catch(
+        error => console.error(error)
+    )
 })

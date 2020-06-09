@@ -19,7 +19,7 @@ if(isset($_GET['p'])) {
             break;
 
         case 'game' :
-            require 'controllers/gameController.php';
+            require 'controllers/ajaxController.php';
             break;
 
         case 'contact' :

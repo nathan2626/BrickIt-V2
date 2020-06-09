@@ -147,3 +147,20 @@ function deleteProduct($id)
     return $result;
 }
 
+//function getImageProducts($imageId)
+//{
+//    $db = dbConnect();
+//
+//    $query = $db->prepare("
+//    SELECT p.*
+//    FROM products p
+//    INNER JOIN product_images pi
+//    ON p.id = pi.product_id
+//    WHERE pi.image_id  = ?
+//    ");
+//    $query->execute([
+//        $imageId
+//    ]);
+//
+//    return $query->fetchAll();
+//}
