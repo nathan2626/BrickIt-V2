@@ -82,4 +82,161 @@ function getCategoryProducts($categoryId) { //permet d'avoi tout les produits d'
     return $query->fetchAll();
 }
 
-//filtre
+//filters
+
+function getProductsBy30($categoryId)
+{
+
+    $db = dbConnect();
+
+    $query = $db->prepare("
+    SELECT p.* 
+    FROM products p
+    INNER JOIN category_product cp
+    ON p.id = cp.product_id
+    WHERE cp.category_id  = ?
+    && p.is_activate = 1 && price BETWEEN 0 AND 30
+    ");
+    $query->execute([
+        $categoryId
+    ]);
+
+    return $query->fetchAll();
+}
+function getProductsBy60($categoryId)
+{
+
+    $db = dbConnect();
+
+    $query = $db->prepare("
+    SELECT p.* 
+    FROM products p
+    INNER JOIN category_product cp
+    ON p.id = cp.product_id
+    WHERE cp.category_id  = ?
+    && p.is_activate = 1 && price BETWEEN 30 AND 60
+    ");
+    $query->execute([
+        $categoryId
+    ]);
+
+    return $query->fetchAll();
+}
+function getProductsBy90($categoryId)
+{
+
+    $db = dbConnect();
+
+    $query = $db->prepare("
+    SELECT p.* 
+    FROM products p
+    INNER JOIN category_product cp
+    ON p.id = cp.product_id
+    WHERE cp.category_id  = ?
+    && p.is_activate = 1 && price BETWEEN 60 AND 90
+    ");
+    $query->execute([
+        $categoryId
+    ]);
+
+    return $query->fetchAll();
+}
+function getProductsByInfinity($categoryId)
+{
+
+    $db = dbConnect();
+
+    $query = $db->prepare("
+    SELECT p.* 
+    FROM products p
+    INNER JOIN category_product cp
+    ON p.id = cp.product_id
+    WHERE cp.category_id  = ?
+    && p.is_activate = 1 && price BETWEEN 90 AND 1000
+    ");
+    $query->execute([
+        $categoryId
+    ]);
+
+    return $query->fetchAll();
+}
+
+
+
+
+function getProductsBy5Age($categoryId)
+{
+
+    $db = dbConnect();
+
+    $query = $db->prepare("
+    SELECT p.* 
+    FROM products p
+    INNER JOIN category_product cp
+    ON p.id = cp.product_id
+    WHERE cp.category_id  = ?
+    && p.is_activate = 1 && age BETWEEN 0 AND 5
+    ");
+    $query->execute([
+        $categoryId
+    ]);
+
+    return $query->fetchAll();
+}
+function getProductsBy8Age($categoryId)
+{
+
+    $db = dbConnect();
+
+    $query = $db->prepare("
+    SELECT p.* 
+    FROM products p
+    INNER JOIN category_product cp
+    ON p.id = cp.product_id
+    WHERE cp.category_id  = ?
+    && p.is_activate = 1 && age BETWEEN 6 AND 8
+    ");
+    $query->execute([
+        $categoryId
+    ]);
+
+    return $query->fetchAll();
+}
+function getProductsBy11Age($categoryId)
+{
+
+    $db = dbConnect();
+
+    $query = $db->prepare("
+    SELECT p.* 
+    FROM products p
+    INNER JOIN category_product cp
+    ON p.id = cp.product_id
+    WHERE cp.category_id  = ?
+    && p.is_activate = 1 && age BETWEEN 9 AND 11
+    ");
+    $query->execute([
+        $categoryId
+    ]);
+
+    return $query->fetchAll();
+}
+function getProductsByInfinityAge($categoryId)
+{
+
+    $db = dbConnect();
+
+    $query = $db->prepare("
+    SELECT p.* 
+    FROM products p
+    INNER JOIN category_product cp
+    ON p.id = cp.product_id
+    WHERE cp.category_id  = ?
+    && p.is_activate = 1 && age BETWEEN 12 AND 120
+    ");
+    $query->execute([
+        $categoryId
+    ]);
+
+    return $query->fetchAll();
+}

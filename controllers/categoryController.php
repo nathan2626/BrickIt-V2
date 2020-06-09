@@ -27,6 +27,94 @@ if(isset($_GET['action'])) {
 
         break;
 
+        case 'singlePrice30';
+            $categoryProducts = getProductsBy30($_GET['id']);
+            $category = getCategory($_GET['id']);
+            $categories = getAllCategories();
+
+            $pageTitle = "Produits de la catégorie";
+            $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
+            $view = 'views/productsCategory.php';
+
+        break;
+
+        case 'singlePrice60';
+            $categoryProducts = getProductsBy60($_GET['id']);
+            $category = getCategory($_GET['id']);
+            $categories = getAllCategories();
+
+            $pageTitle = "Produits de la catégorie";
+            $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
+            $view = 'views/productsCategory.php';
+
+        break;
+
+        case 'singlePrice90';
+            $categoryProducts = getProductsBy90($_GET['id']);
+            $category = getCategory($_GET['id']);
+            $categories = getAllCategories();
+
+            $pageTitle = "Produits de la catégorie";
+            $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
+            $view = 'views/productsCategory.php';
+
+        break;
+
+        case 'singlePriceInfinity';
+            $categoryProducts = getProductsByInfinity($_GET['id']);
+            $category = getCategory($_GET['id']);
+            $categories = getAllCategories();
+
+            $pageTitle = "Produits de la catégorie";
+            $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
+            $view = 'views/productsCategory.php';
+
+        break;
+
+        case 'singleAge5';
+            $categoryProducts = getProductsBy5Age($_GET['id']);
+            $category = getCategory($_GET['id']);
+            $categories = getAllCategories();
+
+            $pageTitle = "Produits de la catégorie";
+            $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
+            $view = 'views/productsCategory.php';
+
+            break;
+
+        case 'singleAge8';
+            $categoryProducts = getProductsBy8Age($_GET['id']);
+            $category = getCategory($_GET['id']);
+            $categories = getAllCategories();
+
+            $pageTitle = "Produits de la catégorie";
+            $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
+            $view = 'views/productsCategory.php';
+
+        break;
+
+        case 'singleAge11';
+            $categoryProducts = getProductsBy11Age($_GET['id']);
+            $category = getCategory($_GET['id']);
+            $categories = getAllCategories();
+
+            $pageTitle = "Produits de la catégorie";
+            $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
+            $view = 'views/productsCategory.php';
+
+        break;
+
+        case 'singleAgeInfinity';
+            $categoryProducts = getProductsByInfinityAge($_GET['id']);
+            $category = getCategory($_GET['id']);
+            $categories = getAllCategories();
+
+            $pageTitle = "Produits de la catégorie";
+            $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
+            $view = 'views/productsCategory.php';
+
+        break;
+
         default :
             $categories = getAllCategories();
             $categoriesNotActivates = getAllCategoriesNotActivates();

@@ -43,6 +43,35 @@
   margin: 30px 0 30px 0;
   text-align: center!important;
 }
+/*Filters*/
+.filterBy {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 25px;
+  font-style: italic;
+}
+.allFilter {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.filterByPrice, .filterByAge {
+  margin: 15px;
+  font-size: 22px;
+  padding: 10px;
+}
+.allFilter a {
+  color: black;
+  padding: 5px;
+  background-color: #f8f8f8;
+  border: #0f0d0d 1px solid;
+  margin-right: 7px;
+  box-shadow: 10px 5px 5px #f8f8f8;
+  font-size: 18px;
+  border-radius: 8px;}
+
+
 /*Responsive part*/
 @media screen and (max-width: 800px) {
   .categoryPresentation .imageCategory {
