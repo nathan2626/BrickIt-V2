@@ -1,6 +1,6 @@
 /*HomePage part*/
 /*Nav subpart*/
-.toTop {
+.toTopp {
   background: white;
   position: fixed;
   bottom: 16px;
@@ -18,7 +18,7 @@
   pointer-events: none;
   transition: all .4s;
 }
-.toTop.active {
+.toTopp.active {
   bottom:32px;
   pointer-events: auto;
   opacity:1;

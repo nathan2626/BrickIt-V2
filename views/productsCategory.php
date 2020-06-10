@@ -42,21 +42,25 @@
         <h1>Nos produits</h1>
         <h2 class="filterBy">Filtrer par</h2>
         <div class="allFilter">
-            <h2 class="filterByPrice">Prix</h2>
-            <div class="allFilterByPrice">
-                <a href="index.php?p=categories&action=singlePrice30&id=<?= $category['id'] ?>">0-30€</a>
-                <a href="index.php?p=categories&action=singlePrice60&id=<?= $category['id'] ?>">30-60€</a>
-                <a href="index.php?p=categories&action=singlePrice90&id=<?= $category['id'] ?>">60-90€</a>
-                <a href="index.php?p=categories&action=singlePriceInfinity&id=<?= $category['id'] ?>">90€ et +</a>
-                <a href="index.php?p=categories&action=single&id=<?= $category['id'] ?>">Réinitialiser</a>
+            <div class="filterByPriceAll">
+                <h2 class="filterByPrice">Prix</h2>
+                <div class="allFilterByPrice">
+                    <a href="index.php?p=categories&action=singlePrice30&id=<?= $category['id'] ?>">0-30€</a>
+                    <a href="index.php?p=categories&action=singlePrice60&id=<?= $category['id'] ?>">30-60€</a>
+                    <a href="index.php?p=categories&action=singlePrice90&id=<?= $category['id'] ?>">60-90€</a>
+                    <a href="index.php?p=categories&action=singlePriceInfinity&id=<?= $category['id'] ?>">90€ et +</a>
+                    <a href="index.php?p=categories&action=single&id=<?= $category['id'] ?>">Réinitialiser</a>
+                </div>
             </div>
-            <h2 class="filterByAge">Âge</h2>
-            <div class="allFilterByAge">
-                <a href="index.php?p=categories&action=singleAge5&id=<?= $category['id'] ?>">3-5 ans</a>
-                <a href="index.php?p=categories&action=singleAge8&id=<?= $category['id'] ?>">6-8 ans</a>
-                <a href="index.php?p=categories&action=singleAge11&id=<?= $category['id'] ?>">9-11 ans</a>
-                <a href="index.php?p=categories&action=singleAgeInfinity&id=<?= $category['id'] ?>">12 ans et +</a>
-                <a href="index.php?p=categories&action=single&id=<?= $category['id'] ?>">Réinitialiser</a>
+            <div class="filterByAgeAll">
+                <h2 class="filterByAge">Âge</h2>
+                <div class="allFilterByAge">
+                    <a href="index.php?p=categories&action=singleAge5&id=<?= $category['id'] ?>">3-5 ans</a>
+                    <a href="index.php?p=categories&action=singleAge8&id=<?= $category['id'] ?>">6-8 ans</a>
+                    <a href="index.php?p=categories&action=singleAge11&id=<?= $category['id'] ?>">9-11 ans</a>
+                    <a href="index.php?p=categories&action=singleAgeInfinity&id=<?= $category['id'] ?>">12 ans et +</a>
+                    <a href="index.php?p=categories&action=single&id=<?= $category['id'] ?>">Réinitialiser</a>
+                </div>
             </div>
         </div>
 
@@ -80,7 +84,13 @@
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <p class="notFoundProduct">Pas encore de produits pour cette catégorie</p>
+                <?php if(isset($_SESSION['messages'])): ?>
+                    <div class="notFoundProduct">
+                        <?php foreach($_SESSION['messages'] as $message): ?>
+                            <?= $message ?>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
             <?php endif; ?>
         </div>
     </article>

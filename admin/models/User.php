@@ -37,11 +37,12 @@ function addUser($informations)
 {
     $db = dbConnect();
 
-    $query = $db->prepare("INSERT INTO users (first_name, last_name, email, password, is_admin) VALUES( :first_name, :last_name, :email, :password, :is_admin)");
+    $query = $db->prepare("INSERT INTO users (first_name, last_name, email, adress, password, is_admin) VALUES( :first_name, :last_name, :email, :adress, :password, :is_admin)");
     $result = $query->execute([
         'first_name' => $informations['first_name'],
         'last_name' => $informations['last_name'],
         'email' => $informations['email'],
+        'adress' => $informations['adress'],
         'password' => $informations['password'],
         'is_admin' => $informations['is_admin'],
     ]);
@@ -67,11 +68,12 @@ function updateUser($userId, $informations)
 {
     $db = dbConnect();
 
-    $query = $db->prepare("UPDATE users SET first_name = ?, last_name = ?, email = ?, password = ?, is_admin = ? WHERE id = ?");
+    $query = $db->prepare("UPDATE users SET first_name = ?, last_name = ?, email = ?, adress = ?, password = ?, is_admin = ? WHERE id = ?");
     $result = $query->execute([
         $informations['first_name'],
         $informations['last_name'],
         $informations['email'],
+        $informations['adress'],
         $informations['password'],
         $informations['is_admin'],
         $userId

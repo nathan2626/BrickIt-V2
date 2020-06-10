@@ -20,6 +20,7 @@ if(isset($_GET['action'])) {
             $categoryProducts = getCategoryProducts($_GET['id']);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
+            $_SESSION['messages'][] = 'Aucun produits pour cette catégorie !';
 
             $pageTitle = "Produits de la catégorie";
             $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
@@ -31,6 +32,7 @@ if(isset($_GET['action'])) {
             $categoryProducts = getProductsBy30($_GET['id']);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
+            $_SESSION['messages'][] = 'Pas encore de produits pour ce filtre !';
 
             $pageTitle = "Produits de la catégorie";
             $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
@@ -42,6 +44,7 @@ if(isset($_GET['action'])) {
             $categoryProducts = getProductsBy60($_GET['id']);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
+            $_SESSION['messages'][] = 'Pas encore de produits pour ce filtre !';
 
             $pageTitle = "Produits de la catégorie";
             $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
@@ -53,6 +56,7 @@ if(isset($_GET['action'])) {
             $categoryProducts = getProductsBy90($_GET['id']);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
+            $_SESSION['messages'][] = 'Pas encore de produits pour ce filtre !';
 
             $pageTitle = "Produits de la catégorie";
             $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
@@ -64,6 +68,7 @@ if(isset($_GET['action'])) {
             $categoryProducts = getProductsByInfinity($_GET['id']);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
+            $_SESSION['messages'][] = 'Pas encore de produits pour ce filtre !';
 
             $pageTitle = "Produits de la catégorie";
             $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
@@ -75,6 +80,7 @@ if(isset($_GET['action'])) {
             $categoryProducts = getProductsBy5Age($_GET['id']);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
+            $_SESSION['messages'][] = 'Pas encore de produits pour ce filtre !';
 
             $pageTitle = "Produits de la catégorie";
             $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
@@ -86,6 +92,7 @@ if(isset($_GET['action'])) {
             $categoryProducts = getProductsBy8Age($_GET['id']);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
+            $_SESSION['messages'][] = 'Pas encore de produits pour ce filtre !';
 
             $pageTitle = "Produits de la catégorie";
             $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
@@ -97,6 +104,7 @@ if(isset($_GET['action'])) {
             $categoryProducts = getProductsBy11Age($_GET['id']);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
+            $_SESSION['messages'][] = 'Pas encore de produits pour ce filtre !';
 
             $pageTitle = "Produits de la catégorie";
             $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
@@ -108,6 +116,7 @@ if(isset($_GET['action'])) {
             $categoryProducts = getProductsByInfinityAge($_GET['id']);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
+            $_SESSION['messages'][] = 'Pas encore de produits pour ce filtre !';
 
             $pageTitle = "Produits de la catégorie";
             $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";

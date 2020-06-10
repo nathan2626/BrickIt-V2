@@ -203,6 +203,7 @@
 }
 .sub-item {
   margin: 0 auto;
+  margin-bottom: 80px;
 }
 .sub-item a {
   text-decoration: none;
@@ -223,7 +224,7 @@
   text-align: center;
   line-height: 3;
   position: relative;
-  top: -150px;
+  top: -20px;
 }
 .overlay a h1 {
   font-size: 18px;
@@ -316,7 +317,6 @@
   }
   .overlay {
     line-height: 2;
-    top: -75px;
   }
   .sub-item {
     height: 200px;

@@ -19,6 +19,9 @@
             <label for="email">Email :</label>
             <input  type="email" name="email" id="email" value="<?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['email'] : '' ?><?= isset($user) ? $user['email'] : '' ?>"/>
 
+            <label for="adress">Adresse postale :</label>
+            <input  type="adress" name="adress" id="adress" value="<?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['adress'] : '' ?><?= isset($user) ? $user['adress'] : '' ?>"/>
+
             <label for="password">Mot de passe :</label>
             <input  type="password" name="password" id="password" value="<?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['password'] : '' ?><?= isset($user) ? $user['password'] : '' ?>"/>
 

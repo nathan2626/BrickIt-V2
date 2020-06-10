@@ -20,7 +20,12 @@
 .welcomeUnknown h1 {
   color: #2ed3fd;
   font-family: FontWalt;
-  font-size: 35px;
+  font-size: 55px;
+}
+.msgSession {
+  display: flex;
+  justify-content: center;
+  //margin-bottom: -350px;
 }
 .imageUnknown{
   width: 100%;
@@ -49,5 +54,12 @@
   }
   .allUserLoginHistory table td {
     font-size: 12px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .msgSession {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
   }
 }

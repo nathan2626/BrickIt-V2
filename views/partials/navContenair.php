@@ -14,6 +14,12 @@
     <li><a href="./game/index.php" class="exception" target="_blank">Jeu</a></li>
     <li><a href="index.php?p=users&action=form">Compte</a></li>
     <li><a href="index.php?p=contact">Contact</a></li>
+    <?php if(isset($_SESSION['user']) && $_SESSION['user']['is_admin'] == 1): ?>
+        <li><a href="./admin/index.php">Admin</a></li>
+    <?php endif; ?>
+    <?php if(isset($_SESSION['user'])): ?>
+        <li><a href="index.php?p=users&action=disconnect">Déconnexion</a></li>
+    <?php endif; ?>
     <li><a href=""><i class="fas fa-search search"></i></a></li>
     <li><a href=""><i class="fas fa-shopping-bag bag"></i></a></li>
 </ul>

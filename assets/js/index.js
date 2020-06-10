@@ -1,5 +1,5 @@
 //Scroll to top
-const toTop = document.querySelector(".toTop");
+const toTop = document.querySelector(".toTopp");
 
 window.addEventListener("scroll", () => {
     if (window.pageYOffset > 100) {

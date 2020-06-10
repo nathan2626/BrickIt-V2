@@ -14,8 +14,8 @@
             <img src="./assets/images/imageLoader.gif" alt="">
         </div>
         <div class="textLoader">
-            <p>Encore un peu de patience !</p>
-            <p>La magie de Brick'It est en train de s'opérer...</p>
+            <p>Patience !</p>
+            <p>La magie de Brick'It s'opère...</p>
         </div>
         <div class="loader">
             <div class="progress progressLoader">
@@ -60,7 +60,7 @@
                     Bienvenue dans notre mystérieux univers, celui de vos rêves
                     les plus féériques !<br>
                     Nous sommes une entreprise française revendant des jeux de construction de toute gamme.
-                    <span class="spanAboutUs">Notre</span> seul but, réaliser <span class="spanAboutUs">votre</span> rêve !
+                    Notre seul but, réaliser votre rêve !
                     <br><a class="buttonAboutUs" href="#">Viens jouer avec nous !</a>
                 </p>
                 <div class="imgAboutUs">

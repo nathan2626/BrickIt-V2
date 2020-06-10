@@ -312,7 +312,7 @@ body {
 /*Home page*/
 /*HomePage part*/
 /*Nav subpart*/
-.toTop {
+.toTopp {
   background: white;
   position: fixed;
   bottom: 16px;
@@ -331,7 +331,7 @@ body {
   transition: all 0.4s;
 }
 
-.toTop.active {
+.toTopp.active {
   bottom: 32px;
   pointer-events: auto;
   opacity: 1;
@@ -806,6 +806,26 @@ nav.menu-open {
 }
 
 /*End of HomePage part*/
+.trigger {
+  position: fixed;
+  top: 27px;
+  right: 30px;
+  width: 18px;
+  height: 16px;
+  z-index: 1;
+  display: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.trigger:checked + nav > :nth-child(2) {
+  transform: none;
+}
+
+.trigger:checked + nav > :nth-child(2) > .cross {
+  opacity: 1;
+}
+
 /*HomePage scroll part*/
 /*About us subpart*/
 .sub-itemAboutUs {
@@ -1042,6 +1062,7 @@ nav.menu-open {
 
 .sub-item {
   margin: 0 auto;
+  margin-bottom: 80px;
 }
 
 .sub-item a {
@@ -1066,7 +1087,7 @@ nav.menu-open {
   text-align: center;
   line-height: 3;
   position: relative;
-  top: -150px;
+  top: -20px;
 }
 
 .overlay a h1 {
@@ -1184,7 +1205,6 @@ nav.menu-open {
 
   .overlay {
     line-height: 2;
-    top: -75px;
   }
 
   .sub-item {
@@ -1594,8 +1614,8 @@ footer > p, .textFooter > h1 {
 
 .notFoundProduct {
   font-size: 26px;
-  margin: 30px 0 30px 0;
-  text-align: center !important;
+  margin: 0 auto;
+  padding-top: 35px;
 }
 
 /*Filters*/
@@ -1607,10 +1627,10 @@ footer > p, .textFooter > h1 {
 }
 
 .allFilter {
-  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
 
 .filterByPrice, .filterByAge {
@@ -1621,13 +1641,29 @@ footer > p, .textFooter > h1 {
 
 .allFilter a {
   color: black;
-  padding: 5px;
   background-color: #f8f8f8;
-  border: #0f0d0d 1px solid;
-  margin-right: 7px;
+  border: #DFDFDF 1px solid;
   box-shadow: 10px 5px 5px #f8f8f8;
   font-size: 18px;
   border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.allFilter a:hover {
+  color: #f8f8f8;
+  background-color: black;
+  border: #DFDFDF 1px solid;
+}
+
+.filterByAgeAll {
+  margin-left: 100px;
+}
+
+.allFilterByPrice, .allFilterByAge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /*Responsive part*/
@@ -2231,7 +2267,12 @@ footer > p, .textFooter > h1 {
 .welcomeUnknown h1 {
   color: #2ed3fd;
   font-family: FontWalt;
-  font-size: 35px;
+  font-size: 55px;
+}
+
+.msgSession {
+  display: flex;
+  justify-content: center;
 }
 
 .imageUnknown {
@@ -2266,6 +2307,13 @@ footer > p, .textFooter > h1 {
 
   .allUserLoginHistory table td {
     font-size: 12px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .msgSession {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
   }
 }
 /*Cart_user page*/

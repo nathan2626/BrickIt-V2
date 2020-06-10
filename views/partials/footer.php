@@ -24,4 +24,4 @@ je n'aurai pas pu décider quel balise <script> mettre ou ne pas mettre.
     </div>
     <p> Copyright 2019 JOURNO Nathan - Toute représentation interdite</p>
 </footer>
-<a href="#" class="toTop"><i class="fas fa-arrow-circle-up"></i></a>
+<a href="#" class="toTopp"><i class="fas fa-arrow-circle-up"></i></a>

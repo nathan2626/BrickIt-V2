@@ -22,14 +22,16 @@
     <article class="userLogin">
         <section class="welcomeUnknown">
             <h1>
-                <?php if(isset($_SESSION['user'])): ?>
-                    Salut <?= $_SESSION['user']['first_name'] ?>
-                    <a href="index.php?p=users&action=disconnect">déconnexion</a>
+                <?php if(isset($_SESSION['user']) && $_SESSION['user']['is_admin'] == 0): ?>
+                    Bonjour <?= $_SESSION['user']['first_name'] ?> !
+                <?php endif; ?>
+                <?php if(isset($_SESSION['user']) && $_SESSION['user']['is_admin'] == 1): ?>
+                    Revoilà le Boss <?= $_SESSION['user']['first_name'] ?>
+                    <br><p>Va bosser :<br><a href="./admin/index.php">Admin</a></p>
+                    <br>Ou<br>
+                    <br><p>Retourne te reposer :<br><a href="index.php?p=users&action=disconnect">déconnexion</a></p>
                 <?php endif; ?>
             </h1>
-            <div class="imageUnknown">
-                <img src="./assets/images/imageMarvelCategories.jpg" alt="">
-            </div>
         </section>
         <section class="informationUserLogin">
             <h2>Modifications</h2>

@@ -60,23 +60,23 @@
         </article>
         <article class="articleAccountSmart">
             <div class="formSignUp">
-                <form action="index.php?p=users&action=form" method="post">
+                <form action="index.php?p=users&action=signUp" method="post" enctype="multipart/form-data">
                     <h1>S'inscrire</h1>
                     <input type="text" name="firstName" placeholder="Prénom">
                     <input type="text" name="lastName" placeholder="Nom">
                     <input type="text" name="adress" placeholder="Adresse postale">
                     <input type="email" name="email" placeholder="Email">
                     <input type="password" name="password" placeholder="Password">
-                    <button>S'inscrire</button>
+                    <button type="submit">S'inscrire</button>
                 </form>
             </div>
             <div class="formSignIn">
-                <form action="index.php?p=users&action=form" method="post">
+                <form action="index.php?p=users&action=signIn" method="post" enctype="multipart/form-data">
                     <h1>Se connecter</h1>
                     <input type="email" name="email" placeholder="Email">
                     <input type="password" name="password" placeholder="Password">
                     <a href="#">Mot de passe oublié ?</a>
-                    <button>Se connecter</button>
+                    <button type="submit">Se connecter</button>
                 </form>
             </div>
         </article>
