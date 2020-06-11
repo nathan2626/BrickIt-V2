@@ -7,7 +7,7 @@
         </div>
         <div class="overlayNav"></div>
         <div class="containerNav">
-            <nav class="colorCategoryProducts">
+            <nav class="colorAccount">
                 <?php require 'partials/navContenair.php'; ?>
             </nav>
         </div>

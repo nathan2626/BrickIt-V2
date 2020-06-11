@@ -23,21 +23,21 @@ function insertNewUser ()
     $emailExists = verifUseEmail();
 
     if(!$emailExists){
-        $query = $db->prepare('INSERT INTO users (email, password, first_name, last_name, image) VALUES (?, ?, ?, ?, ?)');
+        $query = $db->prepare('INSERT INTO users (email, password, first_name, last_name, adress) VALUES (?, ?, ?, ?, ?)');
         $result = $query->execute(
             [
                 $_POST['email'],
                 hash('md5', $_POST['password']),
                 $_POST['first_name'],
                 $_POST['last_name'],
-                $_POST['image'],
+                $_POST['adress'],
             ]
         );
         $_SESSION['user'] = [
             'first_name' => $_POST['first_name'],
             'last_name' => $_POST['last_name'],
             'email' => $_POST['email'],
-            'image' => $_POST['image'],
+            'adress' => $_POST['adress'],
             'is_admin' => 0,
         ];
 
@@ -66,7 +66,7 @@ function getUserSignIn ()
             'first_name' => $user['first_name'],
             'last_name' => $user['last_name'],
             'email' => $user['email'],
-            'image' => $_POST['image'],
+            'adress' => $_POST['adress'],
             'is_admin' => $user['is_admin'],
         ];
     }
@@ -104,33 +104,15 @@ function updateUser($userId, $informations)
 {
     $db = dbConnect();
 
-    $query = $db->prepare("UPDATE users SET first_name = ?, last_name = ?, email = ?, password = ? WHERE id = ?");
+    $query = $db->prepare("UPDATE users SET first_name = ?, last_name = ?, email = ?, password = ?, adress = ? WHERE id = ?");
     $result = $query->execute([
         $informations['first_name'],
         $informations['last_name'],
         $informations['email'],
         $informations['password'],
+        $informations['adress'],
         $userId
     ]);
-
-    if (!empty($_FILES['image']['tmp_name'])) {
-        $allowed_extensions = array('jpg', 'jpeg', 'gif', 'png', 'JPG', 'JPEG', 'GIF', 'PNG');
-        $my_file_extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-        if (in_array($my_file_extension, $allowed_extensions)) {
-
-            //ici virer l'ancien fichier
-            $user = getUser($userId);
-            if ($user['image'] != null) {
-                unlink("../assets/images/user/" . $user['image']);
-            }
-
-            $new_file_name = $userId . '.' . $my_file_extension;
-            $destination = '../assets/images/user/' . $new_file_name;
-            $result = move_uploaded_file($_FILES['image']['tmp_name'], $destination);
-
-            $db->query("UPDATE users SET image = '$new_file_name' WHERE id = $userId");
-        }
-    }
 
     return $result;
 }

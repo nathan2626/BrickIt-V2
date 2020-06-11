@@ -43,7 +43,7 @@ function addUser($informations)
         'last_name' => $informations['last_name'],
         'email' => $informations['email'],
         'adress' => $informations['adress'],
-        'password' => $informations['password'],
+        'password' => md5($informations['password']),
         'is_admin' => $informations['is_admin'],
     ]);
 
@@ -74,7 +74,7 @@ function updateUser($userId, $informations)
         $informations['last_name'],
         $informations['email'],
         $informations['adress'],
-        $informations['password'],
+        md5($informations['password']),
         $informations['is_admin'],
         $userId
     ]);

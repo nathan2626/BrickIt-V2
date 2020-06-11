@@ -28,7 +28,7 @@
     <header>
         <!--Nav-->
         <div class="menu-toggle" id="hamburger">
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-bars whiteBurger"></i>
         </div>
         <div class="overlayNav"></div>
         <div class="containerNav">
@@ -53,6 +53,37 @@
         </article>
     </header>
     <article class="aboutUs">
+
+
+        <?php
+        $db = dbConnect();
+        $productsSearch = $db->query('SELECT name FROM products ORDER BY price DESC');
+
+        if (isset($_GET['q']) AND !empty($_GET['q'])) {
+            $q = htmlspecialchars($_GET['q']);
+            $productsSearch = $db->query('SELECT name FROM products WHERE name LIKE "%'.$q.'%" ORDER BY price DESC');
+
+        }
+
+        ?>
+        <form action="index.php?p=contact" method="get" enctype="multipart/form-data">
+            <input type="search" name="q">
+            <input type="submit">
+        </form>
+        <?php if($productsSearch->rowCount() > 0){?>
+            <ul>
+                <?php while($a = $productsSearch->fetch()){ ?>
+                    <li><?= $a['name'] ?></li>
+                    <?php
+                }
+                ?>
+            </ul>
+        <?php } else { ?>
+            Aucun résultat
+        <?php }?>
+
+
+
         <h1>Qui-sommes-nous ?</h1>
         <div class="childAboutUs">
             <div class="sub-itemAboutUs">

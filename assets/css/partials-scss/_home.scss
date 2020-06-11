@@ -58,7 +58,7 @@ header{
   margin: 0 auto;
 }
 .fa-bars{
-  color: #26b0d3;
+  color: black;
 }
 .brickIt{
   font-size: 30px;
@@ -171,11 +171,12 @@ nav ul li:hover .submenu > li {
   opacity: 0;
   display: none;
 }
-
+.whiteBurger {
+  color: white!important;
+}
 /*Responsive part*/
 @media screen and (max-width: 1150px) {
   nav{
-    padding-top: 35px;
     font-size: 12px;
   }
   .brickIt{
@@ -208,11 +209,19 @@ nav ul li:hover .submenu > li {
     display: block;
   }
 
-  .overlayNav.menu-open,
+  .overlayNav.menu-open {
+    display: flex;
+    transform: scale(1);
+  }
   nav.menu-open {
     display: flex;
     transform: scale(1);
     opacity: 1;
+    position: fixed;
+    background-color: black;
+    padding: 0 15px 0 15px;
+    margin-left: -21px;
+    z-index: 999;
   }
   nav{
     padding-top: 0;
@@ -227,21 +236,24 @@ nav ul li:hover .submenu > li {
     flex-direction: column;
   }
   nav ul li{
-    margin-top: 5rem;
+    margin-top: 30px;
   }
   nav ul li a{
     margin: 0;
-    font-size: 2rem;
+    font-size: 20px;
   }
   nav ul li:nth-child(1) {
     margin-top: -75px;
   }
   .brickIt {
-    font-size: 5rem;
+    font-size: 25px;
     margin-top: -150px;
   }
   .hook {
     padding-top: 120px;
+  }
+  .submenu {
+    display: none;
   }
 }
 @media screen and (max-width: 800px) {
@@ -416,3 +428,11 @@ nav ul li:hover .submenu > li {
   background-size: 100% 100%;
 }
 /*End of HomePage part*/
+.BrickIt-nav {
+  display: none;
+}
+.introImage {
+   opacity: 0;
+   transform: translateY(20px);
+   transition: .5s all ease-in-out;
+}

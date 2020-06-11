@@ -2,7 +2,7 @@
 const toTop = document.querySelector(".toTopp");
 
 window.addEventListener("scroll", () => {
-    if (window.pageYOffset > 100) {
+    if (window.pageYOffset > 10) {
         toTop.classList.add("active");
     } else {
         toTop.classList.remove("active");
@@ -28,7 +28,7 @@ const init = () => {
         canvas.style.display = 'none';
         videoLoadingPage.play();
         videoLoadingPage.currentTime = 0;
-    }, 10000)
+    }, 100)
 };
 init();
 
@@ -57,9 +57,9 @@ progress();
 let canvas, width, height, ctx;
 let fireworks = [];
 let particles = [];
+canvas = document.getElementById("canvas");
 
 function setup() {
-    canvas = document.getElementById("canvas");
     setSize(canvas);
     ctx = canvas.getContext("2d");
     ctx.fillStyle = "#000";
@@ -193,17 +193,41 @@ function windowResized(){
 
 //End of loading Page
 //Home Page
-// let scrollAppear = () => {
-//     let introImage = document.getElementsByClassName('sub-item introImage');
-//     let introPosition = introImage.getBoundingClientRect().top;
-//     let screenPosition = window.innerHeight / 1.3;
-//
-//     if(introPosition < screenPosition){
-//         introImage.style.opacity = "1";
-//         introImage.style.transform = "translateY(0)";
-//     }
-// };
-// window.addEventListener('scroll', scrollAppear);
+
+
+
+let scrollAppear = () => {
+    let introImages = document.getElementsByClassName('sub-item introImage');
+
+    console.log(introImages);
+
+    // introImages.forEach(introImage => {
+    //     let introPosition = introImage.getBoundingClientRect().top;
+    //     let screenPosition = window.innerHeight / 1.3;
+    //
+    //     if(introPosition < screenPosition){
+    //         introImage.style.opacity = "1";
+    //         introImage.style.transform = "translateY(0)";
+    //     }
+    // })
+
+    for (const introImage of introImages){
+        let introPosition = introImage.getBoundingClientRect().top;
+            let screenPosition = window.innerHeight / 1.3;
+
+            if(introPosition < screenPosition){
+                introImage.style.opacity = "1";
+                introImage.style.transform = "translateY(0)";
+            }
+    }
+};
+window.addEventListener('scroll', scrollAppear);
+
+
+
+
+
+
 
 
 //Nav hamburger
@@ -231,5 +255,20 @@ open.addEventListener("click", function(){
         changeIcon = true;
     }
 });
+
+//Nav burger
+// const burger = document.getElementById('burger');
+// const menu = document.querySelector('.menuNavBurger');
+// const pictoBurger = document.querySelector('.burger-picto');
+// const active = document.querySelector('.activeNavBurger');
+//
+// burger.addEventListener('click', e => { //bonus
+//     e.preventDefault() //recherge pas la page
+//     menu.classList.toggle('activeNavBurger');
+// });
+//
+// if (typeof active !== 'undefined') {
+//     pictoBurger.style.paddingBottom = "2px" //for hover (color orange)
+// }
 
 

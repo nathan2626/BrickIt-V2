@@ -26,7 +26,7 @@
 <div class="containerGame">
     <div class="Game_Column">
         <div>
-            <input class="buttonGame" type="button" value="Lancer le jeu !" class="btnGame ">
+            <input type="button" value="Lancer le jeu !" class="btnGame buttonGame">
         </div>
         <div class="map">
             <img src="assets/images/game/pacman.gif" alt="Pacman">
@@ -55,7 +55,7 @@
             <form>
                 <div class="scoreDiv"><p>Votre score final est de : <span class="spanGame" id="scoreUserDataBase"></span></p></div>
                 <div class="centerNameSubmit">
-                    <input type="text" placeholder="Entrez un pseudo (3 charactères min)" size="31%" class="text_input"autofocus required minlength="3" maxlength="10">
+                    <input type="text" size="31%" class="text_input"autofocus required minlength="3" maxlength="10">
                     <input type="submit" class="submit_input" value="Enregistrer">
                 </div>
             </form>

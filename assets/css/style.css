@@ -378,7 +378,7 @@ header {
 }
 
 .fa-bars {
-  color: #26b0d3;
+  color: black;
 }
 
 .brickIt {
@@ -514,10 +514,13 @@ nav ul li:hover .submenu > li {
   display: none;
 }
 
+.whiteBurger {
+  color: white !important;
+}
+
 /*Responsive part*/
 @media screen and (max-width: 1150px) {
   nav {
-    padding-top: 35px;
     font-size: 12px;
   }
 
@@ -555,11 +558,20 @@ nav ul li:hover .submenu > li {
     display: block;
   }
 
-  .overlayNav.menu-open,
-nav.menu-open {
+  .overlayNav.menu-open {
+    display: flex;
+    transform: scale(1);
+  }
+
+  nav.menu-open {
     display: flex;
     transform: scale(1);
     opacity: 1;
+    position: fixed;
+    background-color: black;
+    padding: 0 15px 0 15px;
+    margin-left: -21px;
+    z-index: 999;
   }
 
   nav {
@@ -577,12 +589,12 @@ nav.menu-open {
   }
 
   nav ul li {
-    margin-top: 5rem;
+    margin-top: 30px;
   }
 
   nav ul li a {
     margin: 0;
-    font-size: 2rem;
+    font-size: 20px;
   }
 
   nav ul li:nth-child(1) {
@@ -590,12 +602,16 @@ nav.menu-open {
   }
 
   .brickIt {
-    font-size: 5rem;
+    font-size: 25px;
     margin-top: -150px;
   }
 
   .hook {
     padding-top: 120px;
+  }
+
+  .submenu {
+    display: none;
   }
 }
 @media screen and (max-width: 800px) {
@@ -806,24 +822,14 @@ nav.menu-open {
 }
 
 /*End of HomePage part*/
-.trigger {
-  position: fixed;
-  top: 27px;
-  right: 30px;
-  width: 18px;
-  height: 16px;
-  z-index: 1;
+.BrickIt-nav {
   display: none;
+}
+
+.introImage {
   opacity: 0;
-  cursor: pointer;
-}
-
-.trigger:checked + nav > :nth-child(2) {
-  transform: none;
-}
-
-.trigger:checked + nav > :nth-child(2) > .cross {
-  opacity: 1;
+  transform: translateY(20px);
+  transition: 0.5s all ease-in-out;
 }
 
 /*HomePage scroll part*/
@@ -1571,7 +1577,11 @@ footer > p, .textFooter > h1 {
 }
 
 .colorCategoryProducts ul li a, .colorCategoryProducts h1 a {
-  color: #1f1f1f;
+  font-weight: 600;
+}
+
+.colorAccount ul li a, .colorAccount h1 a {
+  color: black;
   font-weight: 600;
 }
 

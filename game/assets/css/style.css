@@ -16,12 +16,10 @@ body {
 }
 
 .Info_Column h2, .Classement_Column h2 {
-  font-family: PacFont;
   color: #FF1A0B;
 }
 
 .Info_Column h3 {
-  font-family: PacFont;
   color: #00D4E0;
 }
 
@@ -30,18 +28,23 @@ body {
 }
 
 .text_input {
-  background-color: #fff;
+  background: linear-gradient(150deg, rgba(0,22,7,1) 6%, rgba(7,4,232,1) 75%, rgba(29,10,99,1) 94%);
   border: none;
   padding: 5px;
   font-size: 15px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
 }
 
 .submit_input {
-  background: linear-gradient(#05ff2e, #02c01c);
-  border: none;
-  padding: 5px;
-  font-size: 15px;
+  background: rgb(0,22,7);
+  background: linear-gradient(150deg, rgba(0,22,7,1) 6%, rgba(7,4,232,1) 75%, rgba(29,10,99,1) 94%);  border: none;
+  padding: 11px;
+  font-size: 18px;
+  border-radius: 8px;
   color: #fff;
+  font-weight: 600;
 }
 
 .scoreDiv {
@@ -292,6 +295,8 @@ img[src="assets/images/game/background.svg"] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: rgb(0,22,7);
+  background: linear-gradient(150deg, rgba(0,22,7,1) 6%, rgba(7,4,232,1) 75%, rgba(29,10,99,1) 94%);
 }
 .charactersChoice {
   display: flex;

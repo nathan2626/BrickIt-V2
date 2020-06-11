@@ -1,6 +1,5 @@
 <body>
 <header class="headerCategories headerCategoriesProducts">
-    <!--Nav-->
     <div class="menu-toggle" id="hamburger">
         <i class="fas fa-bars"></i>
     </div>
@@ -36,13 +35,24 @@
         <section class="informationUserLogin">
             <h2>Modifications</h2>
             <div class="formRegister">
-                <form action="">
-                    <input type="text" name="first_name" placeholder="Prénom">
-                    <input type="text" name="last_name" placeholder="Nom">
-                    <input type="text" name="adress" placeholder="Adresse postale">
-                    <input type="email" name="email" placeholder="Email">
-                    <input type="password" name="password" placeholder="Password">
-                    <button type="submit">Enregistrer</button>
+                <form action="index.php?p=users&action=edit" method="post" enctype="multipart/form-data">
+                    <label for="first_name">Prénom :</label>
+                    <input  type="text" name="first_name" id="first_name" value="<?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['first_name'] : '' ?><?= isset($_SESSION['user']) ? $_SESSION['user']['first_name'] : '' ?>"/>
+
+                    <label for="last_name">Nom :</label>
+                    <input  type="text" name="last_name" id="last_name" value="<?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['last_name'] : '' ?><?= isset($_SESSION['user']) ? $_SESSION['user']['last_name'] : '' ?>"/>
+
+                    <label for="email">Email :</label>
+                    <input  type="email" name="email" id="email" value="<?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['email'] : '' ?><?= isset($_SESSION['user']) ? $_SESSION['user']['email'] : '' ?>"/>
+
+                    <label for="adress">Adresse postale :</label>
+                    <input  type="text" name="adress" id="adress" value="<?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['adress'] : '' ?><?= isset($_SESSION['user']) ? $_SESSION['user']['adress'] : '' ?>"/>
+
+                    <label for="password">Mot de passe :</label>
+                    <input  type="password" name="password" id="password" value="<?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['password'] : '' ?><?= isset($_SESSION['user']) ? $_SESSION['user']['password'] : '' ?>"/>
+
+                    <input type="submit" value="Enregistrer" />
+
                 </form>
             </div>
         </section>

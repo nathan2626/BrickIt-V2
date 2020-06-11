@@ -1,3 +1,4 @@
+<?php if(!isset($_SESSION['user'])): ?>
 <body>
     <header class="headerCategories headerCategoriesProducts">
     <!--Nav-->
@@ -6,7 +7,7 @@
     </div>
     <div class="overlayNav"></div>
     <div class="containerNav">
-        <nav class="colorCategoryProducts">
+        <nav class="colorAccount">
             <?php require 'partials/navContenair.php'; ?>
         </nav>
     </div>
@@ -18,7 +19,6 @@
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
-    <?php if(!isset($_SESSION['user'])): ?>
     <main>
         <article class="articleAccount">
             <div class="containerAccount" id="containerAccount">
@@ -81,12 +81,9 @@
             </div>
         </article>
     </main>
-    <?php else : ?>
-        <?php require 'views/userLogin.php'; ?>
-    <?php endif; ?>
+
 
 <?php require 'partials/footer.php'; ?>
-
 <script type="text/javascript">
         //Account Sign In and Sign Up
         const signUpButton = document.getElementById('signUp');
@@ -125,5 +122,7 @@
                 changeIcon = true;
             }
         });
-
 </script>
+<?php else : ?>
+    <?php require 'views/userLogin.php'; ?>
+<?php endif; ?>
