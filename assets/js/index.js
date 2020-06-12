@@ -192,10 +192,9 @@ function windowResized(){
 }
 
 //End of loading Page
-//Home Page
 
 
-
+//Home Page scrolling products
 let scrollAppear = () => {
     let introImages = document.getElementsByClassName('sub-item introImage');
 
@@ -257,18 +256,51 @@ open.addEventListener("click", function(){
 });
 
 //Nav burger
-// const burger = document.getElementById('burger');
-// const menu = document.querySelector('.menuNavBurger');
-// const pictoBurger = document.querySelector('.burger-picto');
-// const active = document.querySelector('.activeNavBurger');
-//
-// burger.addEventListener('click', e => { //bonus
-//     e.preventDefault() //recherge pas la page
-//     menu.classList.toggle('activeNavBurger');
-// });
-//
-// if (typeof active !== 'undefined') {
-//     pictoBurger.style.paddingBottom = "2px" //for hover (color orange)
-// }
+const searchJsNav = document.querySelector('.searchJsNav');
+const liHOpen1 = document.querySelector('.liHOpen1');
+const liHOpen2 = document.querySelector('.liHOpen2');
+const liHOpen3 = document.querySelector('.liHOpen3');
+const liHOpen4 = document.querySelector('.liHOpen4');
+const liHOpen5 = document.querySelector('.liHOpen5');
+const liHOpen6 = document.querySelector('.liHOpen6');
+const liHOpen7 = document.querySelector('.liHOpen7');
+const liHOpen8 = document.querySelector('.liHOpen8');
+const activeSh = document.querySelector('.searchActive');
+
+searchJsNav.addEventListener('mouseover', e => { //bonus
+    e.preventDefault() //recherge pas la page
+    //     e.preventDefault() //recherge pas la page
+    // menu.classList.toggle('activeNavBurger');
+    searchJsNav.classList.toggle("searchActive");
+    if (searchJsNav.classList.contains("searchActive")) {
+        liHOpen1.style.display = "none";
+        liHOpen2.style.display = "none";
+        liHOpen3.style.display = "none";
+        liHOpen4.style.display = "none";
+        liHOpen5.style.display = "none";
+        liHOpen6.style.display = "none";
+        liHOpen7.style.display = "none";
+        liHOpen8.style.display = "none";
+    } else {
+        liHOpen1.style.display = "block";
+        liHOpen1.style.animationDelay = "0s";
+        liHOpen2.style.display = "block";
+        liHOpen2.style.animationDelay = "0s";
+        liHOpen3.style.display = "block";
+        liHOpen3.style.animationDelay = "0s";
+        liHOpen4.style.display = "block";
+        liHOpen4.style.animationDelay = "0s";
+        liHOpen5.style.display = "block";
+        liHOpen5.style.animationDelay = "0s";
+        liHOpen6.style.display = "block";
+        liHOpen6.style.animationDelay = "0s";
+        liHOpen7.style.display = "block";
+        liHOpen7.style.animationDelay = "0s";
+        liHOpen8.style.display = "block";
+        liHOpen8.style.animationDelay = "0s";
+    }
+});
+
+
 
 
