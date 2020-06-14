@@ -1868,6 +1868,15 @@ footer > p, .textFooter > h1 {
   background-size: 100% 100%;
 }
 
+.allCommentsPart {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 90px;
+}
+
 /*Responsive part*/
 @media screen and (max-width: 1250px) {
   .productPresentation {
