@@ -9,25 +9,6 @@ function getAllProducts() {
     return $products;
 }
 
-function getProducts($categoryId = null) {
-
-
-    $db = dbConnect();
-
-    if ($categoryId != false) {
-
-        $query = $db->prepare('SELECT * FROM products WHERE category_id = ?');
-        $result = $query->execute([$categoryId]);
-        $products = $query->fetchAll();
-
-    } else {
-
-        $query = $db->query('SELECT * FROM products');
-        $products = $query->fetchAll();
-    }
-    return $products;
-}
-
 function getProduct($id)
 {
     $db = dbConnect();
@@ -239,4 +220,29 @@ function getProductsByInfinityAge($categoryId)
     ]);
 
     return $query->fetchAll();
+}
+
+//Search bar part
+function getSearchProducts()
+{
+    $db = dbConnect();
+    $query = $db->prepare('SELECT name FROM products ORDER BY price DESC');
+    $query->execute();
+
+    $productsSearch = $query->fetchAll();
+
+    return $productsSearch;
+}
+function foundSearchProducts($nameProduct)
+{
+    $db = dbConnect();
+
+    $productsSearch = getSearchProducts();
+
+    $query = $db->prepare('SELECT name FROM products WHERE name LIKE "%'.$nameProduct.'%" ORDER BY price DESC');
+    $query->execute([$nameProduct]);
+
+    $productsSearch = $query->fetchAll();
+
+    return $productsSearch;
 }

@@ -22,8 +22,8 @@
     <?php endif; ?>
     <li class=""><a href=""><i class="fas fa-search search"></i></a></li>
     <li class="liHOpen8"><a href=""><i class="fas fa-shopping-bag bag"></i></a></li>
-    <form class="searchJsNav search-box" action="index.php?p=contact" method="get" enctype="multipart/form-data">
-        <input type="search" name="q" class="search-text" placeholder="Rechercher un prduit">
-        <a class="search-btn" type="submit"><i class="fas fa-search"></i></a>
+    <form class="searchJsNav search-box" action="" method="get" enctype="multipart/form-data">
+        <input type="search" name="nameProduct" class="search-text" placeholder="Rechercher un prduit">
+        <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
     </form>
 </ul>

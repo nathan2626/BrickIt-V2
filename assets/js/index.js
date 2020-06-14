@@ -28,7 +28,7 @@ const init = () => {
         canvas.style.display = 'none';
         videoLoadingPage.play();
         videoLoadingPage.currentTime = 0;
-    }, 100)
+    }, 1000)
 };
 init();
 
@@ -37,7 +37,7 @@ init();
 let progress = () => { //for the progress bar
     let progress = document.querySelector('.progressColor');
     let width = 1;
-    let id = setInterval(progressLoader, 100);
+    let id = setInterval(progressLoader, 10);
 
     function progressLoader () {
         if(width >= 100){
