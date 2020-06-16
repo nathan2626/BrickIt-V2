@@ -44,41 +44,76 @@
                 </div>
             </div>
         </div>
-<!--        --><?php
-//        if (isset($_GET['id']) &&  !empty($_GET['id'])) {
-//            $db = dbConnect();
-////            && isset($_SESSION['user']) && $_SESSION['user']['is_admin'] == 0
-//            $productId = htmlspecialchars($_GET['id']);
-//            $username = htmlspecialchars($_SESSION['user']['first_name']);
-//
-//
-//            if (isset($_POST['submit_comment']) ) {
-//                if ($_SESSION['user']['first_name'] == $username) {
-//                    if (isset($_POST['pseudo'], $_POST['comment']) && !empty($_POST['pseudo']) && !empty($_POST['comment'])) {
-//                        $pseudo = htmlspecialchars($_POST['pseudo']);
-//                        $comment = htmlspecialchars($_POST['comment']);
-//                        $notation = htmlspecialchars($_POST['notation']);
-//
-//                        if (strlen($pseudo) < 20 && $notation >= 0 && $notation <= 5) {
-//                            $query = $db->prepare('INSERT INTO comments (comment, pseudo, product_id, username, notation) VALUES (?, ?, ?, ?, ?)');
-//                            $query->execute([$comment, $pseudo, $productId, $username, $notation]);
-//                            $msg = "Votre commentaire a bien été posté !";
-//                        } else {
-//                            $msg = "Le pseudo peut contenir seulement 20 caractères et la note entre 0 et 5 inclus.";
-//                        }
-//
-//                    } else {
-//                        $msg = "Tous les champs doivent être complétés";
-//                    }
-//                } else {
-//                    $msg = "Vous avez déjà posté un commentaire pour ce produit";
-//
-//                }
-//            }
-//            $allComments = $db->prepare('SELECT * FROM comments WHERE product_id = ? ORDER BY id DESC');
-//            $allComments->execute([$productId]);
-//        }
-//        ?>
+        <?php
+        if (isset($_GET['id']) AND !empty($_GET['id'])) {
+
+            $getId = htmlspecialchars($_GET['id']);
+
+
+            if (isset($_POST['submit_comment'])) {
+                if (isset($_POST['pseudo'], $_POST['comment']) AND !empty($_POST['pseudo']) AND !empty($_POST['comment'])){
+                    $comment = htmlspecialchars($_POST['comment']);
+                    $pseudo = htmlspecialchars($_POST['pseudo']);
+                    $product_id = $product['id'];
+                    $username = $_SESSION['user']['first_name'];
+                    $notation = htmlspecialchars($_POST['notation']);
+
+                    if (strlen($pseudo) < 20 && $notation >= 0 && $notation <= 5) {
+                        $db = dbConnect();
+
+                        $query = $db->prepare('INSERT INTO comments (comment, pseudo, product_id, username, notation) VALUES (?, ?, ?, ?, ?)');
+                        $result = $query->execute([$comment, $pseudo, $product_id, $username, $notation]);
+
+                        $msg = 'Commentaire posté';
+                    }
+                    else {
+                        $msg = 'Pseudo < 20 caractères et la note entre 0 et 5';
+                    }
+                }
+                else {
+                    $msg = 'Tout les champs doivent être complétés';
+                }
+            }
+            $db = dbConnect();
+            $query = $db->query('SELECT * FROM comments ORDER BY id DESC');
+            $allComments = $query->fetchAll();
+        }
+
+        ?>
+        <br>
+        <div class="allCommentsPart">
+            <div>
+                <h1>Postez votre commentaire !</h1>
+                <form class="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="pseudo" placeholder="Votre pseudo"> <br>
+                    <input type="number" name="notation" placeholder="Note entre 0 et 5 inclus"> <br>
+                    <textarea name="comment" placeholder="Votre commentaire..."></textarea><br>
+                    <input type="submit" value="Poster" name="submit_comment">
+                </form>
+            </div>
+            <?php if(isset($msg)): ?>
+                <div class="msgSession">
+                    <?= $msg ?>
+                </div>
+            <?php endif; ?>
+            <details>
+                <summary>Commentaires :</summary>
+                <?php if(isset($allComments)): ?>
+                <div>
+                    <?php foreach ($allComments as $comments): ?>
+                        <div>
+                            <p><?= $comments['username'] ?> sous le nom de <?= $comments['pseudo'] ?> a posté ce commentaire et cette note :</p><br>
+                            <p><?= $comments['comment'] ?></p><br>
+                            <p>Et une note de <?= $comments['notation'] ?></p><br><br><br>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <?php else: ?>
+                    <p>Aucun commentaires pour ce produit</p>
+                <?php endif; ?>
+            </details>
+        </div>
+        <br><br><br><br>
         <div class="allCommentsPart">
             <div>
                 <h1>Postez votre commentaire !</h1>
@@ -99,15 +134,15 @@
             <details>
                 <summary>Commentaires :</summary>
                 <?php if(isset($allComments)): ?>
-                <div>
-                    <?php foreach ($allComments as $comments): ?>
-                        <div>
-                            <p><?= $comments['username'] ?> sous le nom de <?= $comments['pseudo'] ?> a posté ce commentaire et cette note :</p><br>
-                            <p><?= $comments['comment'] ?></p><br>
-                            <p>Et une note de <?= $comments['notation'] ?></p><br><br><br>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
+                    <div>
+                        <?php foreach ($allComments as $comments): ?>
+                            <div>
+                                <p><?= $comments['username'] ?> sous le nom de <?= $comments['pseudo'] ?> a posté ce commentaire et cette note :</p><br>
+                                <p><?= $comments['comment'] ?></p><br>
+                                <p>Et une note de <?= $comments['notation'] ?></p><br><br><br>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 <?php else: ?>
                     <p>Aucun commentaires pour ce produit</p>
                 <?php endif; ?>

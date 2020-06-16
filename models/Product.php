@@ -133,27 +133,27 @@ function foundSearchProducts($nameProduct)
 }
 
 //Comments part bonus
-function getAllComments()
-{
-    $db = dbConnect();
-    $query = $db->query('SELECT * FROM comments ORDER BY id DESC');
-    $allComments = $query->fetchAll();
-
-    return $allComments;
-}
-function addComment($informations)
-{
-    $db = dbConnect();
-
-    $query = $db->prepare('INSERT INTO comments (comment, pseudo, product_id, username, notation) VALUES (:comment, :pseudo, :product_id, :username, :notation)');
-    $result = $query -> execute(
-        [
-            'comment' => $informations['comment'],
-            'pseudo' => $informations['pseudo'],
-            'product_id' => $informations['product_id'],
-            'username' => $informations['username'],
-            'notation' => $informations['notation'],
-        ]
-    );
-    return  $result;
-}
+//function getAllComments()
+//{
+//    $db = dbConnect();
+//    $query = $db->query('SELECT * FROM comments ORDER BY id DESC');
+//    $allComments = $query->fetchAll();
+//
+//    return $allComments;
+//}
+//function addComment($informations)
+//{
+//    $db = dbConnect();
+//
+//    $query = $db->prepare('INSERT INTO comments (comment, pseudo, product_id, username, notation) VALUES (:comment, :pseudo, :product_id, :username, :notation)');
+//    $result = $query -> execute(
+//        [
+//            'comment' => $informations['comment'],
+//            'pseudo' => $informations['pseudo'],
+//            'product_id' => $informations['product_id'],
+//            'username' => $informations['username'],
+//            'notation' => $informations['notation'],
+//        ]
+//    );
+//    return  $result;
+//}
