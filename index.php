@@ -1,7 +1,9 @@
 <?php
 
 session_start();
-
+if (!isset($_SESSION['cart'])){
+    $_SESSION['cart'] = array();
+}
 require ('helpers.php');
 
 if(isset($_GET['p'])) {
@@ -26,6 +28,14 @@ if(isset($_GET['p'])) {
             require 'controllers/contactController.php';
             break;
 
+        case 'cart' :
+            require 'controllers/cartUserController.php';
+            break;
+
+        case 'order' :
+            require 'controllers/orderController.php';
+            break;
+
         case 'page404' :
             require 'controllers/page404Controller.php';
             break;
@@ -37,6 +47,7 @@ if(isset($_GET['p'])) {
 else{
     require 'controllers/indexController.php';
 }
+
 require('views/front.php');
 
 if(isset($_SESSION['messages'])){

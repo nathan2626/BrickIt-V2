@@ -74,7 +74,7 @@ if(isset($_GET['action'])) {
 
         case 'edit' :
             if(!empty($_POST)){
-                if(empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['adress'])){
+                if(empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['email']) || empty($_POST['adress'])){
 
                     if(empty($_POST['first_name'])){
                         $_SESSION['messages'][] = 'Le champ Prénom est obligatoire !';
@@ -84,9 +84,6 @@ if(isset($_GET['action'])) {
                     }
                     if(empty($_POST['email'])){
                         $_SESSION['messages'][] = 'Le champ Email est obligatoire !';
-                    }
-                    if(empty($_POST['password'])){
-                        $_SESSION['messages'][] = 'Le champ Mot de passe est obligatoire !';
                     }
                     if(empty($_POST['adress'])){
                         $_SESSION['messages'][] = 'Le champ Adresse postale est obligatoire !';
@@ -99,7 +96,9 @@ if(isset($_GET['action'])) {
                 else {
                     $result = updateUser($_GET['id'], $_POST);
                     if ($result) {
+                        $_SESSION['user']['first_name'] = $_POST['first_name']; //mise a jour de la session
                         $_SESSION['messages'][] = 'Utilisateur mis à jour !';
+
                     } else {
                         $_SESSION['messages'][] = 'Erreur lors de la mise à jour... :(';
                     }
@@ -131,6 +130,8 @@ if(isset($_GET['action'])) {
 
         case 'disconnect' :
             unset($_SESSION['user']);
+            unset($_SESSION['cart']);
+
             $_SESSION['messages'][] = 'Vous êtes déconnecté !';
 
 
@@ -140,6 +141,8 @@ if(isset($_GET['action'])) {
         break;
 
         case 'connect' :
+            $currentUser = getUser($_SESSION['user']['id']);
+
             $view = 'views/userLogin.php';
             $pageTitle = 'Connecté !';
             $pageDescription = '';
@@ -149,13 +152,13 @@ if(isset($_GET['action'])) {
         default :
             $pageTitle = 'Inscription/Connexion';
             $pageDescription = "Inscrivez-vous ou Connectez-vous pour profiter pleinement de l'intégralité de notre site BrickIt";
-            $view = 'views/account.php';
+            $view = 'views/page404.php';
 
     }
 
 } else{
     $pageTitle = 'Inscription/Connexion';
     $pageDescription = "Inscrivez-vous ou Connectez-vous pour profiter pleinement de l'intégralité de notre site BrickIt";
-    $view = 'views/account.php';
+    $view = 'views/page404.php';
 
 }

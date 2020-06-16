@@ -4,7 +4,14 @@ function getAllProducts()
 {
     $db = dbConnect();
 
-    $query = $db->query('SELECT * FROM products');
+    $query = $db->prepare('
+      SELECT p.*, GROUP_CONCAT(c.name SEPARATOR " / ") AS categories
+FROM products p
+JOIN category_product pc ON p.id = pc.product_id
+JOIN categories c ON pc.category_id = c.id
+GROUP BY p.id
+    ');
+    $query->execute();
     $products =  $query->fetchAll();
 
     return $products;
@@ -146,7 +153,24 @@ function deleteProduct($id)
 
     return $result;
 }
+function getCategoryProductLinks() //IMPORTANT
+{
+    $db = dbConnect();
 
+    $query = $db->prepare('
+      SELECT p.*, GROUP_CONCAT(c.name SEPARATOR " / ") AS categories
+FROM products p
+JOIN category_product pc ON p.id = pc.product_id
+JOIN categories c ON pc.category_id = c.id
+GROUP BY p.id
+    ');
+
+    $query->execute();
+
+    $result =  $query->fetch();
+
+    return $result;
+}
 //function getImageProducts($imageId)
 //{
 //    $db = dbConnect();

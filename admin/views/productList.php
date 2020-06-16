@@ -19,7 +19,7 @@
         <tbody>
         <tr>
             <td>#</td>
-            <td>Titre</td>
+            <td>Nom</td>
             <td>Catégorie</td>
             <td>Action</td>
         </tr>
@@ -29,7 +29,7 @@
             <td><?= htmlentities($product['id']); ?></td>
             <td><?= htmlentities($product['name']); ?></td>
             <td>
-<!--                --><?//= $categoryLink['name'];?>
+                <?= htmlentities($product['categories']);?>
             </td>
             <td>
                 <a class="modifProduct" type="button" href="index.php?controller=products&action=edit&id=<?= $product['id'] ?>">Modifier</a>

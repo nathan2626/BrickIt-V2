@@ -6,9 +6,10 @@ require('models/Category.php');
 if(isset($_GET['action'])) {
     switch ($_GET['action']) {
         case 'list' :
-            //    $categoryLink = getCategoryProductLinks();
             $products = getAllProducts();
             $categories = getAllCategories();
+            $productLink = getCategoryProductLinks();
+
             //    $productCategories = getProductCategories();
 
             $view = 'views/productList.php';

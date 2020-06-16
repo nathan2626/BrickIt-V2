@@ -1,0 +1,65 @@
+<?php
+
+require_once 'models/Product.php';
+require_once 'models/Category.php';
+require_once 'models/User.php';
+require_once 'models/Cart.php';
+
+$categories = getAllCategories();
+
+if(isset($_GET['action'])) {
+    switch ($_GET['action']) {
+        case 'new' :
+            //vérifier si user est connecté
+            if(isset($_SESSION['user'])){
+                //récupérer les produits et quantités avec $_SESSION['cart']
+                $newOrder = insertNewOrder();
+                if ($newOrder) {
+                    $_SESSION['messages'][] = 'Commande enregistrée !';
+                } else {
+                    $_SESSION['messages'][] = "Erreur lors de l'enregistrement... :(";
+                }
+
+                header('Location:index.php?p=user&action=connect');
+                exit;
+
+            } else {
+                //sinon rediriger vers inscription/connexion
+                header('Location:index.php?p=user&action=connect');
+                exit;
+            }
+
+        break;
+
+        case 'list' :
+
+
+            $_SESSION['messages'][] = 'Produit ajouté !';
+
+            header('Location:index.php?p=cart&action=display');
+            exit;
+
+        break;
+
+        case 'detail' :
+
+
+            $_SESSION['messages'][] = 'Produit ajouté !';
+
+            header('Location:index.php?p=cart&action=display');
+            exit;
+
+        break;
+
+        default :
+
+            $pageTitle = "Liste de nos catégories";
+            $pageDescription = " ";
+            $view = 'views/page404.php';
+    }
+} else{
+    $pageTitle = "Liste de nos catégories";
+    $pageDescription = "Disney, La Reine Des Neiges, Hrry Potter, Star Wars, et bien d'autre catégories sur BrickIt !";
+    $view = 'views/page404.php';
+
+}

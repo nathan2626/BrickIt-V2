@@ -29,7 +29,9 @@ if(isset($_GET['action'])) {
         break;
 
         case 'singlePrice30';
-            $categoryProducts = getProductsBy30($_GET['id']);
+            $low = 0;
+            $high = 30;
+            $categoryProducts = getProductsByPrice($_GET['id'], $low, $high);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
             $_SESSION['messages'][] = 'Pas encore de produits pour ce filtre !';
@@ -41,7 +43,9 @@ if(isset($_GET['action'])) {
         break;
 
         case 'singlePrice60';
-            $categoryProducts = getProductsBy60($_GET['id']);
+            $low = 31;
+            $high = 60;
+            $categoryProducts = getProductsByPrice($_GET['id'], $low, $high);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
             $_SESSION['messages'][] = 'Pas encore de produits pour ce filtre !';
@@ -53,7 +57,9 @@ if(isset($_GET['action'])) {
         break;
 
         case 'singlePrice90';
-            $categoryProducts = getProductsBy90($_GET['id']);
+            $low = 61;
+            $high = 90;
+            $categoryProducts = getProductsByPrice($_GET['id'], $low, $high);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
             $_SESSION['messages'][] = 'Pas encore de produits pour ce filtre !';
@@ -65,7 +71,9 @@ if(isset($_GET['action'])) {
         break;
 
         case 'singlePriceInfinity';
-            $categoryProducts = getProductsByInfinity($_GET['id']);
+            $low = 91;
+            $high = 999999999;
+            $categoryProducts = getProductsByPrice($_GET['id'], $low, $high);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
             $_SESSION['messages'][] = 'Pas encore de produits pour ce filtre !';
@@ -77,7 +85,9 @@ if(isset($_GET['action'])) {
         break;
 
         case 'singleAge5';
-            $categoryProducts = getProductsBy5Age($_GET['id']);
+            $low = 0;
+            $high = 5;
+            $categoryProducts = getProductsByAge($_GET['id'], $low, $high);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
             $_SESSION['messages'][] = 'Pas encore de produits pour ce filtre !';
@@ -89,7 +99,9 @@ if(isset($_GET['action'])) {
             break;
 
         case 'singleAge8';
-            $categoryProducts = getProductsBy8Age($_GET['id']);
+            $low = 6;
+            $high = 8;
+            $categoryProducts = getProductsByAge($_GET['id'], $low, $high);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
             $_SESSION['messages'][] = 'Pas encore de produits pour ce filtre !';
@@ -101,7 +113,9 @@ if(isset($_GET['action'])) {
         break;
 
         case 'singleAge11';
-            $categoryProducts = getProductsBy11Age($_GET['id']);
+            $low = 9;
+            $high = 11;
+            $categoryProducts = getProductsByAge($_GET['id'], $low, $high);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
             $_SESSION['messages'][] = 'Pas encore de produits pour ce filtre !';
@@ -113,7 +127,9 @@ if(isset($_GET['action'])) {
         break;
 
         case 'singleAgeInfinity';
-            $categoryProducts = getProductsByInfinityAge($_GET['id']);
+            $low = 12;
+            $high = 120;
+            $categoryProducts = getProductsByAge($_GET['id'], $low, $high);
             $category = getCategory($_GET['id']);
             $categories = getAllCategories();
             $_SESSION['messages'][] = 'Pas encore de produits pour ce filtre !';
@@ -130,15 +146,12 @@ if(isset($_GET['action'])) {
 
             $pageTitle = "Liste de nos catégories";
             $pageDescription = "Disney, La Reine Des Neiges, Hrry Potter, Star Wars, et bien d'autre catégories sur BrickIt !";
-            $view = 'views/categories.php';
+            $view = 'views/page404.php';
 
     }
 } else{
     $pageTitle = "Liste de nos catégories";
     $pageDescription = "Disney, La Reine Des Neiges, Hrry Potter, Star Wars, et bien d'autre catégories sur BrickIt !";
-    $view = 'views/categories.php';
-
-    $categories = getAllCategories();
-    $categoriesNotActivates = getAllCategoriesNotActivates();
+    $view = 'views/page404.php';
 
 }

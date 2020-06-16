@@ -7,6 +7,7 @@ if(isset($_GET['action'])) {
     switch ($_GET['action']) {
         case 'list' :
             $categories = getAllCategories();
+
             $view = 'views/categoryList.php';
             $pageTitle = 'Gestion des catégories';
             $pageDescription = '';

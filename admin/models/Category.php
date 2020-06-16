@@ -113,21 +113,3 @@ function getProductCategories($productId)
 
     return $query->fetchAll();
 }
-//function getCategoryProductLinks() //IMPORTANT
-//{
-//    $db = dbConnect();
-//
-//    $query = $db->prepare('
-//      SELECT c.*, GROUP_CONCAT(c.name SEPARATOR " / ") AS categories
-//      FROM categories c
-//      JOIN category_product cp ON c.id = cp.category_id
-//      JOIN products p ON cp.product_id = p.id
-//      GROUP BY c.id
-//    ');
-//
-//    $query->execute();
-//
-//    $result =  $query->fetch();
-//
-//    return $result;
-//}

@@ -52,87 +52,87 @@
             </div>
         </article>
     </header>
-    <?php
-    $db = dbConnect();
-    $query = $db->prepare('SELECT * FROM products ORDER BY price DESC');
-    $query->execute();
-    $productsSearch = $query;
-
-    if (isset($_GET['nameProduct']) AND !empty($_GET['nameProduct'])) {
-        $nameProduct = htmlspecialchars($_GET['nameProduct']);
-        $query = $db->prepare('SELECT * FROM products WHERE name LIKE "%'.$nameProduct.'%" ORDER BY price DESC');
-        $query->execute();
-        $productsSearch = $query;
-    }
-
-    ?>
-    <?php if(!empty($_GET['nameProduct'])): ?>
-        <?php if($productsSearch->rowCount() > 0):?>
-            <article class="bestSellers">
-                <h1>Produits correspondants à "<?= $nameProduct ?>"</h1>
-                <div class="childBestSellers">
-                    <?php while($productSearch = $productsSearch->fetch()): ?>
-                        <div class="sub-item introImage">
-                            <a href="index.php?p=products&action=single&id=<?= $productSearch['id'] ?>">
-                                <div class="imgResp" style="width: 580px;">
-                                    <img src="./assets/images/product/<?= $productSearch['image'] ?>" alt="Image du produit : <?= $productSearch['name'] ?>">
-                                </div>
-                                <div class="overlay">
-                                    <h1><?= $productSearch['name'] ?></h1>
-                                    <div class="separator separatorBestSellers"></div>
-                                    <div class="price">
-                                        <h2><?= $productSearch['price'] ?>€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    <?php endwhile; ?>
-                </div>
-            </article>
-        <?php  else : ?>
-            <article class="bestSellers">
-                <h1>Aucun produits trouvés pour "<?= $nameProduct ?>"</h1>
-                <div class="productsCategory">
-                    <h1 class="titleRandom">Produits qui peut vous interesser</h1>
-                    <div class="childProductsCategory">
-
-
-                        <?php
-                        //cette variable va garder en mémoire les ID des produits séléctionnés par la boucle suivante afin de ne pas les re-selectionner
-                        $selectedProductsSearch = [];
-
-                        for($n=0;$n<4;$n++): ?>
-                            <?php
-                            //Tant que $nb aléatoire existe dans le tableau $selectedProductsCategory, on le re-génère
-                            do{
-                                $nb = rand(0, sizeof($allProducts) - 1 );
-                            } while(in_array($nb , $selectedProductsSearch));
-
-                            //$selectedProductCategory = le produit selectionné
-                            $selectedProductsSearch = $allProducts[$nb];
-                            //on enregistre l'id du produit selectionné dans $selectedProductsCategory pour ne pas le re-séléctionner dans les prochaines ittérations de boucle
-                            $selectedProductsSearch[] = $nb;
-                            ?>
-                            <div class="sub-item introImage">
-                                <a href="">
-                                    <div class="imgResp" style="width: 580px;">
-                                        <img src="./assets/images/product/<?= $selectedProductsSearch['image'];?>" alt="<?= $selectedProductsSearch['name'];?>">
-                                    </div>
-                                    <div class="overlay">
-                                        <h1><?= $selectedProductsSearch['name'];?></h1>
-                                        <div class="separator separatorProductsCategory"></div>
-                                        <div class="price">
-                                            <h2><?= $selectedProductsSearch['price'];?>€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        <?php endfor; ?>
-                    </div>
-                </div>
-            </article>
-        <?php endif; ?>
-    <?php  else : ?>
+<!--    --><?php
+//    $db = dbConnect();
+//    $query = $db->prepare('SELECT * FROM products ORDER BY price DESC');
+//    $query->execute();
+//    $productsSearch = $query;
+//
+//    if (isset($_GET['nameProduct']) AND !empty($_GET['nameProduct'])) {
+//        $nameProduct = htmlspecialchars($_GET['nameProduct']);
+//        $query = $db->prepare('SELECT * FROM products WHERE name LIKE "%'.$nameProduct.'%" ORDER BY price DESC');
+//        $query->execute();
+//        $productsSearch = $query;
+//    }
+//
+//    ?>
+<!--    --><?php //if(!empty($_GET['nameProduct'])): ?>
+<!--        --><?php //if($productsSearch->rowCount() > 0):?>
+<!--            <article class="bestSellers">-->
+<!--                <h1>Produits correspondants à "--><?//= $nameProduct ?><!--"</h1>-->
+<!--                <div class="childBestSellers">-->
+<!--                    --><?php //while($productSearch = $productsSearch->fetch()): ?>
+<!--                        <div class="sub-item introImage">-->
+<!--                            <a href="index.php?p=products&action=single&id=--><?//= $productSearch['id'] ?><!--">-->
+<!--                                <div class="imgResp" style="width: 580px;">-->
+<!--                                    <img src="./assets/images/product/--><?//= $productSearch['image'] ?><!--" alt="Image du produit : --><?//= $productSearch['name'] ?><!--">-->
+<!--                                </div>-->
+<!--                                <div class="overlay">-->
+<!--                                    <h1>--><?//= $productSearch['name'] ?><!--</h1>-->
+<!--                                    <div class="separator separatorBestSellers"></div>-->
+<!--                                    <div class="price">-->
+<!--                                        <h2>--><?//= $productSearch['price'] ?><!--€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    --><?php //endwhile; ?>
+<!--                </div>-->
+<!--            </article>-->
+<!--        --><?php // else : ?>
+<!--            <article class="bestSellers">-->
+<!--                <h1>Aucun produits trouvés pour "--><?//= $nameProduct ?><!--"</h1>-->
+<!--                <div class="productsCategory">-->
+<!--                    <h1 class="titleRandom">Produits qui peut vous interesser</h1>-->
+<!--                    <div class="childProductsCategory">-->
+<!---->
+<!---->
+<!--                        --><?php
+//                        //cette variable va garder en mémoire les ID des produits séléctionnés par la boucle suivante afin de ne pas les re-selectionner
+//                        $selectedProductsSearch = [];
+//
+//                        for($n=0;$n<4;$n++): ?>
+<!--                            --><?php
+//                            //Tant que $nb aléatoire existe dans le tableau $selectedProductsCategory, on le re-génère
+//                            do{
+//                                $nb = rand(0, sizeof($allProducts) - 1 );
+//                            } while(in_array($nb , $selectedProductsSearch));
+//
+//                            //$selectedProductCategory = le produit selectionné
+//                            $selectedProductsSearch = $allProducts[$nb];
+//                            //on enregistre l'id du produit selectionné dans $selectedProductsCategory pour ne pas le re-séléctionner dans les prochaines ittérations de boucle
+//                            $selectedProductsSearch[] = $nb;
+//                            ?>
+<!--                            <div class="sub-item introImage">-->
+<!--                                <a href="">-->
+<!--                                    <div class="imgResp" style="width: 580px;">-->
+<!--                                        <img src="./assets/images/product/--><?//= $selectedProductsSearch['image'];?><!--" alt="--><?//= $selectedProductsSearch['name'];?><!--">-->
+<!--                                    </div>-->
+<!--                                    <div class="overlay">-->
+<!--                                        <h1>--><?//= $selectedProductsSearch['name'];?><!--</h1>-->
+<!--                                        <div class="separator separatorProductsCategory"></div>-->
+<!--                                        <div class="price">-->
+<!--                                            <h2>--><?//= $selectedProductsSearch['price'];?><!--€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                        --><?php //endfor; ?>
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </article>-->
+<!--        --><?php //endif; ?>
+<!--    --><?php // else : ?>
         <article class="aboutUs">
             <h1>Qui-sommes-nous ?</h1>
             <div class="childAboutUs">
@@ -163,7 +163,7 @@
                                 <h1><?= $best['name'] ?></h1>
                                 <div class="separator separatorBestSellers"></div>
                                 <div class="price">
-                                    <h2><?= $best['price'] ?>€ <a href=""><i class="fas fa-shopping-bag"></i></a></h2>
+                                    <h2><?= $best['price'] ?>€ <a href="index.php?p=cart&action=addProductCart"><i class="fas fa-shopping-bag"></i></a></h2>
                                 </div>
                             </div>
                         </a>
@@ -192,7 +192,7 @@
                 <?php endforeach; ?>
             </div>
         </article>
-    <?php endif; ?>
+<!--    --><?php //endif; ?>
 
 </main>
 

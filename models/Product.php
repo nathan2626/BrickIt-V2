@@ -64,8 +64,7 @@ function getCategoryProducts($categoryId) { //permet d'avoi tout les produits d'
 }
 
 //filters
-
-function getProductsBy30($categoryId)
+function getProductsByPrice($categoryId, $low, $high)
 {
 
     $db = dbConnect();
@@ -76,15 +75,17 @@ function getProductsBy30($categoryId)
     INNER JOIN category_product cp
     ON p.id = cp.product_id
     WHERE cp.category_id  = ?
-    && p.is_activate = 1 && price BETWEEN 0 AND 30
+    && p.is_activate = 1 && price BETWEEN ? AND ?
     ");
     $query->execute([
-        $categoryId
+        $categoryId,
+        $low,
+        $high
     ]);
 
     return $query->fetchAll();
 }
-function getProductsBy60($categoryId)
+function getProductsByAge($categoryId, $low, $high)
 {
 
     $db = dbConnect();
@@ -95,154 +96,64 @@ function getProductsBy60($categoryId)
     INNER JOIN category_product cp
     ON p.id = cp.product_id
     WHERE cp.category_id  = ?
-    && p.is_activate = 1 && price BETWEEN 30 AND 60
+    && p.is_activate = 1 && age BETWEEN ? AND ?
     ");
     $query->execute([
-        $categoryId
-    ]);
-
-    return $query->fetchAll();
-}
-function getProductsBy90($categoryId)
-{
-
-    $db = dbConnect();
-
-    $query = $db->prepare("
-    SELECT p.* 
-    FROM products p
-    INNER JOIN category_product cp
-    ON p.id = cp.product_id
-    WHERE cp.category_id  = ?
-    && p.is_activate = 1 && price BETWEEN 60 AND 90
-    ");
-    $query->execute([
-        $categoryId
-    ]);
-
-    return $query->fetchAll();
-}
-function getProductsByInfinity($categoryId)
-{
-
-    $db = dbConnect();
-
-    $query = $db->prepare("
-    SELECT p.* 
-    FROM products p
-    INNER JOIN category_product cp
-    ON p.id = cp.product_id
-    WHERE cp.category_id  = ?
-    && p.is_activate = 1 && price BETWEEN 90 AND 1000
-    ");
-    $query->execute([
-        $categoryId
+        $categoryId,
+        $low,
+        $high,
     ]);
 
     return $query->fetchAll();
 }
 
-
-
-
-function getProductsBy5Age($categoryId)
-{
-
-    $db = dbConnect();
-
-    $query = $db->prepare("
-    SELECT p.* 
-    FROM products p
-    INNER JOIN category_product cp
-    ON p.id = cp.product_id
-    WHERE cp.category_id  = ?
-    && p.is_activate = 1 && age BETWEEN 0 AND 5
-    ");
-    $query->execute([
-        $categoryId
-    ]);
-
-    return $query->fetchAll();
-}
-function getProductsBy8Age($categoryId)
-{
-
-    $db = dbConnect();
-
-    $query = $db->prepare("
-    SELECT p.* 
-    FROM products p
-    INNER JOIN category_product cp
-    ON p.id = cp.product_id
-    WHERE cp.category_id  = ?
-    && p.is_activate = 1 && age BETWEEN 6 AND 8
-    ");
-    $query->execute([
-        $categoryId
-    ]);
-
-    return $query->fetchAll();
-}
-function getProductsBy11Age($categoryId)
-{
-
-    $db = dbConnect();
-
-    $query = $db->prepare("
-    SELECT p.* 
-    FROM products p
-    INNER JOIN category_product cp
-    ON p.id = cp.product_id
-    WHERE cp.category_id  = ?
-    && p.is_activate = 1 && age BETWEEN 9 AND 11
-    ");
-    $query->execute([
-        $categoryId
-    ]);
-
-    return $query->fetchAll();
-}
-function getProductsByInfinityAge($categoryId)
-{
-
-    $db = dbConnect();
-
-    $query = $db->prepare("
-    SELECT p.* 
-    FROM products p
-    INNER JOIN category_product cp
-    ON p.id = cp.product_id
-    WHERE cp.category_id  = ?
-    && p.is_activate = 1 && age BETWEEN 12 AND 120
-    ");
-    $query->execute([
-        $categoryId
-    ]);
-
-    return $query->fetchAll();
-}
-
-//Search bar part
-function getSearchProducts()
-{
-    $db = dbConnect();
-    $query = $db->prepare('SELECT name FROM products ORDER BY price DESC');
-    $query->execute();
-
-    $productsSearch = $query->fetchAll();
-
-    return $productsSearch;
-}
+//Search bar part bonus
+//function getSearchProducts()
+//{
+//    $db = dbConnect();
+//    $query = $db->prepare('SELECT * FROM products ORDER BY price DESC');
+//    $query->execute();
+//
+//    $productsSearch = $query->fetchAll();
+//
+//    return $productsSearch;
+//}
 function foundSearchProducts($nameProduct)
 {
     $db = dbConnect();
 
-    $productsSearch = getSearchProducts();
+//    $productsSearch = getSearchProducts();
 
-    $query = $db->prepare('SELECT name FROM products WHERE name LIKE "%'.$nameProduct.'%" ORDER BY price DESC');
+    $query = $db->prepare('SELECT * FROM products WHERE name LIKE "%'.$nameProduct.'%" ORDER BY price DESC');
     $query->execute([$nameProduct]);
 
     $productsSearch = $query->fetchAll();
 
     return $productsSearch;
+}
+
+//Comments part bonus
+function getAllComments()
+{
+    $db = dbConnect();
+    $query = $db->query('SELECT * FROM comments ORDER BY id DESC');
+    $allComments = $query->fetchAll();
+
+    return $allComments;
+}
+function addComment($informations)
+{
+    $db = dbConnect();
+
+    $query = $db->prepare('INSERT INTO comments (comment, pseudo, product_id, username, notation) VALUES (:comment, :pseudo, :product_id, :username, :notation)');
+    $result = $query -> execute(
+        [
+            'comment' => $informations['comment'],
+            'pseudo' => $informations['pseudo'],
+            'product_id' => $informations['product_id'],
+            'username' => $informations['username'],
+            'notation' => $informations['notation'],
+        ]
+    );
+    return  $result;
 }
