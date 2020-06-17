@@ -62,6 +62,7 @@
                 <table>
                     <thead>
                     <tr>
+                        <th>Date</th>
                         <th>Nom du produit</th>
                         <th>Quantité</th>
                         <th>Prix</th>
@@ -70,12 +71,14 @@
                     </thead>
                     <tbody>
                     <tr>
+                        <td>08/01/20</td>
                         <td>Star wars le vaisseau ...</td>
                         <td>3</td>
                         <td>19.99$</td>
                         <td>59.97</td>
                     </tr>
                     <tr>
+                        <td>08/01/20</td>
                         <td>Star wars le vaisseau ...</td>
                         <td>3</td>
                         <td>19.99$</td>

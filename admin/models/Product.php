@@ -16,6 +16,7 @@ GROUP BY p.id
 
     return $products;
 }
+
 function getProduct($id)
 {
     $db = dbConnect();
@@ -67,6 +68,45 @@ function addProduct($informations)
             $db->query("UPDATE products SET image = '$new_file_name' WHERE id = $productId");
         }
     }
+    if(!empty($_FILES['image_secondary_1']['tmp_name'])){
+        $productId = $db->lastInsertId();
+
+        $allowed_extensions = array( 'jpg' , 'jpeg' , 'gif', 'png', 'JPG' , 'JPEG' , 'GIF', 'PNG' );
+        $my_file_extension = pathinfo( $_FILES['image_secondary_1']['name'] , PATHINFO_EXTENSION);
+        if (in_array($my_file_extension , $allowed_extensions)){
+            $new_file_name = $productId . '.' . $my_file_extension ;
+            $destination = '../assets/images/product/' . $new_file_name;
+            $result = move_uploaded_file( $_FILES['image_secondary_1']['tmp_name'], $destination);
+
+            $db->query("UPDATE products SET image_secondary_1 = '$new_file_name' WHERE id = $productId");
+        }
+    }
+    if(!empty($_FILES['image_secondary_2']['tmp_name'])){
+        $productId = $db->lastInsertId();
+
+        $allowed_extensions = array( 'jpg' , 'jpeg' , 'gif', 'png', 'JPG' , 'JPEG' , 'GIF', 'PNG' );
+        $my_file_extension = pathinfo( $_FILES['image']['image_secondary_2'] , PATHINFO_EXTENSION);
+        if (in_array($my_file_extension , $allowed_extensions)){
+            $new_file_name = $productId . '.' . $my_file_extension ;
+            $destination = '../assets/images/product/' . $new_file_name;
+            $result = move_uploaded_file( $_FILES['image_secondary_2']['tmp_name'], $destination);
+
+            $db->query("UPDATE products SET image_secondary_2 = '$new_file_name' WHERE id = $productId");
+        }
+    }
+    if(!empty($_FILES['image_secondary_3']['tmp_name'])){
+        $productId = $db->lastInsertId();
+
+        $allowed_extensions = array( 'jpg' , 'jpeg' , 'gif', 'png', 'JPG' , 'JPEG' , 'GIF', 'PNG' );
+        $my_file_extension = pathinfo( $_FILES['image_secondary_3']['name'] , PATHINFO_EXTENSION);
+        if (in_array($my_file_extension , $allowed_extensions)){
+            $new_file_name = $productId . '.' . $my_file_extension ;
+            $destination = '../assets/images/product/' . $new_file_name;
+            $result = move_uploaded_file( $_FILES['image_secondary_3']['tmp_name'], $destination);
+
+            $db->query("UPDATE products SET image_secondary_3 = '$new_file_name' WHERE id = $productId");
+        }
+    }
 
     return $result;
 }
@@ -111,6 +151,63 @@ function updateProduct($productId, $informations)
             $result = move_uploaded_file( $_FILES['image']['tmp_name'], $destination);
 
             $db->query("UPDATE products SET image = '$new_file_name' WHERE id = $productId");
+        }
+    }
+
+    if(!empty($_FILES['image_secondary_1']['tmp_name'])){
+        $allowed_extensions = array( 'jpg' , 'jpeg' , 'gif', 'png', 'JPG' , 'JPEG' , 'GIF', 'PNG' );
+        $my_file_extension = pathinfo( $_FILES['image_secondary_1']['name'] , PATHINFO_EXTENSION);
+        if (in_array($my_file_extension , $allowed_extensions)){
+
+            //ici virer l'ancien fichier
+            $product = getProduct($productId);
+            if($product['image_secondary_1'] != null){
+                unlink("../assets/images/product/".$product['image_secondary_1']);
+            }
+
+            $new_file_name = $productId . '.' . $my_file_extension ;
+            $destination = '../assets/images/product/' . $new_file_name;
+            $result = move_uploaded_file( $_FILES['image_secondary_1']['tmp_name'], $destination);
+
+            $db->query("UPDATE products SET image_secondary_1 = '$new_file_name' WHERE id = $productId");
+        }
+    }
+
+    if(!empty($_FILES['image_secondary_2']['tmp_name'])){
+        $allowed_extensions = array( 'jpg' , 'jpeg' , 'gif', 'png', 'JPG' , 'JPEG' , 'GIF', 'PNG' );
+        $my_file_extension = pathinfo( $_FILES['image_secondary_2']['name'] , PATHINFO_EXTENSION);
+        if (in_array($my_file_extension , $allowed_extensions)){
+
+            //ici virer l'ancien fichier
+            $product = getProduct($productId);
+            if($product['image_secondary_2'] != null){
+                unlink("../assets/images/product/".$product['image_secondary_2']);
+            }
+
+            $new_file_name = $productId . '.' . $my_file_extension ;
+            $destination = '../assets/images/product/' . $new_file_name;
+            $result = move_uploaded_file( $_FILES['image_secondary_2']['tmp_name'], $destination);
+
+            $db->query("UPDATE products SET image_secondary_2 = '$new_file_name' WHERE id = $productId");
+        }
+    }
+
+    if(!empty($_FILES['image_secondary_3']['tmp_name'])){
+        $allowed_extensions = array( 'jpg' , 'jpeg' , 'gif', 'png', 'JPG' , 'JPEG' , 'GIF', 'PNG' );
+        $my_file_extension = pathinfo( $_FILES['image_secondary_3']['name'] , PATHINFO_EXTENSION);
+        if (in_array($my_file_extension , $allowed_extensions)){
+
+            //ici virer l'ancien fichier
+            $product = getProduct($productId);
+            if($product['image_secondary_3'] != null){
+                unlink("../assets/images/product/".$product['image_secondary_3']);
+            }
+
+            $new_file_name = $productId . '.' . $my_file_extension ;
+            $destination = '../assets/images/product/' . $new_file_name;
+            $result = move_uploaded_file( $_FILES['image_secondary_3']['tmp_name'], $destination);
+
+            $db->query("UPDATE products SET image_secondary_3 = '$new_file_name' WHERE id = $productId");
         }
     }
 
@@ -171,20 +268,3 @@ GROUP BY p.id
 
     return $result;
 }
-//function getImageProducts($imageId)
-//{
-//    $db = dbConnect();
-//
-//    $query = $db->prepare("
-//    SELECT p.*
-//    FROM products p
-//    INNER JOIN product_images pi
-//    ON p.id = pi.product_id
-//    WHERE pi.image_id  = ?
-//    ");
-//    $query->execute([
-//        $imageId
-//    ]);
-//
-//    return $query->fetchAll();
-//}

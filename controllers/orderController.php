@@ -19,35 +19,16 @@ if(isset($_GET['action'])) {
                 } else {
                     $_SESSION['messages'][] = "Erreur lors de l'enregistrement... :(";
                 }
+                unset($_SESSION['cart']);
 
-                header('Location:index.php?p=user&action=connect');
+                header('Location:index.php?p=users&action=connect');
                 exit;
 
             } else {
                 //sinon rediriger vers inscription/connexion
-                header('Location:index.php?p=user&action=connect');
+                header('Location:index.php?p=users&action=connect');
                 exit;
             }
-
-        break;
-
-        case 'list' :
-
-
-            $_SESSION['messages'][] = 'Produit ajouté !';
-
-            header('Location:index.php?p=cart&action=display');
-            exit;
-
-        break;
-
-        case 'detail' :
-
-
-            $_SESSION['messages'][] = 'Produit ajouté !';
-
-            header('Location:index.php?p=cart&action=display');
-            exit;
 
         break;
 

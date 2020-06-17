@@ -68,11 +68,10 @@ function getUserSignIn ()
             'first_name' => $user['first_name'],
             'last_name' => $user['last_name'],
             'email' => $user['email'],
-            'adress' => $_POST['adress'],
+            'adress' => $user['adress'],
             'is_admin' => $user['is_admin'],
         ];
     }
-
     return $user;
 }
 

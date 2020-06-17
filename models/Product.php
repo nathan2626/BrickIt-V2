@@ -108,21 +108,10 @@ function getProductsByAge($categoryId, $low, $high)
 }
 
 //Search bar part bonus
-//function getSearchProducts()
-//{
-//    $db = dbConnect();
-//    $query = $db->prepare('SELECT * FROM products ORDER BY price DESC');
-//    $query->execute();
-//
-//    $productsSearch = $query->fetchAll();
-//
-//    return $productsSearch;
-//}
 function foundSearchProducts($nameProduct)
 {
     $db = dbConnect();
 
-//    $productsSearch = getSearchProducts();
 
     $query = $db->prepare('SELECT * FROM products WHERE name LIKE "%'.$nameProduct.'%" ORDER BY price DESC');
     $query->execute([$nameProduct]);
@@ -133,27 +122,20 @@ function foundSearchProducts($nameProduct)
 }
 
 //Comments part bonus
-//function getAllComments()
-//{
-//    $db = dbConnect();
-//    $query = $db->query('SELECT * FROM comments ORDER BY id DESC');
-//    $allComments = $query->fetchAll();
-//
-//    return $allComments;
-//}
-//function addComment($informations)
-//{
-//    $db = dbConnect();
-//
-//    $query = $db->prepare('INSERT INTO comments (comment, pseudo, product_id, username, notation) VALUES (:comment, :pseudo, :product_id, :username, :notation)');
-//    $result = $query -> execute(
-//        [
-//            'comment' => $informations['comment'],
-//            'pseudo' => $informations['pseudo'],
-//            'product_id' => $informations['product_id'],
-//            'username' => $informations['username'],
-//            'notation' => $informations['notation'],
-//        ]
-//    );
-//    return  $result;
-//}
+function getAllComments()
+{
+    $db = dbConnect();
+    $query = $db->query('SELECT * FROM comments ORDER BY id DESC');
+    $allComments = $query->fetchAll();
+
+    return $allComments;
+}
+function addComment($comment, $pseudo, $product_id, $username, $notation)
+{
+    $db = dbConnect();
+
+    $query = $db->prepare('INSERT INTO comments (comment, pseudo, product_id, username, notation) VALUES (?, ?, ?, ?, ?)');
+    $result = $query->execute([$comment, $pseudo, $product_id, $username, $notation]);
+
+    return  $result;
+}

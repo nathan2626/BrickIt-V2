@@ -15,6 +15,9 @@ if(isset($_GET['controller'])){
         case 'users' :
             require 'controllers/userController.php';
             break;
+        case 'orders' :
+            require 'controllers/orderController.php';
+            break;
         default :
             require 'controllers/indexController.php';
     }

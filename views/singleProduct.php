@@ -12,6 +12,7 @@
             </nav>
         </div>
     </header>
+    <?php print_r($_SESSION['user'])?>
     <article class="singleArticle">
         <div class="productPresentation">
             <div class="bigImageProduct">
@@ -22,13 +23,13 @@
                     <h1><?= htmlentities($product['name']); ?></h1>
                     <p><?= htmlentities($product['description']); ?></p><br>
                     <p><?= htmlentities($product['price']); ?>€</p><br>
-                    <form  class="buttonAddCart" action="index.php?p=cart&action=addProductCart&product_id=<?= $product['id'] ?>" method="post">
-                        <select name="quantityProduct">
+                    <form  class="submitCart" action="index.php?p=cart&action=addProductCart&product_id=<?= $product['id'] ?>" method="post">
+                        <select class="submitCartI" name="quantityProduct">
                             <?php for ($i=1; $i <= $product['quantity']; $i++): ?>
-                                <option value="<?= $i ?>"><?= $i ?></option>
+                                <option class="submitCartO" value="<?= $i ?>"><?= $i ?></option>
                             <?php endfor; ?>
                         </select>
-                        <input type="submit" value="Enregistrer">
+                        <input class="submitCartI" type="submit" value="Enregistrer">
                     </form>
                 </div>
                 <div class="imagesProduct">
@@ -44,80 +45,10 @@
                 </div>
             </div>
         </div>
-        <?php
-        if (isset($_GET['id']) AND !empty($_GET['id'])) {
-
-            $getId = htmlspecialchars($_GET['id']);
-
-
-            if (isset($_POST['submit_comment'])) {
-                if (isset($_POST['pseudo'], $_POST['comment']) AND !empty($_POST['pseudo']) AND !empty($_POST['comment'])){
-                    $comment = htmlspecialchars($_POST['comment']);
-                    $pseudo = htmlspecialchars($_POST['pseudo']);
-                    $product_id = $product['id'];
-                    $username = $_SESSION['user']['first_name'];
-                    $notation = htmlspecialchars($_POST['notation']);
-
-                    if (strlen($pseudo) < 20 && $notation >= 0 && $notation <= 5) {
-                        $db = dbConnect();
-
-                        $query = $db->prepare('INSERT INTO comments (comment, pseudo, product_id, username, notation) VALUES (?, ?, ?, ?, ?)');
-                        $result = $query->execute([$comment, $pseudo, $product_id, $username, $notation]);
-
-                        $msg = 'Commentaire posté';
-                    }
-                    else {
-                        $msg = 'Pseudo < 20 caractères et la note entre 0 et 5';
-                    }
-                }
-                else {
-                    $msg = 'Tout les champs doivent être complétés';
-                }
-            }
-            $db = dbConnect();
-            $query = $db->query('SELECT * FROM comments ORDER BY id DESC');
-            $allComments = $query->fetchAll();
-        }
-
-        ?>
-        <br>
         <div class="allCommentsPart">
             <div>
                 <h1>Postez votre commentaire !</h1>
-                <form class="" method="post" enctype="multipart/form-data">
-                    <input type="text" name="pseudo" placeholder="Votre pseudo"> <br>
-                    <input type="number" name="notation" placeholder="Note entre 0 et 5 inclus"> <br>
-                    <textarea name="comment" placeholder="Votre commentaire..."></textarea><br>
-                    <input type="submit" value="Poster" name="submit_comment">
-                </form>
-            </div>
-            <?php if(isset($msg)): ?>
-                <div class="msgSession">
-                    <?= $msg ?>
-                </div>
-            <?php endif; ?>
-            <details>
-                <summary>Commentaires :</summary>
-                <?php if(isset($allComments)): ?>
-                <div>
-                    <?php foreach ($allComments as $comments): ?>
-                        <div>
-                            <p><?= $comments['username'] ?> sous le nom de <?= $comments['pseudo'] ?> a posté ce commentaire et cette note :</p><br>
-                            <p><?= $comments['comment'] ?></p><br>
-                            <p>Et une note de <?= $comments['notation'] ?></p><br><br><br>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-                <?php else: ?>
-                    <p>Aucun commentaires pour ce produit</p>
-                <?php endif; ?>
-            </details>
-        </div>
-        <br><br><br><br>
-        <div class="allCommentsPart">
-            <div>
-                <h1>Postez votre commentaire !</h1>
-                <form class="" action="index.php?p=products&action=addComment" method="post" enctype="multipart/form-data">
+                <form class="formComment" action="index.php?p=products&action=addComment&id=<?= $product['id']?>" method="post" enctype="multipart/form-data">
                     <input type="text" name="pseudo" placeholder="Votre pseudo"> <br>
                     <input type="number" name="notation" placeholder="Note entre 0 et 5 inclus"> <br>
                     <textarea name="comment" placeholder="Votre commentaire..."></textarea><br>
@@ -134,15 +65,20 @@
             <details>
                 <summary>Commentaires :</summary>
                 <?php if(isset($allComments)): ?>
-                    <div>
-                        <?php foreach ($allComments as $comments): ?>
-                            <div>
-                                <p><?= $comments['username'] ?> sous le nom de <?= $comments['pseudo'] ?> a posté ce commentaire et cette note :</p><br>
-                                <p><?= $comments['comment'] ?></p><br>
-                                <p>Et une note de <?= $comments['notation'] ?></p><br><br><br>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
+                    <?php foreach ($allComments as $comments): ?>
+                        <div class="allCommentUser">
+                            <p class="commentDate"><?= $comments['date'] ?></p>
+                            <p class="commentNotation">
+                                <?php for ($i=0; $i < $comments['notation']; $i++): ?>
+                                    <i class="far fa-star"></i>
+                                <?php endfor; ?>
+                            </p>
+                            <p class="commentUsername"><?= $comments['username'] ?> | <span class="commentPseudo"><?= $comments['pseudo'] ?></span></p>
+                            <p class="commentComment"><?= $comments['comment'] ?></p>
+                        <hr>
+                        </div>
+                        <br>
+                    <?php endforeach; ?>
                 <?php else: ?>
                     <p>Aucun commentaires pour ce produit</p>
                 <?php endif; ?>

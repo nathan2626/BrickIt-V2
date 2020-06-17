@@ -11,7 +11,7 @@ if(isset($_GET['action'])) {
         case 'single' :
             $product = getProduct($_GET['id']);
             $products = getAllProducts($_GET['id']);
-//            $allComments = getAllComments();
+            $allComments = getAllComments();
 
             $pageTitle = "Descriptif du produit";
             $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
@@ -19,60 +19,67 @@ if(isset($_GET['action'])) {
 
         break;
 
-//        case 'addComment' : //Comment part bonus
-////            $product = getProduct($_GET['id']);
-////            $products = getAllProducts($_GET['id']);
-//            $allComments = getAllComments();
-//
-//            if (isset($_POST['submit_comment']) ) {
-//
-//                $pseudo = htmlspecialchars($_POST['pseudo']);
-//                $comment = htmlspecialchars($_POST['comment']);
-//                $notation = htmlspecialchars($_POST['notation']);
-//                $username = htmlspecialchars($_SESSION['user']['first_name']);
-//
-////                if ($_SESSION['user']['first_name'] == $username) {
-//
-//                    if (empty($_POST['comment']) || empty($_POST['pseudo']) || empty($_POST['notation'])) {
-//
-//                        if (empty($_POST['comment'])) {
-//                            $_SESSION['messages'][] = 'Le champ commentaire est obligatoire !';
-//                        }
-//                        if (empty($_POST['pseudo'])) {
-//                            $_SESSION['messages'][] = 'Le champ pseudo est obligatoire !';
-//                        }
-//                        if (empty($_POST['notation'])) {
-//                            $_SESSION['messages'][] = 'Le champ note est obligatoire !';
-//                        }
-//
-//                        header('Location:index.php?p=categories&action=list');
-//                        exit;
-//
-//                    } else {
-//                        if (strlen($pseudo) < 20 && $notation >= 0 && $notation <= 5) {
-//                            $resultAdd = addComment($_POST);
-//                            if($resultAdd) {
-//                                $_SESSION['messages'][] = 'Commentaire enregistré !';
-//                            }
-//                        }
-//                        else {
-//                            $_SESSION['messages'][] = "Erreur lors de l'enregistrement du commentaire... :(";
-//                        }
-//                        header('Location:index.php?p=categories&action=list');
-//                        exit;
-//                    }
-//                }
-////                $_SESSION['messages'][] = 'Vous avez déjà posté un commentaire pour ce produit !';
-////            }
-////            else {
-////                $allComments = getAllComments();
-////
-////                $pageTitle = "Descriptif du produit";
-////                $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
-////                $view = 'views/categories.php';
-////            }
-//
-//        break;
+        case 'addComment' : //Comment part bonus
+//            $product = getProduct($_GET['id']);
+//            $products = getAllProducts($_GET['id']);
+            $allComments = getAllComments();
+
+            if (isset($_POST['submit_comment']) ) {
+
+                $pseudo = htmlspecialchars($_POST['pseudo']);
+                $comment = htmlspecialchars($_POST['comment']);
+                $notation = htmlspecialchars($_POST['notation']);
+                $username = htmlspecialchars($_SESSION['user']['first_name']);
+
+                if (isset($_SESSION['user'])) {
+
+                    if (empty($_POST['comment']) || empty($_POST['pseudo']) || empty($_POST['notation'])) {
+
+                        if (empty($_POST['comment'])) {
+                            $_SESSION['messages'][] = 'Le champ commentaire est obligatoire !';
+                        }
+                        if (empty($_POST['pseudo'])) {
+                            $_SESSION['messages'][] = 'Le champ pseudo est obligatoire !';
+                        }
+                        if (empty($_POST['notation'])) {
+                            $_SESSION['messages'][] = 'Le champ note est obligatoire !';
+                        }
+
+                        header('Location:index.php?p=products&action=single&id='.$_GET['id']);
+                        exit;
+
+                    } else {
+                        if (strlen($pseudo) < 20 && $notation >= 0 && $notation <= 5) {
+                            $resultAdd = addComment($comment, $pseudo, $_GET['id'], $username, $notation);
+                            if($resultAdd) {
+                                $_SESSION['messages'][] = 'Commentaire enregistré !';
+                            }
+                        }
+                        else {
+                            $_SESSION['messages'][] = "Erreur lors de l'enregistrement du commentaire... :(";
+                        }
+                        header('Location:index.php?p=products&action=single&id='.$_GET['id']);
+                        exit;
+                    }
+                }
+                else {
+                    $_SESSION['messages'][] = 'Vous devez vous connecter pour poster un commentaire !';
+
+//                    $_SESSION['messages'][] = 'Vous avez déjà posté un commentaire pour ce produit !';
+
+                    header('Location:index.php?p=products&action=single&id='.$_GET['id']);
+                    exit;
+                }
+            }
+            else {
+                $allComments = getAllComments();
+
+                $pageTitle = "Descriptif du produit";
+                $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
+                $view = 'views/categories.php';
+            }
+
+        break;
 
         case 'search' : //Search part bonus
             if (isset($_POST['nameProduct']) AND !empty($_POST['nameProduct'])) {

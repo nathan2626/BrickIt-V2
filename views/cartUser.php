@@ -28,20 +28,11 @@
                     </thead>
                     <tbody>
                     <?php $total = 0; ?>
-                    <?php var_dump($cartProducts);?>
                     <?php foreach ($cartProducts as $product): ?>
                     <tr>
                         <td><?= $product['name']?><a class="removeCart" href="index.php?p=cart&action=deleteProductCart&productId=<?= $product['id']?>">Supprimer</a></td>
                         <td><?= $product['price'] ?></td>
                         <td>
-                            <form action="index.php?p=cart&action=updateProductQuantityCart&id=<?= $product['id']?>" method="post">
-                                <select name="quantityProduct">
-                                    <?php for ($i=1; $i <= $product['quantity']; $i++): ?>
-                                        <option value="<?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs'][$_SESSION['cart'][$product['id']]] : $i ?>"><?= $i ?></option>
-                                    <?php endfor; ?>
-                                </select>
-                                <input type="submit" value="Enregistrer">
-                            </form>
                              <p>Quantité choisie : <?= $_SESSION['cart'][$product['id']] ?></p>
                         </td>
                         <td><?= $rowTotal = $product['price'] * $_SESSION['cart'][$product['id']]; $total += $rowTotal //prix fois la quantité ?></td>

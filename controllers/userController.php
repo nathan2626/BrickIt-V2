@@ -120,6 +120,7 @@ if(isset($_GET['action'])) {
                         exit;
                     }
                 }
+
                 $users = getAllUsers();
                 $view = 'views/userLogin.php';
                 $pageTitle = 'Connecté !';
@@ -142,6 +143,8 @@ if(isset($_GET['action'])) {
 
         case 'connect' :
             $currentUser = getUser($_SESSION['user']['id']);
+//            $orders = getAllOrdersByUser($_SESSION['user']['id']);
+
 
             $view = 'views/userLogin.php';
             $pageTitle = 'Connecté !';

@@ -64,35 +64,30 @@
                 </div>
             <?php endif; ?>
 
+            <label for="image_secondary_1">Image secondaire 1:</label>
+            <input  type="file" name="image_secondary_1" id="image_secondary_1"/>
+            <?php if(isset($product) && $product['image_secondary_1'] != null): ?>
+                <div style="width: 300px;" >
+                    <img style="width: 100%;" src="../assets/images/product/<?= $product['image_secondary_1'] ?>" alt="<?= $product['image_secondary_1'] ?>">
+                </div>
+            <?php endif; ?>
 
-<!--            <article class="addUserArticle">-->
-<!--                <h1>Images du produit</h1>-->
-<!--                <div class="contentUserAdd">-->
-<!---->
-<!--                    <label for="image">Image principal:</label>-->
-<!--                    <input  type="file" name="image" id="image"/>-->
-<!--                    --><?php //if(isset($product) && $product['image'] != null): ?>
-<!--                        <div style="width: 300px;" >-->
-<!--                            <img style="width: 100%;" src="../assets/images/product/--><?//= $product['image'] ?><!--" alt="--><?//= $product['name'] ?><!--">-->
-<!--                        </div>-->
-<!--                    --><?php //endif; ?>
-<!---->
-<!--                    <label for="imagesAddProduct">Images secondaires :</label>-->
-<!--                    <input  type="file" name="imagesAddProduct" id="imagesAddProduct" value="" multiple/>-->
-<!---->
-<!--                    --><?php //foreach ($productsImages as $productImage): ?>
-<!--                        --><?php //if(isset($productsImages) && $productsImages['image'] != null): ?>
-<!--                            <div style="width: 300px;" >-->
-<!--                                <img style="width: 100%;" src="../assets/images/product/--><?//= $productImage['image'] ?><!--" alt="--><?//= $productImage['caption'] ?><!--">-->
-<!--                            </div>-->
-<!--                        --><?php //endif; ?>
-<!--                    --><?php //endforeach; ?>
+            <label for="image_secondary_2">Image secondaire 1:</label>
+            <input  type="file" name="image_secondary_2" id="image_secondary_2"/>
+            <?php if(isset($product) && $product['image_secondary_2'] != null): ?>
+                <div style="width: 300px;" >
+                    <img style="width: 100%;" src="../assets/images/product/<?= $product['image_secondary_2'] ?>" alt="<?= $product['image_secondary_2'] ?>">
+                </div>
+            <?php endif; ?>
 
-<!--                </div>-->
-<!--            </article>-->
+            <label for="image_secondary_3">Image secondaire 1:</label>
+            <input  type="file" name="image_secondary_3" id="image_secondary_3"/>
+            <?php if(isset($product) && $product['image_secondary_3'] != null): ?>
+                <div style="width: 300px;" >
+                    <img style="width: 100%;" src="../assets/images/product/<?= $product['image_secondary_3'] ?>" alt="<?= $product['image_secondary_3'] ?>">
+                </div>
+            <?php endif; ?>
 
-
-<!--            <a class="imagesProductDetails" type="button" href="index.php?controller=products&action=images&id=--><?//= $product['id'] ?><!--">Images</a>-->
 
             <input type="submit" value="Enregistrer" />
 
