@@ -11,7 +11,7 @@ if(isset($_GET['action'])) {
         case 'single' :
             $product = getProduct($_GET['id']);
             $products = getAllProducts($_GET['id']);
-            $allComments = getAllComments();
+            $allComments = getAllComments($_GET['id']);
 
             $pageTitle = "Descriptif du produit";
             $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";
@@ -22,7 +22,7 @@ if(isset($_GET['action'])) {
         case 'addComment' : //Comment part bonus
 //            $product = getProduct($_GET['id']);
 //            $products = getAllProducts($_GET['id']);
-            $allComments = getAllComments();
+            $allComments = getAllComments($_GET['id']);
 
             if (isset($_POST['submit_comment']) ) {
 
@@ -72,7 +72,7 @@ if(isset($_GET['action'])) {
                 }
             }
             else {
-                $allComments = getAllComments();
+                $allComments = getAllComments($_GET['id']);
 
                 $pageTitle = "Descriptif du produit";
                 $pageDescription = "Découvrez l'ensemble de nos produits en exclusivité sur BrickIt";

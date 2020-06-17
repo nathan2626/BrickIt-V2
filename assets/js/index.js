@@ -21,175 +21,177 @@ const loader = document.querySelector('.loadingPage');
 const main = document.querySelector('main');
 const videoLoadingPage = document.querySelector('.homePageVideo');
 
-const init = () => {
-    setTimeout(() => {
-        loader.style.display = 'none';
-        main.style.display = 'block';
-        canvas.style.display = 'none';
-        videoLoadingPage.play();
-        videoLoadingPage.currentTime = 0;
-    }, 1000)
-};
-init();
-
-// 2) Progress bar part
-
-let progress = () => { //for the progress bar
-    let progress = document.querySelector('.progressColor');
-    let width = 1;
-    let id = setInterval(progressLoader, 10);
-
-    function progressLoader () {
-        if(width >= 100){
-            clearInterval(id);
-        }
-        else {
-            width++;
-            progress.style.width = width + '%';
-        }
-    }
-};
-progress();
-
-
-// 3) Fireworks part
-
 let canvas, width, height, ctx;
 let fireworks = [];
 let particles = [];
+
 canvas = document.getElementById("canvas");
 
-function setup() {
-    setSize(canvas);
-    ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#000";
-    ctx.fillRect(0, 0, width, height);
-    fireworks.push(new Firework(Math.random()*(width-200)+100));
-    window.addEventListener("resize",windowResized);
-    document.addEventListener("click",onClick);
-}
 
-setTimeout(setup,1);
+if(canvas){ //if my canvas exist, i execute my loading part
+    const init = () => {
+        setTimeout(() => {
+            loader.style.display = 'none';
+            main.style.display = 'block';
+            canvas.style.display = 'none';
+            videoLoadingPage.play();
+            videoLoadingPage.currentTime = 0;
+        }, 10000)
+    };
+    init();
 
-function loop(){
-    ctx.globalAlpha = 0.1;
-    ctx.fillStyle = "#000";
-    ctx.fillRect(0, 0, width, height);
-    ctx.globalAlpha = 1;
+// 2) Progress bar part
 
-    for(let i=0; i<fireworks.length; i++){
-        let done = fireworks[i].update();
-        fireworks[i].draw();
-        if(done) fireworks.splice(i, 1);
-    }
+    let progress = () => { //for the progress bar
+        let progress = document.querySelector('.progressColor');
+        let width = 1;
+        let id = setInterval(progressLoader, 100);
 
-    for(let i=0; i<particles.length; i++){
-        particles[i].update();
-        particles[i].draw();
-        if(particles[i].lifetime>80) particles.splice(i,1);
-    }
-
-    if(Math.random()<1/60) fireworks.push(new Firework(Math.random()*(width-200)+100));
-}
-
-setInterval(loop, 1/60);
-
-class Particle{
-    constructor(x, y, col){
-        this.x = x;
-        this.y = y;
-        this.col = col;
-        this.vel = randomVec(2);
-        this.lifetime = 0;
-    }
-    update(){
-        this.x += this.vel.x;
-        this.y += this.vel.y;
-        this.vel.y += 0.02;
-        this.vel.x *= 0.99;
-        this.vel.y *= 0.99;
-        this.lifetime++;
-    }
-    draw(){
-        ctx.globalAlpha = Math.max(1-this.lifetime/80, 0);
-        ctx.fillStyle = this.col;
-        ctx.fillRect(this.x, this.y, 2, 2);
-    }
-}
-
-class Firework{
-    constructor(x){
-        this.x = x;
-        this.y = height;
-        this.isBlown = false;
-        this.col = randomCol();
-    }
-    update(){
-        this.y -= 3;
-        if(this.y < 350-Math.sqrt(Math.random()*500)*40){
-            this.isBlown = true;
-            for(let i=0; i<60; i++){
-                particles.push(new Particle(this.x, this.y, this.col))
+        function progressLoader () {
+            if(width >= 100){
+                clearInterval(id);
+            }
+            else {
+                width++;
+                progress.style.width = width + '%';
             }
         }
-        return this.isBlown;
+    };
+    progress();
+
+    function setup() {
+        setSize(canvas);
+        ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, width, height);
+        fireworks.push(new Firework(Math.random()*(width-200)+100));
+        window.addEventListener("resize",windowResized);
+        document.addEventListener("click",onClick);
     }
-    draw(){
+
+    setTimeout(setup,1);
+
+    function loop(){
+        ctx.globalAlpha = 0.1;
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, width, height);
         ctx.globalAlpha = 1;
-        ctx.fillStyle = this.col;
-        ctx.fillRect(this.x, this.y, 2, 2);
+
+        for(let i=0; i<fireworks.length; i++){
+            let done = fireworks[i].update();
+            fireworks[i].draw();
+            if(done) fireworks.splice(i, 1);
+        }
+
+        for(let i=0; i<particles.length; i++){
+            particles[i].update();
+            particles[i].draw();
+            if(particles[i].lifetime>80) particles.splice(i,1);
+        }
+
+        if(Math.random()<1/60) fireworks.push(new Firework(Math.random()*(width-200)+100));
+    }
+
+    setInterval(loop, 1/60);
+
+    class Particle{
+        constructor(x, y, col){
+            this.x = x;
+            this.y = y;
+            this.col = col;
+            this.vel = randomVec(2);
+            this.lifetime = 0;
+        }
+        update(){
+            this.x += this.vel.x;
+            this.y += this.vel.y;
+            this.vel.y += 0.02;
+            this.vel.x *= 0.99;
+            this.vel.y *= 0.99;
+            this.lifetime++;
+        }
+        draw(){
+            ctx.globalAlpha = Math.max(1-this.lifetime/80, 0);
+            ctx.fillStyle = this.col;
+            ctx.fillRect(this.x, this.y, 2, 2);
+        }
+    }
+
+    class Firework{
+        constructor(x){
+            this.x = x;
+            this.y = height;
+            this.isBlown = false;
+            this.col = randomCol();
+        }
+        update(){
+            this.y -= 3;
+            if(this.y < 350-Math.sqrt(Math.random()*500)*40){
+                this.isBlown = true;
+                for(let i=0; i<60; i++){
+                    particles.push(new Particle(this.x, this.y, this.col))
+                }
+            }
+            return this.isBlown;
+        }
+        draw(){
+            ctx.globalAlpha = 1;
+            ctx.fillStyle = this.col;
+            ctx.fillRect(this.x, this.y, 2, 2);
+        }
+    }
+
+    function randomCol(){
+        let letter = '0123456789ABCDEF';
+        let nums = [];
+
+        for(let i=0; i<3; i++){
+            nums[i] = Math.floor(Math.random()*256);
+        }
+        let brightest = 0;
+        for(let i=0; i<3; i++){
+            if(brightest<nums[i]) brightest = nums[i];
+        }
+        brightest /=255;
+        for(let i=0; i<3; i++){
+            nums[i] /= brightest;
+        }
+        let color = "#";
+        for(let i=0; i<3; i++){
+            color += letter[Math.floor(nums[i]/16)];
+            color += letter[Math.floor(nums[i]%16)];
+        }
+        return color;
+    }
+
+    function randomVec(max){
+        let dir = Math.random()*Math.PI*2;
+        let spd = Math.random()*max;
+        return{x: Math.cos(dir)*spd, y: Math.sin(dir)*spd};
+    }
+
+    function setSize(canv){
+        canv.style.width = (innerWidth) + "px";
+        canv.style.height = (innerHeight) + "px";
+        width = innerWidth;
+        height = innerHeight;
+
+        canv.width = innerWidth*window.devicePixelRatio;
+        canv.height = innerHeight*window.devicePixelRatio;
+        canvas.getContext("2d").scale(window.devicePixelRatio, window.devicePixelRatio);
+    }
+
+    function onClick(e){
+        fireworks.push(new Firework(e.clientX));
+    }
+
+    function windowResized(){
+        setSize(canvas);
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, width, height);
     }
 }
 
-function randomCol(){
-    let letter = '0123456789ABCDEF';
-    let nums = [];
-
-    for(let i=0; i<3; i++){
-        nums[i] = Math.floor(Math.random()*256);
-    }
-    let brightest = 0;
-    for(let i=0; i<3; i++){
-        if(brightest<nums[i]) brightest = nums[i];
-    }
-    brightest /=255;
-    for(let i=0; i<3; i++){
-        nums[i] /= brightest;
-    }
-    let color = "#";
-    for(let i=0; i<3; i++){
-        color += letter[Math.floor(nums[i]/16)];
-        color += letter[Math.floor(nums[i]%16)];
-    }
-    return color;
-}
-
-function randomVec(max){
-    let dir = Math.random()*Math.PI*2;
-    let spd = Math.random()*max;
-    return{x: Math.cos(dir)*spd, y: Math.sin(dir)*spd};
-}
-
-function setSize(canv){
-    canv.style.width = (innerWidth) + "px";
-    canv.style.height = (innerHeight) + "px";
-    width = innerWidth;
-    height = innerHeight;
-
-    canv.width = innerWidth*window.devicePixelRatio;
-    canv.height = innerHeight*window.devicePixelRatio;
-    canvas.getContext("2d").scale(window.devicePixelRatio, window.devicePixelRatio);
-}
-
-function onClick(e){
-    fireworks.push(new Firework(e.clientX));
-}
-
-function windowResized(){
-    setSize(canvas);
-    ctx.fillStyle = "#000";
-    ctx.fillRect(0, 0, width, height);
-}
 
 //End of loading Page
 
@@ -256,50 +258,50 @@ open.addEventListener("click", function(){
 });
 
 //Nav burger
-const searchJsNav = document.querySelector('.searchJsNav');
-const liHOpen1 = document.querySelector('.liHOpen1');
-const liHOpen2 = document.querySelector('.liHOpen2');
-const liHOpen3 = document.querySelector('.liHOpen3');
-const liHOpen4 = document.querySelector('.liHOpen4');
-const liHOpen5 = document.querySelector('.liHOpen5');
-const liHOpen6 = document.querySelector('.liHOpen6');
-const liHOpen7 = document.querySelector('.liHOpen7');
-const liHOpen8 = document.querySelector('.liHOpen8');
-const activeSh = document.querySelector('.searchActive');
-
-searchJsNav.addEventListener('mouseover', e => { //bonus
-    e.preventDefault() //recherge pas la page
-    //     e.preventDefault() //recherge pas la page
-    // menu.classList.toggle('activeNavBurger');
-    searchJsNav.classList.toggle("searchActive");
-    if (searchJsNav.classList.contains("searchActive")) {
-        liHOpen1.style.display = "none";
-        liHOpen2.style.display = "none";
-        liHOpen3.style.display = "none";
-        liHOpen4.style.display = "none";
-        liHOpen5.style.display = "none";
-        liHOpen6.style.display = "none";
-        liHOpen7.style.display = "none";
-        liHOpen8.style.display = "none";
-    } else {
-        liHOpen1.style.display = "block";
-        liHOpen1.style.animationDelay = "0s";
-        liHOpen2.style.display = "block";
-        liHOpen2.style.animationDelay = "0s";
-        liHOpen3.style.display = "block";
-        liHOpen3.style.animationDelay = "0s";
-        liHOpen4.style.display = "block";
-        liHOpen4.style.animationDelay = "0s";
-        liHOpen5.style.display = "block";
-        liHOpen5.style.animationDelay = "0s";
-        liHOpen6.style.display = "block";
-        liHOpen6.style.animationDelay = "0s";
-        liHOpen7.style.display = "block";
-        liHOpen7.style.animationDelay = "0s";
-        liHOpen8.style.display = "block";
-        liHOpen8.style.animationDelay = "0s";
-    }
-});
+// const searchJsNav = document.querySelector('.searchJsNav');
+// const liHOpen1 = document.querySelector('.liHOpen1');
+// const liHOpen2 = document.querySelector('.liHOpen2');
+// const liHOpen3 = document.querySelector('.liHOpen3');
+// const liHOpen4 = document.querySelector('.liHOpen4');
+// const liHOpen5 = document.querySelector('.liHOpen5');
+// const liHOpen6 = document.querySelector('.liHOpen6');
+// const liHOpen7 = document.querySelector('.liHOpen7');
+// const liHOpen8 = document.querySelector('.liHOpen8');
+// const activeSh = document.querySelector('.searchActive');
+//
+// searchJsNav.addEventListener('mouseover', e => { //bonus
+//     e.preventDefault() //recherge pas la page
+//     //     e.preventDefault() //recherge pas la page
+//     // menu.classList.toggle('activeNavBurger');
+//     searchJsNav.classList.toggle("searchActive");
+//     if (searchJsNav.classList.contains("searchActive")) {
+//         liHOpen1.style.display = "none";
+//         liHOpen2.style.display = "none";
+//         liHOpen3.style.display = "none";
+//         liHOpen4.style.display = "none";
+//         liHOpen5.style.display = "none";
+//         liHOpen6.style.display = "none";
+//         liHOpen7.style.display = "none";
+//         liHOpen8.style.display = "none";
+//     } else {
+//         liHOpen1.style.display = "block";
+//         liHOpen1.style.animationDelay = "0s";
+//         liHOpen2.style.display = "block";
+//         liHOpen2.style.animationDelay = "0s";
+//         liHOpen3.style.display = "block";
+//         liHOpen3.style.animationDelay = "0s";
+//         liHOpen4.style.display = "block";
+//         liHOpen4.style.animationDelay = "0s";
+//         liHOpen5.style.display = "block";
+//         liHOpen5.style.animationDelay = "0s";
+//         liHOpen6.style.display = "block";
+//         liHOpen6.style.animationDelay = "0s";
+//         liHOpen7.style.display = "block";
+//         liHOpen7.style.animationDelay = "0s";
+//         liHOpen8.style.display = "block";
+//         liHOpen8.style.animationDelay = "0s";
+//     }
+// });
 
 
 

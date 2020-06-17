@@ -28,6 +28,7 @@
   text-transform: uppercase;
   color: #FF0000;
   margin: 0 auto;
+  text-align: center;
 }
 .informationProduct .contentProduct > p {
   font-size: 18px;
@@ -150,7 +151,7 @@
   .informationProduct {
     width: 80%;
   }
-  .informationProduct .contentProduct h1 {
+  .informationProduct .contentProduct h1, .titleComment {
     font-size: 24px; /*-20%*/
   }
   .informationProduct .contentProduct > p {
@@ -172,7 +173,7 @@
   .informationProduct {
     width: 90%;
   }
-  .informationProduct .contentProduct h1 {
+  .informationProduct .contentProduct h1, .titleComment {
     padding-top: 10px;
     font-size: 20px;
   }
@@ -195,7 +196,7 @@
   .informationProduct {
     width: 90%;
   }
-  .informationProduct .contentProduct h1 {
+  .informationProduct .contentProduct h1, .titleComment {
     padding-top: 10px;
     font-size: 16px;
   }

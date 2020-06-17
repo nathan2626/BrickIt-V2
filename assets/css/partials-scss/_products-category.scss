@@ -96,9 +96,11 @@
   .categoryPresentation .imageCategory {
     width: 100%;
   }
-  .categoryPresentation .textCategory h1 {
-    font-size: 25px;
+  .titleProducts {
     margin: 0 0 40px 0;
+  }
+  .allFilter a {
+    font-size: 11px;
   }
   .categoryPresentation .textCategory p {
     font-size: 18px;
@@ -106,6 +108,24 @@
   }
   .categoryArticle, .headerCategories {
     width: 100%;
+  }
+  .filterBy {
+    text-align: center;
+    margin-top: 23px;
+    font-size: 18px;
+    /* font-style: italic; */
+  }
+  .filterByPrice, .filterByAge {
+    margin: 8px;
+    font-size: 15px;
+    padding: 7px;
+  }
+  .navRecord.menu-open {
+    margin-left: -1px;
+  }
+  .navAjustment .search-text {
+    margin-left: 9px!important;
+
   }
 }
 /*End of products_category page*/

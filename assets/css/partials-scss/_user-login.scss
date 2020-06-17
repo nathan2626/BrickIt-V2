@@ -49,6 +49,10 @@
 
 /*Responsive part*/
 @media screen and (max-width: 600px) {
+  .allUserLoginHistory table tr {
+    display: flex;
+    flex-direction: column;
+  }
   .allUserLoginHistory table th {
     font-size: 13px;
   }

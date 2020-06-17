@@ -81,6 +81,16 @@
   max-width: 100%;
   min-height: 480px;
 }
+.blackSearch ul .blackSearchPng .searchJsNav .search-btn {
+  color: white;
+}
+.blackSearch ul .blackSearchPng .searchJsNav input, .blackSearchC ul .blackSearchPng .searchJsNav input,{
+  border: 1px solid #F3F3F3;
+}
+.blackSearch ul .blackSearchPng .searchJsNav input:hover, .blackSearchC ul .blackSearchPng .searchJsNav input:hover{
+  background-color: white;
+  color: black;
+}
 .formContainer {
   position: absolute;
   top: 0;

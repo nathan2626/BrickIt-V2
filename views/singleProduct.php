@@ -7,12 +7,11 @@
         </div>
         <div class="overlayNav"></div>
         <div class="containerNav">
-            <nav class="colorAccount">
+            <nav class="colorAccount navRecord">
                 <?php require 'partials/navContenair.php'; ?>
             </nav>
         </div>
     </header>
-    <?php print_r($_SESSION['user'])?>
     <article class="singleArticle">
         <div class="productPresentation">
             <div class="bigImageProduct">
@@ -47,7 +46,7 @@
         </div>
         <div class="allCommentsPart">
             <div>
-                <h1>Postez votre commentaire !</h1>
+                <h1 class="titleComment">Postez votre commentaire !</h1>
                 <form class="formComment" action="index.php?p=products&action=addComment&id=<?= $product['id']?>" method="post" enctype="multipart/form-data">
                     <input type="text" name="pseudo" placeholder="Votre pseudo"> <br>
                     <input type="number" name="notation" placeholder="Note entre 0 et 5 inclus"> <br>
@@ -109,7 +108,7 @@
             $selectedProductsCategory[] = $nb;
             ?>
             <div class="sub-item introImage">
-                <a href="">
+                <a href="index.php?p=products&action=single&id=<?= $selectedProductCategory['id'];?>">
                     <div class="imgResp" style="width: 580px;">
                         <img src="./assets/images/product/<?= $selectedProductCategory['image'];?>" alt="<?= $selectedProductCategory['name'];?>">
                     </div>

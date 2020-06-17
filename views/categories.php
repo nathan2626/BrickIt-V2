@@ -7,7 +7,7 @@
         </div>
         <div class="overlayNav"></div>
         <div class="containerNav">
-            <nav>
+            <nav class="navRecord">
                 <?php require 'partials/navContenair.php'; ?>
             </nav>
         </div>
@@ -41,8 +41,10 @@
                 <?php foreach ($categories as $category): ?>
                     <div class="slide"  style="background-image: url('./assets/images/category/<?=$category['image'];?>');   background-position: center;">
                         <div class="content">
+                            <a href="index.php?p=categories&action=single&id=<?= $category['id'] ?>">
                             <h2><?= htmlentities($category['name']); ?></h2>
                             <p style="margin-top: 10px"><?= htmlentities($category['description']); ?></p>
+                            </a>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -58,3 +60,4 @@
         document.getElementById("slider").src = navCategories1;
     }
 </script>
+<script src="./assets/js/index.js"></script>

@@ -122,10 +122,12 @@ function foundSearchProducts($nameProduct)
 }
 
 //Comments part bonus
-function getAllComments()
+function getAllComments($id)
 {
     $db = dbConnect();
-    $query = $db->query('SELECT * FROM comments ORDER BY id DESC');
+    $query = $db->prepare('SELECT * FROM comments WHERE product_id = ?');
+    $query->execute([$id]);
+
     $allComments = $query->fetchAll();
 
     return $allComments;

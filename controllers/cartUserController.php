@@ -60,8 +60,7 @@ if(isset($_GET['action'])) {
             $pageTitle = "Votre panier";
             $pageDescription = "Affichage de votre panier";
             $view = 'views/cartUser.php';
-            var_dump($_SESSION['cart']);
-            print_r($cartProducts);
+
         break;
 
         default :

@@ -15,7 +15,7 @@
     <?php if(!empty($_POST['nameProduct'])): ?>
         <?php if($productsSearch):?>
         <article class="bestSellers">
-            <h1>Meilleures ventes</h1>
+            <h1>Produits correspondants à votre recherche <?= $_POST['nameProduct']?></h1>
             <div class="childBestSellers">
                 <?php foreach ($productsSearch as $productSearch): ?>
                     <div class="sub-item introImage">
@@ -36,7 +36,9 @@
             </div>
         </article>
         <?php else:?>
-            Aucun résultat
+    <article class="bestSellers">
+        <h1 style="margin-bottom: 200px; margin-top: -50px;">Aucun résultat pour <?= $_POST['nameProduct']?></h1>
+    </article>
         <?php endif; ?>
     <?php endif; ?>
 </main>

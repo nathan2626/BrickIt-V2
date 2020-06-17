@@ -391,6 +391,7 @@ header {
 
 nav ul {
   display: flex;
+  align-items: center;
 }
 
 nav ul li {
@@ -558,6 +559,10 @@ nav ul li:hover .submenu > li {
     display: block;
   }
 
+  .search-text {
+    margin-left: 0 !important;
+  }
+
   .overlayNav.menu-open {
     display: flex;
     transform: scale(1);
@@ -570,7 +575,7 @@ nav ul li:hover .submenu > li {
     position: fixed;
     background-color: black;
     padding: 0 15px 0 15px;
-    margin-left: -21px;
+    margin-left: -28px;
     z-index: 999;
   }
 
@@ -612,6 +617,10 @@ nav ul li:hover .submenu > li {
 
   .submenu {
     display: none;
+  }
+
+  .colorAccount ul li a, .colorAccount h1 a {
+    color: white !important;
   }
 }
 @media screen and (max-width: 800px) {
@@ -787,7 +796,7 @@ nav ul li:hover .submenu > li {
   text-decoration: none;
   margin-top: 3%;
   margin-right: 3%;
-  animation-delay: 13s;
+  animation-delay: 10s;
 }
 
 .buttonVideo:hover, .buttonVideo:focus {
@@ -805,20 +814,6 @@ nav ul li:hover .submenu > li {
   background: -webkit-gradient(linear, left top, left bottom, from(#145e70), to(#145e70));
   background: -moz-linear-gradient(top, #145e70, #145e70);
   background: linear-gradient(to bottom, #145e70, #145e70);
-}
-
-.buttonVideo:after {
-  content: " ";
-  display: inline-block;
-  height: 24px;
-  width: 24px;
-  line-height: 24px;
-  margin: 0 -4px -6px 4px;
-  position: relative;
-  top: -2px;
-  left: 0;
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLUlEQVRIibWUsUoDQRCGvxus5LBMLRYiYiWpgk18AyG+wJUWVvYi5wMIPkbK1ImPE0gdUBBPC+9gs7eTmTvPgeFmd3b/f+7f2c0A4R+tAa+UfPXX+CCRlEScA/f13AvwYazfiWOJ4nEOvAHftS+BIzqYGP4agMck1l6JK5bEeJ4gaEjyxPpWbHXRGbDeQxLKpRJYfuEgcUmkVuEgUeXqctHOHX+yg5sFBA/A1EF4DJwquRVwA2zDSQHGSlV9fAkcEuk/MqruYtfAjMRTMaRtiA75BHhnGIlKghZtDrni9xwmjupugSsl9ww8Er3OEnwtL4AvR+W9LloBfDrAW3s9F81TuWqWRDMHuPu5jscCLBzg2t7WZMru9oC7zNNFZQD+ZKzt1UUCXNbukqWJfwAl65SxHZyWNwAAAABJRU5ErkJggg==") no-repeat left center transparent;
-  background-size: 100% 100%;
 }
 
 /*End of HomePage part*/
@@ -844,7 +839,6 @@ nav ul li:hover .submenu > li {
 
 .search-btn {
   color: white;
-  float: right;
   width: 40px;
   height: 40px;
   background: transparent;
@@ -853,33 +847,31 @@ nav ul li:hover .submenu > li {
   justify-content: center;
   align-items: center;
   transition: 0.4s;
-  margin-top: -13px;
-  margin-left: 6px;
+  margin-top: 2px;
 }
 
 .search-text {
-  border: none;
-  background: none;
+  border: 1px solid #3A3A3A;
+  background: transparent;
   outline: none;
   float: left;
-  padding: 0;
-  color: white;
+  color: black;
   font-size: 16px;
   transition: 0.4s;
   line-height: 40px;
-  width: 0;
-  margin-right: -6px;
-  margin-top: -12px;
-}
-
-.search-box:hover > .search-text {
   width: 240px;
   padding: 0 6px;
+  margin-left: 45px;
+  font-weight: bold;
 }
 
-.search-box:hover > .search-btn {
-  background: white;
+.search-box:hover .search-btn {
   color: #2ed3fd;
+}
+
+.search-text:hover {
+  background-color: black;
+  color: white;
 }
 
 /*HomePage scroll part*/
@@ -1732,9 +1724,12 @@ footer > p, .textFooter > h1 {
     width: 100%;
   }
 
-  .categoryPresentation .textCategory h1 {
-    font-size: 25px;
+  .titleProducts {
     margin: 0 0 40px 0;
+  }
+
+  .allFilter a {
+    font-size: 11px;
   }
 
   .categoryPresentation .textCategory p {
@@ -1744,6 +1739,27 @@ footer > p, .textFooter > h1 {
 
   .categoryArticle, .headerCategories {
     width: 100%;
+  }
+
+  .filterBy {
+    text-align: center;
+    margin-top: 23px;
+    font-size: 18px;
+    /* font-style: italic; */
+  }
+
+  .filterByPrice, .filterByAge {
+    margin: 8px;
+    font-size: 15px;
+    padding: 7px;
+  }
+
+  .navRecord.menu-open {
+    margin-left: -1px;
+  }
+
+  .navAjustment .search-text {
+    margin-left: 9px !important;
   }
 }
 /*End of products_category page*/
@@ -1784,6 +1800,7 @@ footer > p, .textFooter > h1 {
   text-transform: uppercase;
   color: #FF0000;
   margin: 0 auto;
+  text-align: center;
 }
 
 .informationProduct .contentProduct > p {
@@ -1929,7 +1946,7 @@ footer > p, .textFooter > h1 {
     width: 80%;
   }
 
-  .informationProduct .contentProduct h1 {
+  .informationProduct .contentProduct h1, .titleComment {
     font-size: 24px;
     /*-20%*/
   }
@@ -1960,7 +1977,7 @@ footer > p, .textFooter > h1 {
     width: 90%;
   }
 
-  .informationProduct .contentProduct h1 {
+  .informationProduct .contentProduct h1, .titleComment {
     padding-top: 10px;
     font-size: 20px;
   }
@@ -1989,7 +2006,7 @@ footer > p, .textFooter > h1 {
     width: 90%;
   }
 
-  .informationProduct .contentProduct h1 {
+  .informationProduct .contentProduct h1, .titleComment {
     padding-top: 10px;
     font-size: 16px;
   }
@@ -2103,6 +2120,19 @@ footer > p, .textFooter > h1 {
   width: 800px;
   max-width: 100%;
   min-height: 480px;
+}
+
+.blackSearch ul .blackSearchPng .searchJsNav .search-btn {
+  color: white;
+}
+
+.blackSearch ul .blackSearchPng .searchJsNav input, .blackSearchC ul .blackSearchPng .searchJsNav input {
+  border: 1px solid #F3F3F3;
+}
+
+.blackSearch ul .blackSearchPng .searchJsNav input:hover, .blackSearchC ul .blackSearchPng .searchJsNav input:hover {
+  background-color: white;
+  color: black;
 }
 
 .formContainer {
@@ -2382,6 +2412,11 @@ footer > p, .textFooter > h1 {
 
 /*Responsive part*/
 @media screen and (max-width: 600px) {
+  .allUserLoginHistory table tr {
+    display: flex;
+    flex-direction: column;
+  }
+
   .allUserLoginHistory table th {
     font-size: 13px;
   }

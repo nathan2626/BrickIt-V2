@@ -5,7 +5,7 @@
     </div>
     <div class="overlayNav"></div>
     <div class="containerNav">
-        <nav class="colorCategoryProducts">
+        <nav class="colorCategoryProducts navRecord">
             <?php require 'partials/navContenair.php'; ?>
         </nav>
     </div>
@@ -71,14 +71,14 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>08/01/20</td>
+                        <td></td>
                         <td>Star wars le vaisseau ...</td>
                         <td>3</td>
                         <td>19.99$</td>
                         <td>59.97</td>
                     </tr>
                     <tr>
-                        <td>08/01/20</td>
+                        <td></td>
                         <td>Star wars le vaisseau ...</td>
                         <td>3</td>
                         <td>19.99$</td>
@@ -87,11 +87,13 @@
                     </tbody>
                     <tfoot>
                     <tr>
+                        <td>08/01/20</td>
                         <td colspan="3">Totals</td>
                         <td>119.94$</td>
                     </tr>
                     </tfoot>
                 </table>
+                <hr>
             </div>
         </section>
     </article>
