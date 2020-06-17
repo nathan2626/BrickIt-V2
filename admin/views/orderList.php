@@ -1,3 +1,10 @@
+<?php if(isset($_SESSION['messages'])): ?>
+    <div class="msgSession">
+        <?php foreach($_SESSION['messages'] as $message): ?>
+            <?= $message ?>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
 <article class="listOrdersTable">
     <table>
         <thead>
@@ -12,22 +19,16 @@
             <td>Total</td>
             <td>Action</td>
         </tr>
+        <?php foreach ($orders as $order): ?>
         <tr>
-            <td>30</td>
-            <td>Nathan Journo</td>
-            <td>199.99$</td>
+            <td><?= $order['id']?></td>
+            <td><?= $order['first_name']?>/<?= $order['last_name']?></td>
+            <td><?= $order['price']?></td>
             <td>
-                <a class="detailsOrder" type="button" href="orderDetails.php">Détails</a>
+                <a class="detailsOrder" type="button" href="index.php?controller=orders&action=detail&id=<?= $order['id']?>">Détails</a>
             </td>
         </tr>
-        <tr>
-            <td>30</td>
-            <td>Nathan Journo</td>
-            <td>199.99$</td>
-            <td>
-                <a class="detailsOrder" type="button" href="orderDetails.php">Détails</a>
-            </td>
-        </tr>
+        <?php endforeach; ?>
         </tbody>
     </table>
 </article>

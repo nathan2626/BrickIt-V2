@@ -1,3 +1,10 @@
+<?php if(isset($_SESSION['messages'])): ?>
+    <div class="msgSession">
+        <?php foreach($_SESSION['messages'] as $message): ?>
+            <?= $message ?>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
 <article class="listOrdersTable">
     <table>
         <thead>
@@ -7,18 +14,14 @@
         </thead>
         <tbody>
         <tr>
-            <td>Nom</td>
             <td>Prénom</td>
+            <td>Nom</td>
             <td>Adresse</td>
-            <td>Email</td>
-            <td>Mot de passe</td>
         </tr>
         <tr>
-            <td>Journo</td>
-            <td>Nathan</td>
-            <td>5 rue blabla Paris</td>
-            <td>nathanjourno@yahoo.fr</td>
-            <td>fksoiuybzbd66287xz</td>
+            <td><?= $order['last_name']?></td>
+            <td><?= $order['first_name']?></td>
+            <td><?= $order['adress']?></td>
         </tr>
     </table>
 </article>

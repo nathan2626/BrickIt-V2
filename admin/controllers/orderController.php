@@ -15,9 +15,10 @@ if(isset($_GET['action'])) {
             break;
 
         case 'detail' :
-            $categories = getAllCategories();
-            $view = 'views/categoryForm.php';
-            $pageTitle = 'Ajouter une catégorie';
+            $order = getOrder($_GET['id']);
+
+            $view = 'views/orderDetails.php';
+            $pageTitle = "Détail d'une commandes";
             $pageDescription = '';
 
             break;

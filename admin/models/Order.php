@@ -8,3 +8,16 @@ function getAllOrders()
 
     return $orders;
 }
+function getOrder($id)
+{
+    $db = dbConnect();
+
+    $query = $db->prepare("SELECT * FROM orders WHERE id = ?");
+    $query->execute([
+        $id
+    ]);
+
+    $result =  $query->fetch();
+
+    return $result;
+}
