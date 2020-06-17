@@ -56,7 +56,6 @@ function addProduct($informations)
     }
 
     if(!empty($_FILES['image']['tmp_name'])){
-        $productId = $db->lastInsertId();
 
         $allowed_extensions = array( 'jpg' , 'jpeg' , 'gif', 'png', 'JPG' , 'JPEG' , 'GIF', 'PNG' );
         $my_file_extension = pathinfo( $_FILES['image']['name'] , PATHINFO_EXTENSION);
@@ -69,39 +68,36 @@ function addProduct($informations)
         }
     }
     if(!empty($_FILES['image_secondary_1']['tmp_name'])){
-        $productId = $db->lastInsertId();
 
         $allowed_extensions = array( 'jpg' , 'jpeg' , 'gif', 'png', 'JPG' , 'JPEG' , 'GIF', 'PNG' );
         $my_file_extension = pathinfo( $_FILES['image_secondary_1']['name'] , PATHINFO_EXTENSION);
         if (in_array($my_file_extension , $allowed_extensions)){
             $new_file_name = $productId . '.' . $my_file_extension ;
-            $destination = '../assets/images/product/' . $new_file_name;
+            $destination = '../assets/images/product/s1/' . $new_file_name;
             $result = move_uploaded_file( $_FILES['image_secondary_1']['tmp_name'], $destination);
 
             $db->query("UPDATE products SET image_secondary_1 = '$new_file_name' WHERE id = $productId");
         }
     }
     if(!empty($_FILES['image_secondary_2']['tmp_name'])){
-        $productId = $db->lastInsertId();
 
         $allowed_extensions = array( 'jpg' , 'jpeg' , 'gif', 'png', 'JPG' , 'JPEG' , 'GIF', 'PNG' );
-        $my_file_extension = pathinfo( $_FILES['image']['image_secondary_2'] , PATHINFO_EXTENSION);
+        $my_file_extension = pathinfo( $_FILES['image_secondary_2']['name'] , PATHINFO_EXTENSION);
         if (in_array($my_file_extension , $allowed_extensions)){
             $new_file_name = $productId . '.' . $my_file_extension ;
-            $destination = '../assets/images/product/' . $new_file_name;
+            $destination = '../assets/images/product/s2/' . $new_file_name;
             $result = move_uploaded_file( $_FILES['image_secondary_2']['tmp_name'], $destination);
 
             $db->query("UPDATE products SET image_secondary_2 = '$new_file_name' WHERE id = $productId");
         }
     }
     if(!empty($_FILES['image_secondary_3']['tmp_name'])){
-        $productId = $db->lastInsertId();
 
         $allowed_extensions = array( 'jpg' , 'jpeg' , 'gif', 'png', 'JPG' , 'JPEG' , 'GIF', 'PNG' );
         $my_file_extension = pathinfo( $_FILES['image_secondary_3']['name'] , PATHINFO_EXTENSION);
         if (in_array($my_file_extension , $allowed_extensions)){
             $new_file_name = $productId . '.' . $my_file_extension ;
-            $destination = '../assets/images/product/' . $new_file_name;
+            $destination = '../assets/images/product/s3/' . $new_file_name;
             $result = move_uploaded_file( $_FILES['image_secondary_3']['tmp_name'], $destination);
 
             $db->query("UPDATE products SET image_secondary_3 = '$new_file_name' WHERE id = $productId");
@@ -162,11 +158,11 @@ function updateProduct($productId, $informations)
             //ici virer l'ancien fichier
             $product = getProduct($productId);
             if($product['image_secondary_1'] != null){
-                unlink("../assets/images/product/".$product['image_secondary_1']);
+                unlink("../assets/images/product/s1/".$product['image_secondary_1']);
             }
 
             $new_file_name = $productId . '.' . $my_file_extension ;
-            $destination = '../assets/images/product/' . $new_file_name;
+            $destination = '../assets/images/product/s1/' . $new_file_name;
             $result = move_uploaded_file( $_FILES['image_secondary_1']['tmp_name'], $destination);
 
             $db->query("UPDATE products SET image_secondary_1 = '$new_file_name' WHERE id = $productId");
@@ -181,11 +177,11 @@ function updateProduct($productId, $informations)
             //ici virer l'ancien fichier
             $product = getProduct($productId);
             if($product['image_secondary_2'] != null){
-                unlink("../assets/images/product/".$product['image_secondary_2']);
+                unlink("../assets/images/product/s2/".$product['image_secondary_2']);
             }
 
             $new_file_name = $productId . '.' . $my_file_extension ;
-            $destination = '../assets/images/product/' . $new_file_name;
+            $destination = '../assets/images/product/s2/' . $new_file_name;
             $result = move_uploaded_file( $_FILES['image_secondary_2']['tmp_name'], $destination);
 
             $db->query("UPDATE products SET image_secondary_2 = '$new_file_name' WHERE id = $productId");
@@ -200,11 +196,11 @@ function updateProduct($productId, $informations)
             //ici virer l'ancien fichier
             $product = getProduct($productId);
             if($product['image_secondary_3'] != null){
-                unlink("../assets/images/product/".$product['image_secondary_3']);
+                unlink("../assets/images/product/s3/".$product['image_secondary_3']);
             }
 
             $new_file_name = $productId . '.' . $my_file_extension ;
-            $destination = '../assets/images/product/' . $new_file_name;
+            $destination = '../assets/images/product/s3/' . $new_file_name;
             $result = move_uploaded_file( $_FILES['image_secondary_3']['tmp_name'], $destination);
 
             $db->query("UPDATE products SET image_secondary_3 = '$new_file_name' WHERE id = $productId");

@@ -27,6 +27,7 @@ if(isset($_GET['action'])) {
         break;
 
         case 'add' :
+
             if(empty($_POST['name']) || empty($_POST['price']) || empty($_POST['description']) || empty($_POST['quantity'])){
 
                 if(empty($_POST['name'])){

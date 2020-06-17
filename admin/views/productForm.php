@@ -61,30 +61,30 @@
             <?php if(isset($product) && $product['image'] != null): ?>
                 <div style="width: 300px;" >
                     <img style="width: 100%;" src="../assets/images/product/<?= $product['image'] ?>" alt="<?= $product['name'] ?>">
-                </div>
+                </div><br><br>
             <?php endif; ?>
 
             <label for="image_secondary_1">Image secondaire 1:</label>
             <input  type="file" name="image_secondary_1" id="image_secondary_1"/>
             <?php if(isset($product) && $product['image_secondary_1'] != null): ?>
                 <div style="width: 300px;" >
-                    <img style="width: 100%;" src="../assets/images/product/<?= $product['image_secondary_1'] ?>" alt="<?= $product['image_secondary_1'] ?>">
-                </div>
+                    <img style="width: 100%;" src="../assets/images/product/s1/<?= $product['image_secondary_1'] ?>" alt="<?= $product['image_secondary_1'] ?>">
+                </div><br><br>
             <?php endif; ?>
 
-            <label for="image_secondary_2">Image secondaire 1:</label>
+            <label for="image_secondary_2">Image secondaire 2:</label>
             <input  type="file" name="image_secondary_2" id="image_secondary_2"/>
             <?php if(isset($product) && $product['image_secondary_2'] != null): ?>
                 <div style="width: 300px;" >
-                    <img style="width: 100%;" src="../assets/images/product/<?= $product['image_secondary_2'] ?>" alt="<?= $product['image_secondary_2'] ?>">
-                </div>
+                    <img style="width: 100%;" src="../assets/images/product/s2/<?= $product['image_secondary_2'] ?>" alt="<?= $product['image_secondary_2'] ?>">
+                </div><br><br>
             <?php endif; ?>
 
-            <label for="image_secondary_3">Image secondaire 1:</label>
+            <label for="image_secondary_3">Image secondaire 3:</label>
             <input  type="file" name="image_secondary_3" id="image_secondary_3"/>
             <?php if(isset($product) && $product['image_secondary_3'] != null): ?>
                 <div style="width: 300px;" >
-                    <img style="width: 100%;" src="../assets/images/product/<?= $product['image_secondary_3'] ?>" alt="<?= $product['image_secondary_3'] ?>">
+                    <img style="width: 100%;" src="../assets/images/product/s3/<?= $product['image_secondary_3'] ?>" alt="<?= $product['image_secondary_3'] ?>">
                 </div>
             <?php endif; ?>
 
