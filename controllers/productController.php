@@ -20,8 +20,7 @@ if(isset($_GET['action'])) {
         break;
 
         case 'addComment' : //Comment part bonus
-//            $product = getProduct($_GET['id']);
-//            $products = getAllProducts($_GET['id']);
+
             $allComments = getAllComments($_GET['id']);
 
             if (isset($_POST['submit_comment']) ) {
@@ -64,8 +63,6 @@ if(isset($_GET['action'])) {
                 }
                 else {
                     $_SESSION['messages'][] = 'Vous devez vous connecter pour poster un commentaire !';
-
-//                    $_SESSION['messages'][] = 'Vous avez déjà posté un commentaire pour ce produit !';
 
                     header('Location:index.php?p=products&action=single&id='.$_GET['id']);
                     exit;

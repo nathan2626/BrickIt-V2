@@ -2,6 +2,11 @@
 
 session_start();
 
+if (!isset($_SESSION['user']) || $_SESSION['user']['is_admin'] == 0) {
+    header('Location:/BrickIt/index.php');
+}
+
+
 require('../helpers.php');
 
 if(isset($_GET['controller'])){
@@ -34,3 +39,6 @@ if(isset($_SESSION['messages'])){
 if(isset($_SESSION['old_inputs'])){
     unset($_SESSION['old_inputs']);
 }
+
+
+
