@@ -78,7 +78,7 @@
                             </td>
                         <?php else: ?>
                             <td>
-                                <a href="index.php?p=user&action=connect">Connectez vous pour commander !</a>
+                                <a href="index.php?p=users&action=form">Connectez vous pour commander !</a>
                             </td>
                         <?php endif; ?>
                     </tr>

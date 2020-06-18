@@ -34,7 +34,7 @@ function insertNewUser ()
             ]
         );
         $_SESSION['user'] = [
-            'id' => $_POST['id'],
+            'id' => $db->lastInsertId(),
             'first_name' => $_POST['first_name'],
             'last_name' => $_POST['last_name'],
             'email' => $_POST['email'],

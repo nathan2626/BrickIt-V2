@@ -14,6 +14,7 @@ if(isset($_GET['action'])) {
             if(isset($_SESSION['user'])){
                 //récupérer les produits et quantités avec $_SESSION['cart']
                 $newOrder = insertNewOrder();
+                $newOrderDetails = insertNewOrderDetails();
                 if ($newOrder) {
                     $_SESSION['messages'][] = 'Commande enregistrée !';
                 } else {
