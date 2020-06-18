@@ -1,5 +1,6 @@
 <?php if(!isset($_SESSION['user'])): ?>
 <body>
+    <!-- Specific content that will contain the nav -->
     <header class="headerCategories headerCategoriesProducts">
     <!--Nav-->
     <div class="menu-toggle" id="hamburger">
@@ -20,6 +21,7 @@
         </div>
     <?php endif; ?>
     <main>
+        <!-- Form part-->
         <article class="articleAccount">
             <div class="containerAccount" id="containerAccount">
                 <div class="formContainer signUpContainer">

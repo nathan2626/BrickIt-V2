@@ -1,5 +1,6 @@
 <body>
 <main class="mainCategories">
+    <!-- Nav and content vidéos of the categories -->
     <header class="headerCategories">
         <!--Nav-->
         <div class="menu-toggle" id="hamburger">
@@ -11,6 +12,7 @@
                 <?php require 'partials/navContenair.php'; ?>
             </nav>
         </div>
+        <!-- Full screen vidéo -->
         <article class="fullScreenVideo">
             <div class="screenVideo">
                 <video id="slider" autoplay muted loop>
@@ -19,9 +21,6 @@
                 <ul class="navCategories">
                     <?php foreach ($categoriesNotActivates as $categoryNotActivate): ?>
                     <li onclick="videoUrl('./assets/vendors/lotr.mp4')"><img src="./assets/images/category/<?= $categoryNotActivate['image'] ?>" alt="Image correspondant à la video de : <?= $categoryNotActivate['name'] ?>"></li>
-<!--                    <li onclick="videoUrl('assets/vendors/Lego.mp4')"><img src="./assets/images/imageMinionCategories.jpg"></li>-->
-<!--                    <li onclick="videoUrl('assets/vendors/Lego.mp4')"><img src="./assets/images/imageMarvelCategories.jpg"></li>-->
-<!--                    <li onclick="videoUrl('assets/vendors/Lego.mp4')"><img src="./assets/images/imageWarcraftCategories.jpg"></li>-->
                     <?php endforeach; ?>
                 </ul>
             </div>

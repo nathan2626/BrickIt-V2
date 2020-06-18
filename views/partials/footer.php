@@ -1,8 +1,8 @@
 <!--
-Pourquoi ne pas mettre le footer dans front.php ?
-Car dans l'ensemble de mes views, je n'ai pas les mêmes balises <script>
-en fin de code, et donc si j'avais mis le footer dans le front.php,
-je n'aurai pas pu décider quel balise <script> mettre ou ne pas mettre.
+Why not put the footer in front.php?
+Because in all my views, I don’t have the same script tags
+at the end of the code, and so if I had put the footer in the front.php,
+I couldn’t have decided which script tag to put or not to put.
  -->
 <footer>
     <div class="innerFooter">

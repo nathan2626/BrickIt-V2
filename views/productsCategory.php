@@ -1,5 +1,6 @@
 <body>
 <main class="mainCategories">
+    <!-- Specific content that will contain the nav -->
     <header class="headerCategories headerCategoriesProducts">
         <!--Nav-->
         <div class="menu-toggle" id="hamburger">
@@ -46,6 +47,7 @@
             </nav>
         </div>
     </header>
+    <!-- Single category presentation -->
     <article class="categoryArticle">
         <div class="categoryPresentation">
             <div class="imageCategory">
@@ -57,9 +59,11 @@
             </div>
         </div>
     </article>
+    <!-- Products by category -->
     <article class="productsCategory">
         <h1 style="font-size: 23px!important;" class="titleProducts">Nos produits</h1>
         <h2 class="filterBy">Filtrer par</h2>
+        <!-- Filter subpart -->
         <div class="allFilter">
             <div class="filterByPriceAll">
                 <h2 class="filterByPrice">Prix</h2>
@@ -82,8 +86,7 @@
                 </div>
             </div>
         </div>
-
-
+        <!-- Single product -->
         <div class="childProductsCategory">
             <?php if(sizeof($categoryProducts) > 0): //Autrement dit, s'il y a un ou plusieurs produits?>
                 <?php foreach($categoryProducts as $categoryProduct): ?>

@@ -1,4 +1,5 @@
 <body>
+<!-- Specific content that will contain the nav -->
 <header class="headerCategories headerCategoriesProducts">
     <div class="menu-toggle" id="hamburger">
         <i class="fas fa-bars"></i>
@@ -10,6 +11,7 @@
         </nav>
     </div>
 </header>
+<!-- Session messages -->
 <?php if(isset($_SESSION['messages'])): ?>
     <div class="msgSession">
         <?php foreach($_SESSION['messages'] as $message): ?>
@@ -19,6 +21,7 @@
 <?php endif; ?>
 <main>
     <article class="userLogin">
+        <!-- Welcome ! -->
         <section class="welcomeUnknown">
             <h1>
                 <?php if(isset($_SESSION['user']) && $_SESSION['user']['is_admin'] == 0): ?>
@@ -26,12 +29,13 @@
                 <?php endif; ?>
                 <?php if(isset($_SESSION['user']) && $_SESSION['user']['is_admin'] == 1): ?>
                     Revoilà le Boss <?= $_SESSION['user']['first_name'] ?>
-                    <br><p>Va bosser :<br><a href="./admin/index.php">Admin</a></p>
+                    <br>Va bosser :<br><a href="./admin/index.php">Admin</a>
                     <br>Ou<br>
                     <br><p>Retourne te reposer :<br><a href="index.php?p=users&action=disconnect">déconnexion</a></p>
                 <?php endif; ?>
             </h1>
         </section>
+        <!-- Information User -->
         <section class="informationUserLogin">
             <h2>Modifications</h2>
             <div class="formRegister">
@@ -52,16 +56,16 @@
                     <input  type="password" name="password" id="password" value=""/>
 
                     <input type="submit" value="Enregistrer" />
-
                 </form>
             </div>
         </section>
+        <!-- Order history -->
         <section class="commandHistoryUserLogin">
             <h1>Historique des commandes</h1>
             <div class="allUserLoginHistory">
                 <table>
                     <thead>
-                    <tr>
+                        <tr>
                         <th>Date</th>
                         <th>Nom du produit</th>
                         <th>Quantité</th>
@@ -70,14 +74,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
+                        <tr>
                         <td></td>
                         <td>Star wars le vaisseau ...</td>
                         <td>3</td>
                         <td>19.99$</td>
                         <td>59.97</td>
                     </tr>
-                    <tr>
+                        <tr>
                         <td></td>
                         <td>Star wars le vaisseau ...</td>
                         <td>3</td>
@@ -86,7 +90,7 @@
                     </tr>
                     </tbody>
                     <tfoot>
-                    <tr>
+                        <tr>
                         <td>08/01/20</td>
                         <td colspan="3">Totals</td>
                         <td>119.94$</td>

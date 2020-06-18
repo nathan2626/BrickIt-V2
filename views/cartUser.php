@@ -1,6 +1,6 @@
 <body>
+<!-- Specific content that will contain the nav -->
 <header class="headerCategories headerCategoriesProducts">
-    <!--Nav-->
     <div class="menu-toggle" id="hamburger">
         <i class="fas fa-bars"></i>
     </div>
@@ -13,6 +13,7 @@
     </div>
 </header>
 <main>
+    <!-- Order history -->
     <article class="userLogin">
         <section class="commandHistoryUserLogin">
             <h1 class="myCart">Mon panier</h1>
@@ -86,25 +87,24 @@
             </div>
         </section>
     </article>
+    <!-- Random of all products-->
     <article class="productsCategory">
         <h1 class="titleRandom">Produits qui peut vous interesser</h1>
         <div class="childProductsCategory">
-
-
             <?php
-            //cette variable va garder en mémoire les ID des produits séléctionnés par la boucle suivante afin de ne pas les re-selectionner
+            //this variable will keep in memory the Ids of the products selected by the next loop in order not to re-select them
             $selectedProductsCategory = [];
 
             for($n=0;$n<4;$n++): ?>
                 <?php
-                //Tant que $nb aléatoire existe dans le tableau $selectedProductsCategory, on le re-génère
+                //As long as $nb random exists in the $selectedProductsCategory array, it is re-generated
                 do{
                     $nb = rand(0, sizeof($products) - 1 );
                 } while(in_array($nb , $selectedProductsCategory));
 
-                //$selectedProductCategory = le produit selectionné
+                //$selectedProductCategory = the selected product
                 $selectedProductCategory = $products[$nb];
-                //on enregistre l'id du produit selectionné dans $selectedProductsCategory pour ne pas le re-séléctionner dans les prochaines ittérations de boucle
+                //the product id of the selected product is saved in $selectedProductsCategory so that it is not re-selected in the next loop iterations
                 $selectedProductsCategory[] = $nb;
                 ?>
                 <div class="sub-item introImage">

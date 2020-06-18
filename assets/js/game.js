@@ -24,6 +24,7 @@ const blueGhost = document.querySelector('img[src="assets/images/game/blue-ghost
 const pinkGhost = document.querySelector('img[src="assets/images/game/pink-ghost.png"]')
 const button = document.querySelector('input[type="button"]')
 const form = document.querySelector('.formGame')
+
 //La div du gameOver que l'on affiche lorsque les conditions du GameOver sont remplise
 const gameOverScreen = document.querySelector('.GameOver')
 

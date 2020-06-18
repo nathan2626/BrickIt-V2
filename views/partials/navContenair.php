@@ -1,3 +1,4 @@
+<!-- Nav bar -->
 <h1 class="brickIt"><a href="index.php">Brick'It</a></h1>
 <ul>
     <li class="liHOpen2"><a href="index.php?p=categories&action=list">Catégories</a>
@@ -5,9 +6,6 @@
             <?php foreach($categories as $category): ?>
                 <li class="liHOpen"><a style="margin: 0;" href="index.php?p=categories&action=single&id=<?= $category['id'] ?>"><?= $category['name'] ?></a></li>
             <?php endforeach; ?>
-            <!--                        <li><a href="">Disney</a></li>-->
-            <!--                        <li><a href="">Star Wars</a></li>-->
-            <!--                        <li><a href="">Warcraft</a></li>-->
         </ul>
     </li>
     <li class="liHOpen3"><a href="./game/index.php" class="exception" target="_blank">Jeu</a></li>
@@ -19,11 +17,7 @@
     <?php if(isset($_SESSION['user'])): ?>
         <li class="liHOpen7"><a href="index.php?p=users&action=disconnect">Déconnexion</a></li>
     <?php endif; ?>
-<!--    <li class=""><a href=""><i class="fas fa-search search"></i></a></li>-->
-<!--    <form class="searchJsNav search-box" action="index.php?p=products&action=search" method="post" enctype="multipart/form-data">-->
-<!--        <input type="search" name="nameProduct" class="search-text" placeholder="Rechercher un prduit">-->
-<!--        <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>-->
-<!--    </form>-->
+    <!-- Search bar -->
     <li class="blackSearchPng">
         <form class="searchJsNav search-box" action="index.php?p=products&action=search" method="post" enctype="multipart/form-data">
             <input type="search" name="nameProduct" class="search-text" placeholder="Rechercher un produit">

@@ -1,4 +1,5 @@
 <body class="bodyContactUs">
+<!-- Specific content that will contain the nav -->
 <header class="headerCategories headerCategoriesProducts">
     <!--Nav-->
     <div class="menu-toggle" id="hamburger">
@@ -11,6 +12,7 @@
         </nav>
     </div>
 </header>
+<!-- Contact us part -->
 <article class="wrapper">
     <h1>Partagez-nous votre rêve !</h1>
     <form action="mailto:nathanjourno@yahoo.fr" method="post" enctype="text/plain" class="form-area">

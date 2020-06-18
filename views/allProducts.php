@@ -1,5 +1,7 @@
+<!-- This is this page that will receive a product name and will therefore display all the corresponding products -->
 <body>
 <main class="mainCategories">
+    <!-- Specific content that will contain the nav -->
     <header class="headerCategories headerCategoriesProducts">
         <!--Nav-->
         <div class="menu-toggle" id="hamburger">
@@ -14,7 +16,7 @@
     </header>
     <?php if(!empty($_POST['nameProduct'])): ?>
         <?php if($productsSearch):?>
-        <article class="bestSellers">
+            <article class="bestSellers searchAllProducts">
             <h1>Produits correspondants à votre recherche <?= $_POST['nameProduct']?></h1>
             <div class="childBestSellers">
                 <?php foreach ($productsSearch as $productSearch): ?>
@@ -36,7 +38,7 @@
             </div>
         </article>
         <?php else:?>
-    <article class="bestSellers">
+            <article class="bestSellers searchNotFound">
         <h1 style="margin-bottom: 200px; margin-top: -50px;">Aucun résultat pour <?= $_POST['nameProduct']?></h1>
     </article>
         <?php endif; ?>

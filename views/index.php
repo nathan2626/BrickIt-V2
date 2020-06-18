@@ -1,7 +1,6 @@
 <body>
 <!--Loading page part-->
 <article class="allLoadingPage">
-
     <canvas id="canvas"></canvas> <!--for the fireworks-->
     <div class="loadingPage">
         <audio controls preload="auto" autoplay class="audioLoadingPage">
@@ -25,6 +24,7 @@
     </div>
 </article>
 <main class="main">
+    <!-- Nav and content vidéo -->
     <header>
         <!--Nav-->
         <div class="menu-toggle" id="hamburger">
@@ -52,7 +52,8 @@
             </div>
         </article>
     </header>
-        <article class="aboutUs">
+    <!-- About us part -->
+    <article class="aboutUs">
             <h1>Qui-sommes-nous ?</h1>
             <div class="childAboutUs">
                 <div class="sub-itemAboutUs">
@@ -68,9 +69,9 @@
                     </div>
                 </div>
             </div>
-
         </article>
-        <article class="bestSellers">
+    <!-- Best-Sellers part -->
+    <article class="bestSellers">
             <h1>Meilleures ventes</h1>
             <div class="childBestSellers">
                 <?php foreach ($bestsProducts as $best): ?>
@@ -91,7 +92,8 @@
                 <?php endforeach; ?>
             </div>
         </article>
-        <article class="novelties">
+    <!-- Novelties part -->
+    <article class="novelties">
             <h1>Nouveautés</h1>
             <div class="childNovelties">
                 <?php foreach ($productsNovelties as $novelty): ?>
@@ -112,8 +114,6 @@
                 <?php endforeach; ?>
             </div>
         </article>
-<!--    --><?php //endif; ?>
-
 </main>
 <?php require 'partials/footer.php'; ?>
 

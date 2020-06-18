@@ -1,5 +1,6 @@
 <body>
 <main class="mainCategories">
+    <!-- Specific content that will contain the nav -->
     <header class="headerCategories headerCategoriesProducts">
         <!--Nav-->
         <div class="menu-toggle" id="hamburger">
@@ -12,6 +13,7 @@
             </nav>
         </div>
     </header>
+    <!-- Content of a single product -->
     <article class="singleArticle">
         <div class="productPresentation">
             <div class="bigImageProduct">
@@ -44,6 +46,7 @@
                 </div>
             </div>
         </div>
+        <!--Comment part-->
         <div class="allCommentsPart">
             <div>
                 <h1 class="titleComment">Postez votre commentaire !</h1>
@@ -83,14 +86,11 @@
                 <?php endif; ?>
             </details>
         </div>
-
-
     </article>
+    <!--Random products by category -->
     <article class="productsCategory">
         <h1 class="titleRandom">Produits qui peut vous interesser</h1>
         <div class="childProductsCategory">
-
-
             <?php
             //cette variable va garder en mémoire les ID des produits séléctionnés par la boucle suivante afin de ne pas les re-selectionner
             $selectedProductsCategory = [];

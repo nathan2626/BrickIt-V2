@@ -16,7 +16,6 @@ window.addEventListener("scroll", () => {
 //  - 3) Fireworks part
 //
 
-// 1) Loader part
 const loader = document.querySelector('.loadingPage');
 const main = document.querySelector('main');
 const videoLoadingPage = document.querySelector('.homePageVideo');
@@ -29,6 +28,7 @@ canvas = document.getElementById("canvas");
 
 
 if(canvas){ //if my canvas exist, i execute my loading part
+    // 1) Loader part
     const init = () => {
         setTimeout(() => {
             loader.style.display = 'none';
@@ -40,8 +40,7 @@ if(canvas){ //if my canvas exist, i execute my loading part
     };
     init();
 
-// 2) Progress bar part
-
+    // 2) Progress bar part
     let progress = () => { //for the progress bar
         let progress = document.querySelector('.progressColor');
         let width = 1;
@@ -59,6 +58,7 @@ if(canvas){ //if my canvas exist, i execute my loading part
     };
     progress();
 
+    //fireworks
     function setup() {
         setSize(canvas);
         ctx = canvas.getContext("2d");
@@ -191,26 +191,12 @@ if(canvas){ //if my canvas exist, i execute my loading part
         ctx.fillRect(0, 0, width, height);
     }
 }
-
-
 //End of loading Page
 
 
 //Home Page scrolling products
 let scrollAppear = () => {
     let introImages = document.getElementsByClassName('sub-item introImage');
-
-    console.log(introImages);
-
-    // introImages.forEach(introImage => {
-    //     let introPosition = introImage.getBoundingClientRect().top;
-    //     let screenPosition = window.innerHeight / 1.3;
-    //
-    //     if(introPosition < screenPosition){
-    //         introImage.style.opacity = "1";
-    //         introImage.style.transform = "translateY(0)";
-    //     }
-    // })
 
     for (const introImage of introImages){
         let introPosition = introImage.getBoundingClientRect().top;
@@ -223,12 +209,6 @@ let scrollAppear = () => {
     }
 };
 window.addEventListener('scroll', scrollAppear);
-
-
-
-
-
-
 
 
 //Nav hamburger
@@ -256,53 +236,3 @@ open.addEventListener("click", function(){
         changeIcon = true;
     }
 });
-
-//Nav burger
-// const searchJsNav = document.querySelector('.searchJsNav');
-// const liHOpen1 = document.querySelector('.liHOpen1');
-// const liHOpen2 = document.querySelector('.liHOpen2');
-// const liHOpen3 = document.querySelector('.liHOpen3');
-// const liHOpen4 = document.querySelector('.liHOpen4');
-// const liHOpen5 = document.querySelector('.liHOpen5');
-// const liHOpen6 = document.querySelector('.liHOpen6');
-// const liHOpen7 = document.querySelector('.liHOpen7');
-// const liHOpen8 = document.querySelector('.liHOpen8');
-// const activeSh = document.querySelector('.searchActive');
-//
-// searchJsNav.addEventListener('mouseover', e => { //bonus
-//     e.preventDefault() //recherge pas la page
-//     //     e.preventDefault() //recherge pas la page
-//     // menu.classList.toggle('activeNavBurger');
-//     searchJsNav.classList.toggle("searchActive");
-//     if (searchJsNav.classList.contains("searchActive")) {
-//         liHOpen1.style.display = "none";
-//         liHOpen2.style.display = "none";
-//         liHOpen3.style.display = "none";
-//         liHOpen4.style.display = "none";
-//         liHOpen5.style.display = "none";
-//         liHOpen6.style.display = "none";
-//         liHOpen7.style.display = "none";
-//         liHOpen8.style.display = "none";
-//     } else {
-//         liHOpen1.style.display = "block";
-//         liHOpen1.style.animationDelay = "0s";
-//         liHOpen2.style.display = "block";
-//         liHOpen2.style.animationDelay = "0s";
-//         liHOpen3.style.display = "block";
-//         liHOpen3.style.animationDelay = "0s";
-//         liHOpen4.style.display = "block";
-//         liHOpen4.style.animationDelay = "0s";
-//         liHOpen5.style.display = "block";
-//         liHOpen5.style.animationDelay = "0s";
-//         liHOpen6.style.display = "block";
-//         liHOpen6.style.animationDelay = "0s";
-//         liHOpen7.style.display = "block";
-//         liHOpen7.style.animationDelay = "0s";
-//         liHOpen8.style.display = "block";
-//         liHOpen8.style.animationDelay = "0s";
-//     }
-// });
-
-
-
-

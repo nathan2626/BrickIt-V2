@@ -1,5 +1,6 @@
 <body class="body404Page">
 <main>
+    <!-- 404 page -->
     <article class="article404page">
         <section class="content404Page">
             <div class="img404Page">
