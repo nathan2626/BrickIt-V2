@@ -8,7 +8,6 @@ function getCartProducts()
         $query->execute([$product_id]);
         $result[] = $query->fetch();
     }
-    var_dump($_SESSION['cart']);
     return $result;
 }
 

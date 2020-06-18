@@ -11,18 +11,36 @@ if(isset($_GET['action'])) {
     switch ($_GET['action']) {
         case 'addProductCart' :
 
+            $product = getProduct($_GET['product_id']);
+
+            if ($product['id'] == $_GET['product_id']) { //if the product_id sent is the one id in the url
+                $verifInt = $_POST['quantityProduct'];
+                if (ctype_digit($verifInt) && $verifInt <= $product['quantity'] && $verifInt > 0) { //if $verifInt is INT and <= the total quantity of the product and > 0
+                    $_SESSION['cart'][$_GET['product_id']] = $_POST['quantityProduct'];
+
+                    $_SESSION['messages'][] = 'Produit ajouté !';
+
+                    header('Location:index.php?p=cart&action=displayCart');
+                    exit;
+                } else {
+                    $_SESSION['messages'][] = 'Cette quantité est indisponible !';
+
+                    header('Location:index.php?p=cart&action=displayCart');
+                    exit;
+                }
+            } else {
+                $_SESSION['messages'][] = 'Vous avez été deconnecté subitement... à ce demander pour quoi ?';
+                header('Location:index.php?p=users&action=disconnect');
+                exit;
+            }
             //recoit 2 informations qq et id
             //s'assurer que la valeur recu de la quantite est un int seulement (et pas float car mes produits sont entiers)
             //s'assurer que la valeur recu n'est pas supérieur a la quantité et inférieur a 0
             //s'assurer que l'id recu existe bien
             //sinon rediriger vers la fiche produit
 
-            $_SESSION['cart'][$_GET['product_id']] = $_POST['quantityProduct'];
 
-            $_SESSION['messages'][] = 'Produit ajouté !';
 
-            header('Location:index.php?p=cart&action=displayCart');
-            exit;
 
         break;
 
@@ -37,25 +55,27 @@ if(isset($_GET['action'])) {
 
         break;
 
-        case 'updateProductQuantityCart' :
-
-            $_SESSION['cart'][$_GET['product_id']] = $_POST['quantity'];
-
-
-
-            $_SESSION['messages'][] = 'Quantité modifiée !';
-
-            header('Location:index.php?p=cart&action=displayCart');
-            exit;
-
-        break;
+//      I manage the quantity directly on the cart page with a link to the quantityL.
+//      case 'updateProductQuantityCart' :
+//
+//          $_SESSION['cart'][$_GET['product_id']] = $_POST['quantity'];
+//          $_SESSION['messages'][] = 'Quantité modifiée !';
+//
+//          header('Location:index.php?p=cart&action=displayCart');
+//          exit;
+//      break;
 
         case 'displayCart' :
-
             $products = getAllProducts();
-
             $cartProducts = [];
-            $cartProducts = getCartProducts();
+
+            if (!empty($_SESSION['cart'])){
+                $cartProducts = getCartProducts();
+
+            } else {
+                $_SESSION['messages'][] = 'Panier vide !';
+
+            }
 
             $pageTitle = "Votre panier";
             $pageDescription = "Affichage de votre panier";

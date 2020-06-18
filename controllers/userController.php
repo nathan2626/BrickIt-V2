@@ -92,7 +92,7 @@ if(isset($_GET['action'])) {
         break;
 
         case 'edit' :
-            if ($_SESSION['user']['id'] == $_GET['id']){
+            if ($_SESSION['user']['id'] == $_GET['id']){ //if the user_id sent is the one id in the url
                 if(!empty($_POST)){
                     if(empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['email']) || empty($_POST['adress'])){
 

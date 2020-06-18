@@ -13,6 +13,13 @@
     </div>
 </header>
 <main>
+    <?php if(isset($_SESSION['messages'])): ?>
+        <div class="notFoundProduct">
+            <?php foreach($_SESSION['messages'] as $message): ?>
+                <?= $message ?>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
     <!-- Order history -->
     <article class="userLogin">
         <section class="commandHistoryUserLogin">
@@ -27,62 +34,58 @@
                         <th>Total</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <?php $total = 0; ?>
-                    <?php foreach ($cartProducts as $product): ?>
-                    <tr>
-                        <td><?= $product['name']?><a class="removeCart" href="index.php?p=cart&action=deleteProductCart&productId=<?= $product['id']?>">Supprimer</a></td>
-                        <td><?= $product['price'] ?></td>
-                        <td>
-                             <p>Quantité choisie : <?= $_SESSION['cart'][$product['id']] ?></p>
-                        </td>
-                        <td><?= $rowTotal = $product['price'] * $_SESSION['cart'][$product['id']]; $total += $rowTotal //prix fois la quantité ?></td>
-                    </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <td colspan="3">Totals</td>
-                        <td><?= $total ?></td>
-                    </tr>
-                    </tfoot>
-                </table>
-                <table class="recapCartRight">
-                    <thead>
-                    <tr>
-                        <th colspan="2">Récapitulatif de ma commande</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Sous-total des articles</td>
-                        <td><?= $total ?></td>
-                    </tr>
-                    <tr>
-                        <td>Livraison standard</td>
-                        <td>Offerte</td>
-                    </tr>
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <td>Total de la commande</td>
-                        <td><?= $total ?></td>
-                    </tr>
-                    <tr>
-                        <?php if (isset($_SESSION['user'])):?>
+                    <?php if(isset($cartProducts)): ?>
+                        <tbody>
+                        <?php $total = 0; ?>
+                        <?php foreach ($cartProducts as $product): ?>
+                        <tr>
+                            <td><?= $product['name']?><a class="removeCart" href="index.php?p=cart&action=deleteProductCart&productId=<?= $product['id']?>">Supprimer</a></td>
+                            <td><?= $product['price'] ?></td>
                             <td>
-                                <a class="buttonValidate" href="index.php?p=order&action=new">Paiement sécurisé (Valider)</a>
+                                 <p><a style="color: #0b0b0b;" href="index.php?p=products&action=single&id=<?= $product['id']?>">Quantité choisie : <?= $_SESSION['cart'][$product['id']] ?></a></p>
                             </td>
-                            <td>
-                                <a class="buttonPaypal" href="index.php?p=order&action=new">Payer avec Paypal (Valider)</a>
-                            </td>
-                        <?php else: ?>
-                            <td>
-                                <a href="index.php?p=users&action=form">Connectez vous pour commander !</a>
-                            </td>
-                        <?php endif; ?>
-                    </tr>
-                    </tfoot>
+                            <td><?= $rowTotal = $product['price'] * $_SESSION['cart'][$product['id']]; $total += $rowTotal //prix fois la quantité ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="3">Totals</td>
+                            <td><?= $total ?></td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                    <table class="recapCartRight">
+                        <thead>
+                        <tr>
+                            <th colspan="2">Récapitulatif de ma commande</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Sous-total des articles</td>
+                            <td><?= $total ?></td>
+                        </tr>
+                        <tr>
+                            <td>Livraison standard</td>
+                            <td>Offerte</td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td>Total de la commande</td>
+                            <td><?= $total ?></td>
+                        </tr>
+                        <tr>
+                            <?php if (isset($_SESSION['user'])):?>
+                                <td><a class="buttonValidate" href="index.php?p=order&action=new">Paiement sécurisé (Valider)</a></td>
+                                <td><a class="buttonPaypal" href="index.php?p=order&action=new">Payer avec Paypal (Valider)</a></td>
+                            <?php else: ?>
+                                <td><a href="index.php?p=users&action=form">Connectez vous pour commander !</a></td>
+                            <?php endif; ?>
+                        </tr>
+                        </tfoot>
+                    <?php endif; ?>
                 </table>
             </div>
         </section>
