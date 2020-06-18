@@ -33,14 +33,6 @@ if(isset($_GET['action'])) {
                 header('Location:index.php?p=users&action=disconnect');
                 exit;
             }
-            //recoit 2 informations qq et id
-            //s'assurer que la valeur recu de la quantite est un int seulement (et pas float car mes produits sont entiers)
-            //s'assurer que la valeur recu n'est pas supérieur a la quantité et inférieur a 0
-            //s'assurer que l'id recu existe bien
-            //sinon rediriger vers la fiche produit
-
-
-
 
         break;
 
