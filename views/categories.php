@@ -26,7 +26,7 @@
             </div>
             <div class="contentVideo contentVideoCategories">
                 <div class="hook hookCategories">
-                    <h1>Encore un peut de patience... <br>Ces catégories que vous rêvez tant seront bientôt disponibles</h1>
+                    <h1>Patience... <br>les thèmes dont tu rêves tant <br>seront bientôt disponibles !</h1>
                 </div>
             </div>
         </article>

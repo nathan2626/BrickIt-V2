@@ -2,7 +2,7 @@
 
 session_start();
 
-if (!isset($_SESSION['user']) || $_SESSION['user']['is_admin'] == 0) {
+if (!isset($_SESSION['user']) || $_SESSION['user']['is_admin'] == 0) { //if user is'nt admin
     header('Location:/BrickIt/index.php');
 }
 

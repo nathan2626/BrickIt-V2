@@ -21,6 +21,7 @@ function getCartProducts()
 //
 //    return $orders;
 //}
+
 function insertNewOrder()
 {
     $db = dbConnect();
@@ -33,21 +34,38 @@ function insertNewOrder()
             $_SESSION['user']['first_name'],
             $_SESSION['user']['last_name'],
     ]);
+    $_SESSION['cart']['order_id'] = $db->lastInsertId(); //je crée order_id qui est égal id inséré
+//    $newOrderDetails = insertNewOrderDetails($cartProducts, $orderId);
 
     return $result;
 }
-function insertNewOrderDetails()
+function insertNewOrderDetails($cartProducts) //pcq'on peut pas faire une liaison avec un insert, si il y a 1000 produits ca permet de faire une requete au lieu de 1000
 {
     $db = dbConnect();
-    $product = getCartProducts();
+    $cartProducts = getCartProducts();
 
-    $query = $db->prepare('INSERT INTO order_details (quantity, price, name, order_id) VALUES (?, ?, ?, ?)');
-    $result = $query->execute(
-        [
-            $_SESSION['cart'][$product['id']],
-            $_SESSION['cart']['price'],
-            $_SESSION['cart']['name'],
-            $_SESSION['cart']['order_id'],
-        ]);
-    return $result;
+
+    $queryString = "INSERT INTO order_details (order_id, quantity, price, name) VALUES ";
+    $queryValues = array();
+
+    foreach ($cartProducts as $key => $cartProduct) {
+
+        //génération dynamique de $queryString
+        $queryString .= "(:order_id_$key, :quantity_$key, :price_$key, :name_$key)";
+
+        if ($key != array_key_last($cartProducts)) {
+            $queryString .= ',';
+        } else {
+            $queryString .= ';';
+        }
+        //génération dynamique de $queryValues
+        $queryValues["order_id_$key"] = $_SESSION['cart']['order_id'];
+        $queryValues["quantity_$key"] = $_SESSION['cart'][$cartProduct['id']];
+        $queryValues["price_$key"] = $cartProduct['price'];
+        $queryValues["name_$key"] = $cartProduct['name'];
+
+    }
+    $query = $db->prepare($queryString);
+    $query = $query->execute($queryValues);
+
 }

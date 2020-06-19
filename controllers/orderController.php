@@ -12,9 +12,10 @@ if(isset($_GET['action'])) {
         case 'new' :
             //vérifier si user est connecté
             if(isset($_SESSION['user'])){
+                $cartProducts = getCartProducts();
                 //récupérer les produits et quantités avec $_SESSION['cart']
                 $newOrder = insertNewOrder();
-                $newOrderDetails = insertNewOrderDetails();
+                $newOrderDetails = insertNewOrderDetails($_GET[$cartProducts]);
                 if ($newOrder) {
                     $_SESSION['messages'][] = 'Commande enregistrée !';
                 } else {
