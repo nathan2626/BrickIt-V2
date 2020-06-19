@@ -34,16 +34,15 @@ function insertNewOrder()
             $_SESSION['user']['first_name'],
             $_SESSION['user']['last_name'],
     ]);
-    $_SESSION['cart']['order_id'] = $db->lastInsertId(); //je crée order_id qui est égal id inséré
+    $_SESSION['cart']['order_id'] = $db->lastInsertId(); //I create order_id which is equal id inserted
 //    $newOrderDetails = insertNewOrderDetails($cartProducts, $orderId);
 
     return $result;
 }
-function insertNewOrderDetails($cartProducts) //pcq'on peut pas faire une liaison avec un insert, si il y a 1000 produits ca permet de faire une requete au lieu de 1000
+function insertNewOrderDetails($cartProducts) //because we can’t link with an insert, if there are 1000 products it makes it possible to make a request instead of 1000.
 {
     $db = dbConnect();
     $cartProducts = getCartProducts();
-
 
     $queryString = "INSERT INTO order_details (order_id, quantity, price, name) VALUES ";
     $queryValues = array();
