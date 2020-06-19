@@ -34,7 +34,7 @@ function insertNewOrder()
             $_SESSION['user']['first_name'],
             $_SESSION['user']['last_name'],
     ]);
-    $_SESSION['cart']['order_id'] = $db->lastInsertId(); //I create order_id which is equal id inserted
+    $_SESSION['order_id'] = $db->lastInsertId(); //I create order_id which is equal id inserted
 //    $newOrderDetails = insertNewOrderDetails($cartProducts, $orderId);
 
     return $result;
@@ -49,22 +49,23 @@ function insertNewOrderDetails($cartProducts) //because we can’t link with an 
 
     foreach ($cartProducts as $key => $cartProduct) {
 
-        //génération dynamique de $queryString
+        //dynamic generation of $queryString
         $queryString .= "(:order_id_$key, :quantity_$key, :price_$key, :name_$key)";
 
         if ($key != array_key_last($cartProducts)) {
             $queryString .= ',';
-        } else {
-            $queryString .= ';';
         }
-        //génération dynamique de $queryValues
-        $queryValues["order_id_$key"] = $_SESSION['cart']['order_id'];
+
+        //dynamic generation of $queryValues
+        $queryValues["order_id_$key"] = $_SESSION['order_id'];
         $queryValues["quantity_$key"] = $_SESSION['cart'][$cartProduct['id']];
         $queryValues["price_$key"] = $cartProduct['price'];
         $queryValues["name_$key"] = $cartProduct['name'];
 
     }
     $query = $db->prepare($queryString);
-    $query = $query->execute($queryValues);
+    $result = $query->execute($queryValues);
+
+    return $result;
 
 }

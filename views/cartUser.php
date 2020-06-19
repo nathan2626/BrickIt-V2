@@ -20,12 +20,14 @@
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
+
     <!-- Order history -->
     <article class="userLogin">
         <section class="commandHistoryUserLogin">
             <h1 class="myCart">Mon panier</h1>
             <div class="allUserLoginHistory cartHistory">
                 <table class="recapCartLeft">
+
                     <thead>
                     <tr>
                         <th>Nom du produit</th>
@@ -111,7 +113,7 @@
                 $selectedProductsCategory[] = $nb;
                 ?>
                 <div class="sub-item introImage">
-                    <a href="">
+                    <a href="index.php?p=products&action=single&id=<?= $selectedProductCategory['id']; ?>">
                         <div class="imgResp" style="width: 580px;">
                             <img src="./assets/images/product/<?= $selectedProductCategory['image'];?>" alt="<?= $selectedProductCategory['name'];?>">
                         </div>

@@ -10,24 +10,25 @@ $categories = getAllCategories();
 if(isset($_GET['action'])) {
     switch ($_GET['action']) {
         case 'new' :
-            //vérifier si user est connecté
+
             if(isset($_SESSION['user'])){
                 $cartProducts = getCartProducts();
-                //récupérer les produits et quantités avec $_SESSION['cart']
+
                 $newOrder = insertNewOrder();
-                $newOrderDetails = insertNewOrderDetails($_GET[$cartProducts]);
+                $newOrderDetails = insertNewOrderDetails($cartProducts);
                 if ($newOrder) {
                     $_SESSION['messages'][] = 'Commande enregistrée !';
                 } else {
                     $_SESSION['messages'][] = "Erreur lors de l'enregistrement... :(";
                 }
                 unset($_SESSION['cart']);
+                unset($_SESSION['order_id']);  //We don’t need it anymore
 
                 header('Location:index.php?p=users&action=connect');
                 exit;
 
             } else {
-                //sinon rediriger vers inscription/connexion
+
                 header('Location:index.php?p=users&action=connect');
                 exit;
             }
