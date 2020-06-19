@@ -23,13 +23,7 @@
             <input  type="adress" name="adress" id="adress" value="<?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['adress'] : '' ?><?= isset($user) ? $user['adress'] : '' ?>"/>
 
             <label for="password">Mot de passe :</label>
-            <input  type="password" name="password" id="password" value="<?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['password'] : '' ?><?= isset($user) ? $user['password'] : '' ?>"/>
-
-            <label for="image">Image :</label>
-            <input  type="file" name="image" id="image" value=""/>
-            <?php if(isset($user) && $user['image'] != null): ?>
-                <img src="../assets/images/user/<?= $user['image'] ?>" alt="Image phare de <?= $user['first_name']; $user['last_name']?>">
-            <?php endif; ?>
+            <input  type="password" name="password" id="password" value=""/>
 
             <label for="is_admin">Admin :</label>
             <select name="is_admin" id="is_admin">

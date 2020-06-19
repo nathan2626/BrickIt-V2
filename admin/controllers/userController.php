@@ -21,7 +21,7 @@ if(isset($_GET['action'])) {
             break;
 
         case 'add' :
-            if(empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['is_admin']) || empty($_POST['adress'])){
+            if(empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['adress'])){
 
                 if(empty($_POST['first_name'])){
                     $_SESSION['messages'][] = 'Le champ Prénom est obligatoire !';
@@ -35,9 +35,6 @@ if(isset($_GET['action'])) {
                 if(empty($_POST['password'])){
                     $_SESSION['messages'][] = 'Le champ Mot de passe est obligatoire !';
                 }
-                if(empty($_POST['is_admin'])){
-                    $_SESSION['messages'][] = 'Le champ Admin est obligatoire !';
-                }
                 if(empty($_POST['adress'])){
                     $_SESSION['messages'][] = 'Le champ Adresse postale est obligatoire !';
                 }
@@ -48,6 +45,9 @@ if(isset($_GET['action'])) {
             }
             else{
                 $resultAdd = addUser($_POST);
+                if(empty($_POST['is_admin'])){
+                    $_POST['is_admin'] = 0;
+                }
                 if($resultAdd){
                     $_SESSION['messages'][] = 'Utilisateur enregistré !';
                 }
@@ -62,7 +62,7 @@ if(isset($_GET['action'])) {
 
         case 'edit' :
             if(!empty($_POST)){
-                if(empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['is_admin']) || empty($_POST['adress'])){
+                if(empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['adress'])){
 
                     if(empty($_POST['first_name'])){
                         $_SESSION['messages'][] = 'Le champ Prénom est obligatoire !';
@@ -76,9 +76,6 @@ if(isset($_GET['action'])) {
                     if(empty($_POST['password'])){
                         $_SESSION['messages'][] = 'Le champ Mot de passe est obligatoire !';
                     }
-                    if(empty($_POST['is_admin'])){
-                        $_SESSION['messages'][] = 'Le champ Admin est obligatoire !';
-                    }
                     if(empty($_POST['adress'])){
                         $_SESSION['messages'][] = 'Le champ Adresse postale est obligatoire !';
                     }
@@ -88,6 +85,9 @@ if(isset($_GET['action'])) {
                     exit;
                 }
                 else {
+                    if(empty($_POST['is_admin'])){
+                        $_POST['is_admin'] = 0;
+                    }
                     $result = updateUser($_GET['id'], $_POST);
                     if ($result) {
                         $_SESSION['messages'][] = 'Utilisateur mis à jour !';
@@ -96,6 +96,7 @@ if(isset($_GET['action'])) {
                     }
                     header('Location:index.php?controller=users&action=list');
                     exit;
+
                 }
             }
             else{
