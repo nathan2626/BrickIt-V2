@@ -16,6 +16,7 @@ if(isset($_GET['action'])) {
 
                 $newOrder = insertNewOrder();
                 $newOrderDetails = insertNewOrderDetails($cartProducts);
+                $updateQuantity = updateQuantity($cartProducts);
                 if ($newOrder) {
                     $_SESSION['messages'][] = 'Commande enregistrée !';
                 } else {

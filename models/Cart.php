@@ -60,7 +60,21 @@ function insertNewOrderDetails($cartProducts) //because we can’t link with an 
     return $result;
 
 }
+function updateQuantity ($cartProducts)
+{
+    $db = dbConnect();
 
+    foreach ($cartProducts as $key => $cartProduct) {
+        $query = $db->prepare("UPDATE products SET quantity = quantity - ? WHERE id = ? ");
+        $result = $query->execute(
+            [
+                $_SESSION['cart'][$cartProduct['id']],
+                $cartProduct['id']
+            ]);
+    }
+
+    return $result;
+}
 //function getAllOrdersDetailByUser($id) // But it returns only the first product of the order.
 //{
 //    $db = dbConnect();

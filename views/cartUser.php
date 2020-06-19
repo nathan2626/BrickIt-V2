@@ -44,7 +44,7 @@
                             <td><?= $product['name']?><a class="removeCart" href="index.php?p=cart&action=deleteProductCart&productId=<?= $product['id']?>">Supprimer</a></td>
                             <td><?= $product['price'] ?></td>
                             <td>
-                                 <p><a style="color: #0b0b0b;" href="index.php?p=products&action=single&id=<?= $product['id']?>">Quantité choisie : <?= $_SESSION['cart'][$product['id']] ?></a></p>
+                                 <p><a style="color: #3BD9DA;" href="index.php?p=products&action=single&id=<?= $product['id']?>">Quantité choisie : <?= $_SESSION['cart'][$product['id']] ?></a></p>
                             </td>
                             <td><?= $rowTotal = $product['price'] * $_SESSION['cart'][$product['id']]; $total += $rowTotal //prix fois la quantité ?></td>
                         </tr>
