@@ -11,17 +11,6 @@ function getCartProducts()
     return $result;
 }
 
-//function getAllOrdersByUser($id)
-//{
-//    $db = dbConnect();
-//
-//    $query = $db->prepare('SELECT * FROM order where user_id = ?');
-//    $query->execute([$id]);
-//    $orders = $query->fetchAll();
-//
-//    return $orders;
-//}
-
 function insertNewOrder()
 {
     $db = dbConnect();
@@ -54,6 +43,8 @@ function insertNewOrderDetails($cartProducts) //because we can’t link with an 
 
         if ($key != array_key_last($cartProducts)) {
             $queryString .= ',';
+        } else {
+            $queryString .= ';';
         }
 
         //dynamic generation of $queryValues
@@ -68,4 +59,42 @@ function insertNewOrderDetails($cartProducts) //because we can’t link with an 
 
     return $result;
 
+}
+
+//function getAllOrdersDetailByUser($id)
+//{
+//    $db = dbConnect();
+//
+//    $query = $db->prepare('
+//        SELECT od.*
+//        FROM order_details od
+//        INNER JOIN orders o
+//        ON o.id = od.order_id
+//        WHERE o.user_id = ?
+//        GROUP BY o.id
+//    ');
+//    $query->execute([$id]);
+//    $orders = $query->fetchAll();
+//
+//    return $orders;
+//}
+function getAllOrdersDetailByUser($id)
+{
+    $db = dbConnect();
+
+    $query = $db->prepare('SELECT * FROM order_details WHERE order_id = ?');
+    $query->execute([$id]);
+    $orders = $query->fetchAll();
+
+    return $orders;
+}
+function getAllOrdersByUser($id)
+{
+    $db = dbConnect();
+
+    $query = $db->prepare('SELECT * FROM orders WHERE user_id = ?');
+    $query->execute([$id]);
+    $orders = $query->fetchAll();
+
+    return $orders;
 }

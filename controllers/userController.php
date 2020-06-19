@@ -3,6 +3,7 @@
 require_once 'models/Product.php';
 require_once 'models/Category.php';
 require_once 'models/User.php';
+require_once 'models/Cart.php';
 
 $categories = getAllCategories();
 
@@ -178,10 +179,30 @@ if(isset($_GET['action'])) {
             }
             else {
                 $currentUser = getUser($_SESSION['user']['id']);
-//            $orders = getAllOrdersByUser($_SESSION['user']['id']);
 
+                $orders = getAllOrdersByUser($_SESSION['user']['id']);
 
                 $view = 'views/userLogin.php';
+                $pageTitle = 'Connecté !';
+                $pageDescription = '';
+
+            }
+        break;
+
+        case 'detail' :
+            if(empty($_SESSION['user'])){
+
+                $_SESSION['messages'][] = "Allez... il s'uffit seulement de remplir quelques champs....";
+                header('Location:index.php?p=users&action=form');
+                exit;
+
+            }
+            else {
+                $currentUser = getUser($_SESSION['user']['id']);
+
+                $ordersDetail = getAllOrdersDetailByUser($_GET['id']);
+
+                $view = 'views/orderDetails.php';
                 $pageTitle = 'Connecté !';
                 $pageDescription = '';
 

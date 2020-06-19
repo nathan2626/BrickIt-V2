@@ -62,34 +62,37 @@
         <!-- Order history -->
         <section class="commandHistoryUserLogin">
             <h1>Historique des commandes</h1>
-            <?php if (isset($orders)): ?>
-            <div class="allUserLoginHistory">
-                <?php foreach ($orders as $order):?>
+            <?php if (isset($ordersDetail)): ?>
+                <div class="allUserLoginHistory">
                     <table>
                         <thead>
                         <tr>
-                            <th>Adresse</th>
-                            <th>Prénom</th>
-                            <th>Nom</th>
+                            <th>Nom du produit</th>
+                            <th>Quantité</th>
+                            <th>Prix</th>
+                            <th>Total</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td><?= $order['adress']; ?></td>
-                            <td><?= $order['first_name']; ?></td>
-                            <td><?= $order['last_name']; ?></td>
-                        </tr>
-                        </tbody>
+                        <?php $total = 0; ?>
+                        <?php foreach ($ordersDetail as $orderDetail):?>
+                            <tbody>
+                            <tr>
+                                <td><?= $orderDetail['name']; ?></td>
+                                <td><?= $orderDetail['quantity']; ?></td>
+                                <td><?= $orderDetail['price']; ?>$</td>
+                                <td><?= $rowTotal = $orderDetail['price'] * $orderDetail['quantity']; $total += $rowTotal ?></td>
+                            </tr>
+                            </tbody>
+                        <?php endforeach; ?>
                         <tfoot>
-                        <tr>
-                            <td colspan="2"><?= $order['date']; ?></td>
-                            <td><a style="color: #3BD9DA;" href="index.php?p=users&action=detail&id=<?= $order['id']; ?>">Détail</a></td>
-                        </tr>
-                        </tfoot>
-                </table>
-                <hr>
-                <?php endforeach; ?>
-            </div>
+                            <tr>
+                                <td colspan="3">Totals</td>
+                                <td><?= $total ?></td>
+                            </tr>
+                            </tfoot>
+                    </table>
+                    <hr>
+                </div>
             <?php endif; ?>
         </section>
     </article>

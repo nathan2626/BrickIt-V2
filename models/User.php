@@ -108,12 +108,11 @@ function updateUser($userId, $informations)
     if($_SESSION['id'] != $informations['id']){
         return false;
     } else {
-        $query = $db->prepare("UPDATE users SET first_name = ?, last_name = ?, email = ?, password = ?, adress = ? WHERE id = ?");
+        $query = $db->prepare("UPDATE users SET first_name = ?, last_name = ?, email = ?, adress = ? WHERE id = ?");
         $result = $query->execute([
             $informations['first_name'],
             $informations['last_name'],
             $informations['email'],
-            $informations['password'],
             $informations['adress'],
             $userId
         ]);
