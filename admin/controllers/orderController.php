@@ -16,6 +16,7 @@ if(isset($_GET['action'])) {
 
         case 'detail' :
             $order = getOrder($_GET['id']);
+            $ordersDetail = getOrdersDetail($_GET['id']);
 
             $view = 'views/orderDetails.php';
             $pageTitle = "Détail d'une commandes";

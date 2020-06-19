@@ -246,16 +246,16 @@ function deleteProduct($id)
 
     return $result;
 }
-function getCategoryProductLinks() //IMPORTANT
+function getCategoryProductLinks()
 {
     $db = dbConnect();
 
     $query = $db->prepare('
-      SELECT p.*, GROUP_CONCAT(c.name SEPARATOR " / ") AS categories
-FROM products p
-JOIN category_product pc ON p.id = pc.product_id
-JOIN categories c ON pc.category_id = c.id
-GROUP BY p.id
+        SELECT p.*, GROUP_CONCAT(c.name SEPARATOR " / ") AS categories
+        FROM products p
+        JOIN category_product pc ON p.id = pc.product_id
+        JOIN categories c ON pc.category_id = c.id
+        GROUP BY p.id
     ');
 
     $query->execute();

@@ -16,14 +16,14 @@
         <tr>
             <td>#</td>
             <td>Nom/Prénom</td>
-            <td>Total</td>
+            <td>Date</td>
             <td>Action</td>
         </tr>
         <?php foreach ($orders as $order): ?>
         <tr>
             <td><?= $order['id']?></td>
             <td><?= $order['first_name']?>/<?= $order['last_name']?></td>
-            <td><?= $order['price']?></td>
+            <td><?= $order['date']?></td>
             <td>
                 <a class="detailsOrder" type="button" href="index.php?controller=orders&action=detail&id=<?= $order['id']?>">Détails</a>
             </td>

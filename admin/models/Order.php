@@ -21,3 +21,13 @@ function getOrder($id)
 
     return $result;
 }
+function getOrdersDetail($id)
+{
+    $db = dbConnect();
+
+    $query = $db->prepare('SELECT * FROM order_details WHERE order_id = ?');
+    $query->execute([$id]);
+    $orders = $query->fetchAll();
+
+    return $orders;
+}

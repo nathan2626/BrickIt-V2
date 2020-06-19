@@ -61,7 +61,7 @@ function insertNewOrderDetails($cartProducts) //because we can’t link with an 
 
 }
 
-//function getAllOrdersDetailByUser($id)
+//function getAllOrdersDetailByUser($id) // But it returns only the first product of the order.
 //{
 //    $db = dbConnect();
 //

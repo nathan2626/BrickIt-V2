@@ -26,37 +26,36 @@
     </table>
 </article>
 <article class="listOrdersTable">
-    <table>
-    <thead>
-    <tr>
-        <th colspan="4">Récapitulatif de la commande</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>Nom</td>
-        <td>Quantité</td>
-        <td>Prix</td>
-        <td>Total</td>
-    </tr>
-    <tr>
-        <td>le vaisseau blabla</td>
-        <td>2</td>
-        <td>19.99$</td>
-        <td>39.98$</td>
-    </tr>
-    <tr>
-        <td>le vaisseau blabla</td>
-        <td>2</td>
-        <td>19.99$</td>
-        <td>39.98$</td>
-    </tr>
-    </tbody>
-    <tfoot>
-    <tr>
-        <th colspan="3">Total de la commande</th>
-        <th colspan="1">79.96$</th>
-    </tr>
-    </tfoot>
-    </table>
+    <?php $total = 0 ?>
+    <?php if(isset($ordersDetail)): ?>
+        <?php foreach ($ordersDetail as $orderDetail): ?>
+            <table>
+            <thead>
+            <tr>
+                <th colspan="4">Récapitulatif de la commande</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Nom</td>
+                <td>Quantité</td>
+                <td>Prix</td>
+                <td>Total</td>
+            </tr>
+            <tr>
+                <td><?= $orderDetail['name'] ?></td>
+                <td><?= $orderDetail['quantity'] ?></td>
+                <td><?= $orderDetail['price'] ?>$</td>
+                <td><?= $rowTotal = $orderDetail['price'] * $orderDetail['quantity']; $total += $rowTotal ?></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="3">Total de la commande</th>
+                <th colspan="1"><?= $total ?>$</th>
+            </tr>
+            </tfoot>
+            </table>
+        <?php endforeach; ?>
+    <?php endif; ?>
 </article>
