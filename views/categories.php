@@ -16,11 +16,11 @@
         <article class="fullScreenVideo">
             <div class="screenVideo">
                 <video id="slider" autoplay muted loop>
-                    <source src="../assets/videos/Lego.mp4" type="video/mp4">
+                    <source src="./assets/videos/5.mp4" type="video/mp4">
                 </video>
                 <ul class="navCategories">
                     <?php foreach ($categoriesNotActivates as $categoryNotActivate): ?>
-                    <li onclick="videoUrl('./assets/vendors/lotr.mp4')"><img src="./assets/images/category/<?= $categoryNotActivate['image'] ?>" alt="Image correspondant à la video de : <?= $categoryNotActivate['name'] ?>"></li>
+                    <li onclick="videoUrl('./assets/videos/<?= $categoryNotActivate['video'] ?>')"><img src="./assets/images/category/<?= $categoryNotActivate['image'] ?>" alt="Image correspondant à la video de : <?= $categoryNotActivate['name'] ?>"></li>
                     <?php endforeach; ?>
                 </ul>
             </div>
